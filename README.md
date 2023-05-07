@@ -6,6 +6,10 @@
 - Thiago Shimada  NUSP: 12691032
 
 ## Requirements
+### Overview 
+You are a software developer and one of your clients hired you to create an online store. You can create the details for this store, such as the products and or services it sells. For instance, It may be an online:
+
+
 - The system must have 2 types of users: Clients and Administrators
   - Administrators are responsible for registering/managing administrators, customers, and products/services provided. The application already comes with an account admin with password admin.
   - Customers are users who access the system to buy products/services.
