@@ -33,10 +33,13 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   O diagrama de navegação foi utilizada no projeto para definir todos os passos possíveis de navegação de um usuário ou administrador.
   
   
- ## Mock da página
+ ## Mockup da página
   O layout da página foi baseado no criado pelo Figma. Sendo assim, Toda interface será semelhante ou igual, contendo apenas mínimas alterações, quando necessárias, 
   na página feita em CSS e HTML.
-  [Link do Figma]([https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0))
+ 
+ [Link do Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0))
+ 
+ 
 
 
   
