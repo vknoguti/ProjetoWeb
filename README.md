@@ -7,7 +7,10 @@
 
 ## Requirements
 ### Overview 
-A aplicação contará com X páginas Web as quais serão dispostas permitindo que o usário efetue compras, adicione pedidos ao carrinho, realize pagamentos, entre outros.
+A aplicação contará com X páginas Web as quais serão dispostas permitindo que o usário(Administrador ou Cliente) efetue compras, adicione pedidos ao carrinho, realize pagamentos, entre outros.
+  - Usuário:
+  
+
 
 
 ## Project Description
