@@ -8,6 +8,10 @@
 ## Requirements
 ### Overview 
 You are a software developer and one of your clients hired you to create an online store. You can create the details for this store, such as the products and or services it sells. For instance, It may be an online:
+  - Supermarket 
+  - PetShop (selling products/services)
+  - Glasses
+  - Real estate (Houses, apartments and land)
 
 
 - The system must have 2 types of users: Clients and Administrators
