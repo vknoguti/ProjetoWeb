@@ -1,5 +1,5 @@
 # ProjetoWeb
-Repositório contendo o projeto final da disciplina SCC0219
+##Repositório contendo o projeto final da disciplina SCC0219
 Vinicius Kazuo Fujikawa Noguti - 11803121
 The Project Report should begin with the group identification and the names and USP numbers of all students in the group. The Project Report has to have the following sections:
 Requirements: The requirements are given in the assignment, but you have to add any new requirements needed by your particular store implementation.
