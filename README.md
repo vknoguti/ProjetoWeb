@@ -18,10 +18,9 @@ Nas páginas criadas será exibido as funcionalidades que poderão ser executada
     - Poderá comprar os produtos adicionados ao carrinho 
     - Verificar detalhes de cada produto, como descrição, valor, categoria
     - Efetuar login e cadastro conforme o desejado
-    - 
+    
   
- 
-     
+
   
 
 ## Project Description
