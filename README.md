@@ -11,7 +11,7 @@
 A aplicação se trata de uma loja online de venda de tênis. Haverão duas entidades principais Cliente e Administrador, os quais realizarão funcionalidades
 pertinentes a cada um dos seus papéis. 
 Inicialmente foi criado interfaces visuais, usando CSS, HTML e o figma, demonstrando como será o resultadao final ao Cliente.
-Nestas páginas serão exibidas as funcionalidades que poderão ser executadas por cada entidade.
+  Nestas páginas serão exibidas as funcionalidades que poderão ser executadas por cada entidade.
   - Usuário:
     - Poderá comprar os produtos adicionados ao carrinho 
     - Verificar detalhes de cada produto, como descrição, valor, categoria
