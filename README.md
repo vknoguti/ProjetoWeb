@@ -15,6 +15,7 @@ Inicialmente foi criado interfaces visuais, usando CSS, HTML e o figma, demonstr
 Nas páginas criadas será exibido as funcionalidades que poderão ser executadas por cada entidade.
 - Página Inicial
   - Usuário:
+  
    - Poderá comprar os produtos adicionados ao carrinho 
    - Verificar detalhes de cada produto, como descrição, valor, categoria
    - Efetuar login e cadastro conforme o desejado
