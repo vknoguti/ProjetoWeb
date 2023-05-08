@@ -1,9 +1,11 @@
 # ProjetoWeb
 ## Repositório contendo o projeto final da disciplina SCC0219
 ## Membros
-- Vinicius Kazuo Fujikawa Noguti NUSP: 11803121
-- Bruno Berndt Lima NUSP: 12542550
-- Thiago Shimada  NUSP: 12691032
+|             Nome              | NUSP    |
+|:-----------------------------:|:-------:|
+|Vinicius Kazuo Fujikawa Noguti | 11803121|
+|        Bruno Berndt Lima      | 12542550|
+|         Thiago Shimada        | 12691032|
 
 ## Requerimentos
 ### Visão Geral
@@ -128,7 +130,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   OBS:
    - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0)), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes caminhos de páginas, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
 
-   - Loggout: ao realizar loggout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, e à página principal (home page)
+   - Logout: ao realizar logout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, e à página principal (home page)
       
 
 ## Commentário da página 
@@ -145,7 +147,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   ![image](https://user-images.githubusercontent.com/37368029/236706923-03cd8ba2-8b90-48b3-a34c-c16d3eeae6dd.png)
   
   - Extraia o arquivo em alguma pasta
-  - Acesse o diretóri ProjetoTotal e, por fim, execute o arquivo itens.html, o qual é referente a página inicial
+  - Acesse o diretório ProjetoTotal e, por fim, execute o arquivo itens.html, o qual é referente a página inicial
   
   ![image](https://user-images.githubusercontent.com/37368029/236707052-87efbc0f-90d6-4949-b02a-3cd5ee67ccd4.png)
 
