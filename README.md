@@ -35,7 +35,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
  ### Mockup da página
   O layout da página foi baseado no criado pelo Figma. Sendo assim, toda interface em HTML/CSS será semelhante ou igual ao modelo do Figma, contendo apenas mínimas alterações, quando necessárias.
  
- -[Link do Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0))
+ -[Link do Figma](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0%3A1&t=DtWrwurqzaxgN1yd-1)
  
  ### Descrição do Diagrama de Navegação
   #### Diagrama de navegação:
@@ -128,7 +128,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
        - Não posusi página de checkout
    
   OBS:
-   - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0)), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes caminhos de páginas, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
+   - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0%3A1&t=DtWrwurqzaxgN1yd-1), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes caminhos de páginas, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
 
    - Logout: ao realizar logout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, e à página principal (home page)
       
