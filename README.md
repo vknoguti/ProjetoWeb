@@ -54,7 +54,6 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
      - Comum
        - Terá acesso a página de produto, verificando detalhes de um produto clicado
        - Ir para página de perfil (clicando em ACCOUNT), onde poderá modificar dados pessoais
-       - Adicionar ao carrinho um determinado produto que estiver interessado em comprar
      - Administrador
        - Poderá ir para a página de admin, clicando em ACCOUNT
        - Outros recursos são bloqueados(carrinho e descrição de produto)
@@ -76,7 +75,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
      - Administrador
        - Gerenciar(adicionar, modificar e remover) usuários, pedidos e produtos
        - Voltar a página principal
-       - Realizar Loggout
+       - Realizar Logout
    - Página de perfil(profile), um usuário:
      - Não logado
        - Não possui página de perfil
@@ -84,14 +83,50 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
        - Modificar dados pessoais e de endereço
        - Voltar para a página principal
        - Ir para a página de carrinho
-       - Realizar Loggout
+       - Realizar Logout
      - Administrador
        - Não possui página de perfil  
-    - Página de cadastro, um usuário:
-      - Não logado
-        - Realizar o cadastro(após o cadastro, o usuário retorna à de login(login))
-        - Voltar a página principal(home page)
-        - Adicionar 
+   - Página de cadastro(create account), um usuário:
+     - Não logado
+       - Realizar o cadastro(após o cadastro, o usuário retorna à de login(login))
+       - Voltar a página principal(home page)
+       - Ir a página de carrinho
+     - Comum
+       - Não possui página de cadastro
+     - Administrador
+       - Não possui página de cadastro
+   - Página de produto(product page), um usuário:
+     - Não logado
+       - Voltar a página principal(home page)
+       - Ir a página de cadastro/login(login)
+     - Comum
+       - Adicionar ao carrinho um determinado número do produto
+     - Administrador
+       - Não possui página de produto
+   - Página de carrinho vazio(empty cart), um usuário:
+     - Não logado
+       - Não possui página de carrinho(empty cart)
+     - Comum
+       - Voltar a página principal(home page)
+       - Ir para página de perfil(profile)
+     - Administrador
+       - Não possui página de carrinho(empty cart)
+   - Página de carrinho(cart), um usuário:
+     - Não logado
+       - Não possui carrinho(cart)
+     - Comum
+       - Aplicar cupom nos produtos
+       - Ir a página de pagamento
+     - Administrador
+       - Não possui carrinho(cart)
+   - Página de checkout(checkout), um usuário:
+     - Não logado
+       - Não possui página de checkout
+     - Comum
+       - Selecionar e finalizar método de pagamento  
+     - Administrador
+       - Não posusi página de checkout
+   
   OBS:
    - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0)), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes páginas de caminhos, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
 
