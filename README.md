@@ -4,8 +4,8 @@
 |             Nome              | NUSP    |
 |:-----------------------------:|:-------:|
 |Vinicius Kazuo Fujikawa Noguti | 11803121|
-|        Bruno Berndt Lima      | 12542550|
-|         Thiago Shimada        | 12691032|
+|Bruno Berndt Lima              | 12542550|
+|Thiago Shimada                 | 12691032|
 
 ## Requerimentos
 ### Visão Geral
