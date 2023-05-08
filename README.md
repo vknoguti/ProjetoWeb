@@ -23,21 +23,17 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
     - Gerencia usuários(adiciona, modifica e apaga)
     - Pode verificar os pedidos feitos pelos usuários e gerenciar os dados desses pedidos conforme necessário
   - Funcionalidade Extra:
-    - Cada produto terá um recurso que permitirá que seja visto tridimensionalmente
+    - Cada produto da página poderá ser visualizado tridimensionalmente
     - Necessário que seja guardado no Banco de Dados um campo referente ao link do modelo tridiomensional utilizado no site
-
-  
 
 ## Descrição do Projeto
  ### Diagrama de navegação 
   O diagrama de navegação foi utilizada no projeto para definir todos os passos possíveis de navegação de um usuário ou administrador.
   
-  
  ### Mockup da página
-  O layout da página foi baseado no criado pelo Figma. Sendo assim, Toda interface será semelhante ou igual, contendo apenas mínimas alterações, quando necessárias, 
-  na página feita em CSS e HTML.
+  O layout da página foi baseado no criado pelo Figma. Sendo assim, toda interface em HTML/CSS será semelhante ou igual ao modelo do Figma, contendo apenas mínimas alterações, quando necessárias.
  
- [Link do Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0))
+ -[Link do Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0))
  
  ### Descrição do Diagrama de Navegação
   #### Diagrama de navegação:
@@ -45,7 +41,9 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
    
   #### Caminho de execução para Usuário:
 
-   Dentro do sistema haverá 3 estados existentes para um determinado usuário (não logado, logado administrador, logado usuário comum). Cada um deles possuirá diferentes possibilidades de papéis dentro do sistema. A partir de(a):
+   Dentro do sistema haverá 3 estados existentes para um determinado usuário (não logado, logado administrador, logado usuário comum). Cada um deles possuirá diferentes possibilidades de papéis dentro do sistema. 
+   
+   A partir de(a):
    - Página principal(home page), um usuário:
      - Não logado
        - Terá acesso a página de produto, verificando detalhes de um produto clicado
@@ -128,9 +126,9 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
        - Não posusi página de checkout
    
   OBS:
-   - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0)), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes páginas de caminhos, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
+   - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.baudaeletronica.com.br/transformador-trafo-12v-12v-250ma-110-220vac.html?gclid=CjwKCAjw3MSHBhB3EiwAxcaEu-Gvu3ycGEDWf1lw1l1Xm6YP5OQO3iAD2MJECf8KB7pcl0acRqIdwxoCq7kQAvD_BwE](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0-1&t=tX0i595MFKX8pUBv-0)), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes caminhos de páginas, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
 
-   - Loggout: ao realizar loggout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, à página principal (home page)
+   - Loggout: ao realizar loggout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, e à página principal (home page)
       
 
 ## Commentário da página 
@@ -146,8 +144,8 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   - Faça o download do projeto
   ![image](https://user-images.githubusercontent.com/37368029/236706923-03cd8ba2-8b90-48b3-a34c-c16d3eeae6dd.png)
   
-  - Extraia o arquivo em alguma pasta caso esteja zipado 
-  - Acesse a pasta ProjetoTotal e execute o arquivo itens.html, o qual é referente a página inicial e pronto
+  - Extraia o arquivo em alguma pasta
+  - Acesse o diretóri ProjetoTotal e, por fim, execute o arquivo itens.html, o qual é referente a página inicial
   
   ![image](https://user-images.githubusercontent.com/37368029/236707052-87efbc0f-90d6-4949-b02a-3cd5ee67ccd4.png)
 
