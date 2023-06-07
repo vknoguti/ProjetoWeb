@@ -1,0 +1,34 @@
+.product {
+    background-color: var(--white);
+    width: 270px;
+    height: 400px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #EBEBEB;
+    border-radius: 10px;
+}
+
+.product .icon {
+    height: 270px;
+    margin-bottom: 15px;
+}
+
+.product img {
+    height: 100%;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+@media screen and (max-width: 720px) {
+    .product {
+        width: 200px;
+        height: 330px;
+    }
+
+    .product .icon {
+        height: 200px;
+    }
+}

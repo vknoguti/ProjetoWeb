@@ -1,0 +1,21 @@
+.container {
+    margin-top: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.products {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 60%;
+    background-color: var(--white);
+}
+
+@media screen and (max-width: 720px) {
+    .products {
+        width: 80%;
+    }
+}
