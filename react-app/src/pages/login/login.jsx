@@ -11,7 +11,7 @@ const Login = () => {
                 <div className="content">
                     <div className="login content-box">
                         <h1>Já sou cliente</h1>
-                        <input type='text' placeholder='Email'></input>
+                        <input type='email' placeholder='Email'></input>
                         <input type='password' placeholder='Senha'></input>
                         <button className='access-button'>Acessar conta</button>
                     </div>
@@ -20,7 +20,7 @@ const Login = () => {
 
                     <div className="signup content-box">
                         <h1>Criar conta</h1>
-                        <input type='text' placeholder='Informe seu email'></input>
+                        <input type='email' placeholder='Informe seu email'></input>
                         <button className='access-button'>Prosseguir</button>
                     </div>
                 </div>

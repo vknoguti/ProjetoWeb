@@ -32,7 +32,8 @@
     border-color: var(--bg-input);
 }
 
-.content-box button {
+.content-box .access-button {
+    text-decoration: none;
     height: 40px;
     padding: 3px 0;
     border-radius: 4px;
@@ -49,10 +50,6 @@
 
 .signup {
     margin: 0 0 0 4em;
-}
-
-.access-button {
-    text-decoration: none;
 }
 
 .partition {
