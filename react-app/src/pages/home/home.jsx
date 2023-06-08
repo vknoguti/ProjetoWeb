@@ -17,6 +17,19 @@ const Home = () => {
                     <Product />
                     <Product />
                     <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
+                    <Product />
                 </main>
             </div>  
             <h1>Home</h1>

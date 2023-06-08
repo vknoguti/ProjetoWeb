@@ -4,6 +4,11 @@
   --bg-brown: #AA3222;
   --bg-main: #F4F5F6;
   --white: #FFF;
+  --black: #000;
+  --light-grey: #C5C5C5;
+  --grey-text: #415161;
+  --border-input: #707070;
+  --button-login: #FF5151;
 }
 
 body {

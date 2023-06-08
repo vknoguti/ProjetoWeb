@@ -22,6 +22,11 @@
     margin: 10px 0;
 }
 
+.product-link {
+    text-decoration: none;
+    color: #000;
+}
+
 @media screen and (max-width: 720px) {
     .product {
         width: 200px;
