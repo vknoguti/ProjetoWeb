@@ -3,9 +3,16 @@ import Header from '../../components/Header';
 import '../../App.css';
 import Product from '../../components/Product';
 import './productdetails.css'
+import Size from '../../components/Size';
 
 const ProductDetail = () => {
     const url = 'https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg';
+
+    const product = 
+        {
+            sizes: [38, 39, 40, 41],
+            qtts: [10, 0, 15, 10]
+        };
 
     return (  
         <>
@@ -22,6 +29,11 @@ const ProductDetail = () => {
                             <div className="product-price">
                                 <span>R$1000,00</span>
                             </div>
+                            <div className="product-size">
+                                <h3>Selecione um tamanho</h3>
+                                <Size product={product}/>
+                            </div>
+                            <p>Selecione uma Quantidade</p>
                             <div className="product-quantity">
                                 <input type='number' min='0'></input>
                                 <button className='qtt-button'>Adicionar ao Carrinho</button>
