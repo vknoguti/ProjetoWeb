@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import './signup.css';
 
@@ -74,6 +75,7 @@ const Signup = () => {
                 </div>
             </div>
             <h1>Sign Up</h1>
+            <Footer />
         </>
     );
 }

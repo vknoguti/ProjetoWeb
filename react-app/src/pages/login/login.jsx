@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import './login.css';
 import '../../App.css';
+import Footer from '../../components/Footer';
 
 const Login = () => {
     return (  
@@ -25,7 +26,9 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
+
     );
 }
  

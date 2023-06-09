@@ -1,4 +1,5 @@
 .container {
+    min-height: 63vh;
     margin-top: 5vh;
     width: 100%;
     display: flex;

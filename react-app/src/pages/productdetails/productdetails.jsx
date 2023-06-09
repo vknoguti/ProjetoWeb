@@ -4,6 +4,7 @@ import '../../App.css';
 import Product from '../../components/Product';
 import './productdetails.css'
 import Size from '../../components/Size';
+import Footer from '../../components/Footer';
 
 const ProductDetail = () => {
     const url = 'https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg';
@@ -51,6 +52,7 @@ const ProductDetail = () => {
                     </section>
                 </main>
             </div>
+            <Footer />
         </>
     );
 }
