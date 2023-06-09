@@ -10,7 +10,6 @@ const Footer = () => {
     const logo = 'https://w0.peakpx.com/wallpaper/734/724/HD-wallpaper-brasil-logo-argentina-barcelona-brazil-cbf-cbf-logo-real-madrid-shadow-thumbnail.jpg';
 
     return (  
-
         <footer className='footer'>
             <div className="column1">
                 <Link to='/'>
