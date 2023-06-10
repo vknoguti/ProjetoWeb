@@ -9,7 +9,7 @@ const Size = ({product}) => {
         <>
             <select name='sizes'>
                 {availableSizes.map(e => {
-                    return <option value={e}>{e}</option>
+                    return <option key={e} value={e}>{e}</option>
                 })}
             </select>
         </>  

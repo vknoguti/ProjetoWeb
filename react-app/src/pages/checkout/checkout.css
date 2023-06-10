@@ -13,6 +13,10 @@
     border: 1px solid var(--border-input);
 }
 
+.payment-card input {
+    height: 1.7rem;
+}
+
 .checkout-items {
     width: 50%;
     margin-top: 2rem;

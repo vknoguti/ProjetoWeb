@@ -2,8 +2,9 @@ import React from 'react';
 import './CheckoutItem.css';
 
 const CheckoutItem = ({product}) => {
+    console.log(product.id);
     return (  
-        <li className='checkout-item'>
+        <li key={product.id} className='checkout-item'>
             <div className='checkout-item-img'>
                 <img src={product.img} alt={product.name} />
             </div>

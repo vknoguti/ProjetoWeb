@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaShoppingCart, FaBars, FaFacebook, FaTwitch, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 import './Footer.css';
 import '../App.css';
-import { ExternalLink } from 'react-external-link';
 
 
 
