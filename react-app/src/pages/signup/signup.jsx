@@ -74,7 +74,7 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
-            <h1>Sign Up</h1>
+            
             <Footer />
         </>
     );
