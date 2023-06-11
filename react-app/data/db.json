@@ -27,32 +27,6 @@
       "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg"
     },
     {
-      "id": 2,
-      "brand": "Adidas",
-      "model": "Brreaknet",
-      "price": 700,
-      "sizes": [
-        {
-          "size": 38,
-          "stock": 5
-        },
-        {
-          "size": 39,
-          "stock": 7
-        },
-        {
-          "size": 40,
-          "stock": 3
-        },
-        {
-          "size": 41,
-          "stock": 2
-        }
-      ],
-      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
-      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/437a338409304eafaa7cac0c00d4a353_9366/Tenis_Breaknet_Branco_FY9504_01_standard.jpg"
-    },
-    {
       "id": 3,
       "brand": "Adidas",
       "model": "Pureboost",
