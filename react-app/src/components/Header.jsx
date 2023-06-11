@@ -17,7 +17,7 @@ const Header = () => {
         <nav className='navbar'>
             <div className="logo">
                 <Link to='/'>
-                    <img className='logo-img' src={logo} alt='logo'></img>
+                    <img className='logo-img-header' src={logo} alt='logo'></img>
                 </Link>
             </div>
             <button className='toggle-button' onClick={showNavBar}>

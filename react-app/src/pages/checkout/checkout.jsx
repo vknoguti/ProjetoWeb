@@ -5,6 +5,7 @@ import '../../App.css';
 import CheckoutItem from '../../components/CheckoutItem';
 
 const Checkout = () => {
+    console.log("Checkout")
     const items = [
         {
             id: 2,
@@ -43,6 +44,7 @@ const Checkout = () => {
                     <h3>Itens da compra</h3>
                     <ul>
                         {items.map(item => {
+                            console.log(item)
                             total += item.price * item.quantity;
                             return <CheckoutItem product={item} />
                         })}
