@@ -23,47 +23,86 @@ const Cart = () => {
             img: 'https://static.dafiti.com.br/p/Nike-T%C3%AAnis-Nike-Air-Max-SC-Masculino-8782-7606269-1-zoom.jpg',
             size: 40,
             quantity: 2
+        },
+        {
+            id: 4,
+            name: 'Air Jordan',
+            price: 1019.99,
+            img: 'https://imgnike-a.akamaihd.net/768x768/016511IN.jpg',
+            size: 40,
+            quantity: 1
         }
     ]);
-    
-    const handleQuantity = (quantity, item) => {
-        let aux = items;
-        aux.map(a => {
-            if(a === item) {
-                a.quantity = quantity;
-            }
+
+    const removeItem = (id) => {
+        const newState = items.filter(obj => {
+            if (obj.id != id) return obj; 
         })
-        setItems(aux);
+        
+        setItems(newState);
+    }
+    
+    const handleQuantity = (qtt, id) => {       
+        const newState = items.map(obj => {
+            if(obj.id == id) {
+                return {...obj, quantity: qtt}
+            } 
+
+            return obj;
+        })
+
+        setItems(newState);
     }
 
-    let total = 0;
+    const [total, setTotal] = useState(0);
 
-    const calcCart = (items) => {
-        if(items.length < 1)
-            return (
-                <>
+    const calcTotal = () => {
+        let tmpTotal = 0;
+        for(let i = 0; i < items.length; i++) {
+            tmpTotal += items[i].price * items[i].quantity;
+        }
+        setTotal(tmpTotal);
+    }
+
+    const calcCart = () => {
+        const t = items.map(item => {
+            console.log(item);
+            return <CartItem item={item} handleQuantity={handleQuantity} removeItem={removeItem} />
+        })
+
+        return t;
+    }
+
+    useEffect(() => {
+        calcTotal();
+    })
+    
+    if(items.length < 1) {
+        return (
+            <>
+                <Header />
+                <div className="container">
                     <div className="empty-content">
                         <div className="empty-message">Your cart is currently empty</div>
                         <Link to='/'>
                             <button className='empty-button'>Return to shop</button>
                         </Link>
                     </div>
-                </>
-            )
-        else 
-            for(let i = 0; i < items.length; i++) {
-                total += items[i].price * items[i].quantity;
-            }
-            return (
-                <>
+                </div>
+                <Footer />
+            </>
+        )
+    } else {
+        return (
+            <>
+                <Header />
+                <div className="container">
                     <div className="cart-content">
                         <div className="cart-items">
                             <h3>Meu Carrinho</h3>
                             <div className="cart-items-list">
                                 {
-                                    items.map(item => {
-                                        return <CartItem item={item} handleQuantity={handleQuantity} />
-                                    })
+                                    calcCart()
                                 }
                             </div>
                         </div>
@@ -82,19 +121,11 @@ const Cart = () => {
                             </div>
                         </div>
                     </div>
-                </>
-            )
+                </div>
+                <Footer />
+            </>
+        )
     }
-
-    return (  
-        <>
-            <Header />
-            <div className="container">
-                {calcCart(items)}
-            </div>
-            <Footer />
-        </>
-    );
 }
  
 export default Cart;

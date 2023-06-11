@@ -109,6 +109,8 @@
 }
 
 .empty-button {
+    margin: 1rem 0 ;
+    padding: 0.5rem;
     height: 100%;
     width: 100%;    
     background-color: var(--button-login);
@@ -162,6 +164,7 @@
     }
 
     .empty-button {
+        margin: 1rem 0;
         font-size: 70%;
     }
 

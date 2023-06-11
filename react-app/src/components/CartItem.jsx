@@ -2,38 +2,33 @@ import React, { useEffect, useState } from 'react';
 import './CartItem.css'
 import {MdDeleteOutline} from 'react-icons/md'
 
-const CartItem = ({item, handleQuantity}) => {
+const CartItem = ({item, handleQuantity, removeItem}) => {
     const [product, setProduct] = useState(item);
-    console.log(product)
-
-    const [num, setNum] = useState(0);
 
     const handleDecrement = () => {
-        let aux = product;
-        if(aux.quantity > 1)
-            aux.quantity--;
-        setProduct(aux);
-        handleQuantity(aux.quantity, item);
-        setNum(prevNum => prevNum - 1);
+        const newState = {...product, quantity: product.quantity - 1};
+
+        if(product.quantity > 1) {
+            handleQuantity(product.quantity - 1, product.id);
+            setProduct(newState);
+        }        
     }
 
-    useEffect(() => {
-        console.log(product);
-        console.log(num);
-    })
-
     const handleIncrement = () => {
-        let aux = product;
-        if(aux.quantity < 10)
-            aux.quantity++;
-        setProduct(aux);
-        handleQuantity(aux.quantity, item);
-        setNum(prevNum => prevNum + 1);
+        const newState = {...product, quantity: product.quantity + 1};
+        
+        if(product.quantity < 10) {
+            handleQuantity(product.quantity + 1, product.id);
+            setProduct(newState);
+        }
+    }
+
+    const handleDelete = () => {
+        removeItem(product.id);
     }
 
     return (  
         <>
-            <span>{product.id}</span>
             <div className="cart-item-container">
                 <div className="cart-item-info">
                     <div className="cart-item-icon">
@@ -42,7 +37,7 @@ const CartItem = ({item, handleQuantity}) => {
                     <div className="cart-item-info-text">
                         <div className="cart-item-name">
                             <p>{product.name}</p>
-                            <MdDeleteOutline />
+                            <MdDeleteOutline onClick={handleDelete}/>
                         </div>
                         <div className="cart-item-size">
                             <p>Tamanho: {product.size}</p>
