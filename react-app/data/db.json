@@ -1,0 +1,200 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "brand": "Adidas",
+      "model": "Ultraboost",
+      "price": 999.99,
+      "sizes": [
+        {
+          "size": 38,
+          "stock": 100
+        },
+        {
+          "size": 39,
+          "stock": 90
+        },
+        {
+          "size": 40,
+          "stock": 80
+        },
+        {
+          "size": 41,
+          "stock": 70
+        }
+      ],
+      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
+      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg"
+    },
+    {
+      "id": 2,
+      "brand": "Adidas",
+      "model": "Brreaknet",
+      "price": 700,
+      "sizes": [
+        {
+          "size": 38,
+          "stock": 5
+        },
+        {
+          "size": 39,
+          "stock": 7
+        },
+        {
+          "size": 40,
+          "stock": 3
+        },
+        {
+          "size": 41,
+          "stock": 2
+        }
+      ],
+      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
+      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/437a338409304eafaa7cac0c00d4a353_9366/Tenis_Breaknet_Branco_FY9504_01_standard.jpg"
+    },
+    {
+      "id": 3,
+      "brand": "Adidas",
+      "model": "Pureboost",
+      "price": 990.99,
+      "sizes": [
+        {
+          "size": 38,
+          "stock": 9
+        },
+        {
+          "size": 39,
+          "stock": 23
+        },
+        {
+          "size": 40,
+          "stock": 35
+        },
+        {
+          "size": 41,
+          "stock": 20
+        }
+      ],
+      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
+      "image": "https://imgmarketplace.lojasrenner.com.br/20001/2779/7010700003093/7510700006814/0.jpeg"
+    },
+    {
+      "id": 5,
+      "brand": "Adidas",
+      "model": "Ultimashow",
+      "price": 500,
+      "sizes": [
+        {
+          "size": 38,
+          "stock": 5
+        },
+        {
+          "size": 39,
+          "stock": 7
+        },
+        {
+          "size": 40,
+          "stock": 3
+        },
+        {
+          "size": 41,
+          "stock": 2
+        }
+      ],
+      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
+      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fd84683b9e364fa0a366ab4a00a0b6e7_9366/Tenis_Ultimashow_Preto_FX3632_01_standard.jpg"
+    },
+    {
+      "brand": "Nike",
+      "model": "Air max",
+      "price": "999.90",
+      "sizes": [
+        {
+          "size": "39",
+          "stock": "100"
+        }
+      ],
+      "description": "kdjfsl sdblnf ",
+      "image": "https://imgcentauro-a.akamaihd.net/900x900/94677002/tenis-nike-air-max-excee-masculino-img.jpg",
+      "id": 6
+    },
+    {
+      "brand": "Nike",
+      "model": "SB Ishod Wair",
+      "price": "2399.00",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "8"
+        },
+        {
+          "size": "39",
+          "stock": "10"
+        },
+        {
+          "size": "40",
+          "stock": "15"
+        },
+        {
+          "size": "41",
+          "stock": "4"
+        }
+      ],
+      "description": "kalhfa odgfuhdgnsd fasjfhas",
+      "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-ishod-wair-lemon-wash-98674/273709-1.jpg?w=800&h=800&v=no-change&qs=ignore",
+      "id": 7
+    },
+    {
+      "brand": "Nike",
+      "model": "SB Force 58",
+      "price": "499.99",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "50"
+        },
+        {
+          "size": "39",
+          "stock": "40"
+        },
+        {
+          "size": "40",
+          "stock": "70"
+        },
+        {
+          "size": "41",
+          "stock": "10"
+        }
+      ],
+      "description": "jadhf esgshdg siug",
+      "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-force-58-phantom-blue-98862/274207-1.jpg?w=800&h=800&v=no-change&qs=ignore",
+      "id": 8
+    },
+    {
+      "brand": "Nike",
+      "model": "Air Force",
+      "price": "799.99",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "10"
+        },
+        {
+          "size": "39",
+          "stock": "40"
+        },
+        {
+          "size": "40",
+          "stock": "23"
+        },
+        {
+          "size": "41",
+          "stock": "45"
+        }
+      ],
+      "description": "jahdfahdfsjdg",
+      "image": "https://lojavirus.fbitsstatic.net/img/p/tenis-nike-air-force-1-07-next-nature-summit-white-mica-green-sail-dn1430-107-73907/305085.jpg?w=1200&h=1200&v=no-change&qs=ignore",
+      "id": 9
+    }
+  ]
+}
