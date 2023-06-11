@@ -3,24 +3,24 @@
     {
       "id": 1,
       "brand": "Adidas",
-      "model": "Ultraboost",
-      "price": 999.99,
+      "model": "Ultraboost  ",
+      "price": "999.99",
       "sizes": [
         {
-          "size": 38,
-          "stock": 100
+          "size": "40",
+          "stock": "200"
         },
         {
-          "size": 39,
-          "stock": 90
+          "size": "39",
+          "stock": "100"
         },
         {
-          "size": 40,
-          "stock": 80
+          "size": "41",
+          "stock": "40"
         },
         {
-          "size": 41,
-          "stock": 70
+          "size": "38",
+          "stock": "20"
         }
       ],
       "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
@@ -34,7 +34,7 @@
       "sizes": [
         {
           "size": 38,
-          "stock": 9
+          "stock": "30"
         },
         {
           "size": 39,
@@ -53,39 +53,25 @@
       "image": "https://imgmarketplace.lojasrenner.com.br/20001/2779/7010700003093/7510700006814/0.jpeg"
     },
     {
-      "id": 5,
-      "brand": "Adidas",
-      "model": "Ultimashow",
-      "price": 500,
-      "sizes": [
-        {
-          "size": 38,
-          "stock": 5
-        },
-        {
-          "size": 39,
-          "stock": 7
-        },
-        {
-          "size": 40,
-          "stock": 3
-        },
-        {
-          "size": 41,
-          "stock": 2
-        }
-      ],
-      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
-      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fd84683b9e364fa0a366ab4a00a0b6e7_9366/Tenis_Ultimashow_Preto_FX3632_01_standard.jpg"
-    },
-    {
       "brand": "Nike",
       "model": "Air max",
-      "price": "999.90",
+      "price": "699.90",
       "sizes": [
         {
           "size": "39",
           "stock": "100"
+        },
+        {
+          "size": "40",
+          "stock": "30"
+        },
+        {
+          "size": "38",
+          "stock": "30"
+        },
+        {
+          "size": "41",
+          "stock": "20"
         }
       ],
       "description": "kdjfsl sdblnf ",

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductDetails = ({result}) => {
+const ProductDetails = ({ result }) => {
     return ( 
         <div className="product-preview" key={result.id}>
 
@@ -21,13 +21,13 @@ const ProductDetails = ({result}) => {
             </div>
 
             <div className="product-sizes">
-            <h3>Sizes:</h3>
-            <ul>
-            {result.sizes.map((sizeObj, index) => (
-                <li key={index}>
-                Size: {sizeObj.size}, Quantity: {sizeObj.stock}
-                </li>
-                ))}
+                <h3>Sizes:</h3>
+                <ul>
+                {result.sizes.map((sizeObj, index) => (
+                    <li key={index}>
+                        Size: {sizeObj.size}, Quantity: {sizeObj.stock}
+                    </li>
+                    ))}
                 </ul>
             </div>
     </div>
