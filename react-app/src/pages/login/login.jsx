@@ -15,7 +15,7 @@ const Login = () => {
                         <h1>Já sou cliente</h1>
                         <input type='email' placeholder='Email'></input>
                         <input type='password' placeholder='Senha'></input>
-                        <Link to='/'>
+                        <Link to='/userProfile'>
                             <button className='access-button'>Acessar conta</button>
                         </Link>
                     </div>
