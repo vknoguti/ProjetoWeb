@@ -12,6 +12,8 @@ import AdminOrders from './pages/admin/adminOrders';
 import AdminUsers from './pages/admin/adminUsers';
 import AdminProductDetails from './pages/admin/adminProductDetails'
 
+import UserProfile from './pages/userprofile/userProfile';
+
 const App = () => {
   return (
   <Routes>
@@ -26,6 +28,7 @@ const App = () => {
     <Route path='/adminOrders' element={<AdminOrders />} />
     <Route path='/adminUsers' element={<AdminUsers />} />
     <Route path="/products/:id" element={<AdminProductDetails />}/>
+    <Route path='/userProfile' element={<UserProfile />} />
 
   </Routes>
   );
