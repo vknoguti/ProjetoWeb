@@ -1,5 +1,7 @@
 # ProjetoWeb
 ## Repositório contendo o projeto final da disciplina SCC0219
+
+## Parte 1 - Mockup e documentação
 ## Membros
 |             Nome              | NUSP    |
 |:-----------------------------:|:-------:|
@@ -150,6 +152,16 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   - Acesse o diretório ProjetoTotal e, por fim, execute o arquivo itens.html, o qual é referente a página inicial
   
   ![image](https://user-images.githubusercontent.com/37368029/236707052-87efbc0f-90d6-4949-b02a-3cd5ee67ccd4.png)
+  
+ 
+## Parte 2 - Client Functionality
+### Instalação do Projeto
+- Antes de executar o projeto, faça download e instalação do react no sistema operacional utilizado.
+- Faça o download da pasta react-app.
+- Abra o terminal do windows ou do linux, acesse o diretório da pasta react-app pelo cmd
+- Por fim, execute 'npm install --force'(sem aspas)
+
+
 
 
   
