@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -7,20 +7,32 @@ import Footer from '../../components/Footer';
 
 import './userProfile.css';
 import '../../App.css';
+import UserAddress from '../../components/userAddress';
 
 
-const UserProfile = () => {
+const UserProfile = ({headerUser, setHeaderUser}) => {
+    const navigate = useNavigate();
 
+    const [logged, setLogged] = useState(headerUser.logged);
 
-    const [selectedGender, setSelectedGender] = useState('');
+    const handleLeave = () => {
+        const newState = {
+            id: null,
+            name: '',
+            email: '',
+            password: '',
+            logged: false,
+            cart: []
+        }
 
-    const handleGenderChange = (e) => {
-        setSelectedGender(e.target.value);
-    };
-    
+        setHeaderUser(newState)
+        setLogged(false)
+        navigate('/', {replace: true})
+    }
+
     return (  
         <>
-            <Header/>
+            <Header user={headerUser} logged={logged}/>
                 <div className="container-profile-background">
                
                     <div className="container-profile">
@@ -33,41 +45,13 @@ const UserProfile = () => {
                                         <label htmlFor="name">Nome Completo:</label>
                                         <input type="text" id="name" name="name" required />
                                     </div>
-
-                                    <div className="form-group-gender">
-                                        <label htmlFor="gender">Sexo:</label>
-                                        <div className="radio-group">
-                                            <label>
-                                                <input
-                                                type="radio"
-                                                name="gender"
-                                                value="female"
-                                                checked={selectedGender === 'female'}
-                                                onChange={handleGenderChange}
-                                                />
-                                                Feminino
-                                            </label>
-
-                                            <label>
-                                                <input
-                                                type="radio"
-                                                name="gender"
-                                                value="male"
-                                                checked={selectedGender === 'male'}
-                                                onChange={handleGenderChange}
-                                                />
-                                                Masculino
-                                            </label>
-                                            
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div className="form-row">
-                                    <div className="form-group-date">
+                                    {/* <div className="form-group-date">
                                         <label htmlFor="dob">Data de Nascimento:</label>
                                         <input type="date" id="dob" name="dob" required />
-                                    </div>
+                                    </div> */}
 
                                     <div className="form-group-cpf">
                                         <label htmlFor="cpf">CPF:</label>
@@ -100,43 +84,18 @@ const UserProfile = () => {
 
                         <span className="profile-title">Endereços</span>
                         <div className="addresses-container">
-                            <div className="address-row">
-                                <span className="address-title">PRINCIPAL</span>
-                                <div id="primary-address">
-                                    RUA PRINCIPAL, 9999 
-                                </div>
-
-                                <div className="address-group-alter">
-                                    <input type="submit" id="address1" className="btn-alter-address" value="ALTERAR" />
-                                </div>
-                                
-                            </div>
-
-                            <div className="address-row">
-                                <span className="address-title">SECUNDÁRIO</span>
-                                <div id="secundary-address">
-                                    RUA SECUNDARIA, 9999 
-                                </div>
-
-                                <div className="address-group-alter">
-                                    <input type="submit" id="address2" className="btn-alter-address" value="ALTERAR" />
-                                </div>
-                            </div>
-
-                    
-
-    
+                            <UserAddress main={true}/>
+                            <UserAddress main={false}/>
                             <div className="form-group-submit btn-save-address">
                                 <input type="submit" value="ADICIONAR NOVO ENDEREÇO" />
                             </div>
                         </div>
                         
-                    </div>
-
-
-
-
-                    
+                        <div className="leave-container">
+                            <input onClick={handleLeave} type="submit" value="SAIR" />
+                        </div>
+                        
+                    </div>                    
                 </div>
             <Footer/>
 

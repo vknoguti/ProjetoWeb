@@ -66,27 +66,6 @@ label{
     border-radius: 4px;
 }
 
-/*div que contem os componentes referentes a sexo*/
-.form-group-gender{
-    color: #415161;
-    font-size: 20px;
-    margin-left: 30px;
-    margin-right: 10px;
-}
-
-/*Div geral dos radios de genero*/
-.radio-group {
-    display: flex;
-    color: #333333;
-    font-size: 16px;
-}
-
-/*Espaçamento entre os radios button*/
-.radio-group label {
-    margin-right: 10px;
-}
-
-
 /*div que contem o conjunto do nome*/
 .form-group-date{
     width: 400px;
@@ -202,4 +181,18 @@ label{
     height: 40px;
     margin-top: 30px;
     
+}
+
+.leave-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.leave-container input[type="submit"] {
+    background-color: #FF5151;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;  
+    width: 358px;
+    height: 50px;
 }
