@@ -79,7 +79,7 @@ const Checkout = ({headerUser}) => {
                         })}
                     </ul>
                     <div className="place-order">
-                        <h3>Total: R${total}</h3>
+                        <h3>Total: R${total.toFixed(2)}</h3>
                         <button onClick={() => {
                             if(card.number != '' && card.date != '' && card.cvv != '') {
                                 alert("Compra realizada com sucesso");

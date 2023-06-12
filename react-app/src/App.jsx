@@ -19,10 +19,14 @@ const App = () => {
   const [headerUser, setHeaderUser] = useState({
       id: null,
       name: '',
+      cpf: '',
       email: '',
       password: '',
+      phones: [],
       logged: false,
-      cart: []
+      cart: [],
+      admin: false,
+      address: []
   })
 
   useEffect(() => {

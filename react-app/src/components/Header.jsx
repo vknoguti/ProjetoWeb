@@ -7,7 +7,7 @@ import '../App.css';
 const Header = ({user, logged}) => {
     const navRef = useRef();
 
-    const logo = 'https://i.imgur.com/pGHQ2zI.png'
+    const logo = 'https://i.imgur.com/pGHQ2zI.png';
 
     const showNavBar = () => {
         navRef.current.classList.toggle("show-options");

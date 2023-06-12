@@ -20,6 +20,11 @@ const ProductDetail = ({headerUser, setHeaderUser}) => {
     const [size, setSize] = useState('');
 
     const handleAddToCart = () => {
+        if(!headerUser.logged) {
+            alert("Voce precisa estar logado para adicionar itens ao carrinho");
+            return;
+        }
+
         const qtt = product.sizes.filter(e => {
             if(e.size == size)
                 return e;

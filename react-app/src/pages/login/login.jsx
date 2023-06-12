@@ -12,10 +12,14 @@ const Login = ({headerUser, setHeaderUser}) => {
     const [user, setUser] = useState({
         id: null,
         name: '',
+        cpf: '',
         email: '',
+        phones: [],
         password: '',
         logged: false,
-        cart: []
+        address: [],
+        cart: [],
+        admin: false,
     })
 
     const [logged, setLogged] = useState(headerUser.logged);
@@ -38,19 +42,27 @@ const Login = ({headerUser, setHeaderUser}) => {
         })
   
         if(client.length === 1) {
-            user.id = client[0].id;
-            user.name = client[0].name;
-            user.logged = true;
-            user.cart = [];
-            setHeaderUser(user);
+            const newState = {
+                id: client[0].id, 
+                name: client[0].name, 
+                cpf: client[0].cpf,
+                email: client[0].email,
+                phones: client[0].phones,
+                logged: true, 
+                admin: client[0].admin, 
+                address: client[0].address,
+                cart: client[0].cart
+            };
+            console.log(newState, client[0]);
+            setUser(newState);
+            setHeaderUser(newState);
             setLogged(true);
-            navigate('/', {replace: true})
+            if(!newState.admin)
+                navigate('/', {replace: true})
+            else
+                navigate('/admin', {replace: true})
         }
     };
-
-    useEffect(() => {
-        // console.log(user)
-    }, [user]);
 
     return (  
         <>

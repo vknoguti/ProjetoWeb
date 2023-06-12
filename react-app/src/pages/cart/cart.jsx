@@ -3,15 +3,30 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
 import './cart.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
 
 const Cart = ({headerUser, setHeaderUser}) => {
     const [items, setItems] = useState(headerUser.cart);
 
-    const removeItem = (id) => {
+    const navigate = useNavigate();
+
+    const removeItem = (id, size) => {
         const newState = items.filter(obj => {
-            if (obj.id != id) return obj; 
+            if (obj.id != id) return obj;
+            else {
+                // logica de remocao item igual, tamanho diferente
+                obj.sizes = obj.sizes.map(e => {
+                    if(e.size == size) {
+                        return {size: e.size, stock: 0}
+                    } else {
+                        return {size: e.size, stock: e.stock}
+                    }
+                })
+                if(obj.sizes.filter(e => {
+                    if(e.stock > 0) return e;
+                }).length > 0) return obj
+            } 
         })
         const newUser = {...headerUser, cart: newState};
 
@@ -37,6 +52,14 @@ const Cart = ({headerUser, setHeaderUser}) => {
         setItems(newState);
     }
 
+    const handleCheckout = () => {
+        if(headerUser.logged) navigate('/checkout')
+        else {
+            alert('É necessário estar logado em uma conta para comprar');
+            navigate('/login');
+        }
+    }
+
     const [total, setTotal] = useState(0);
 
     const calcTotal = () => {
@@ -53,7 +76,7 @@ const Cart = ({headerUser, setHeaderUser}) => {
         const t = items.map(item => {
             return item.sizes.map(itemSize => {
                 if(itemSize.stock > 0)
-                    return <CartItem item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
+                    return <CartItem key={`${item.id}.${itemSize.size}`} item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
             }) 
             // <CartItem item={item} handleQuantity={handleQuantity} removeItem={removeItem} />
         })
@@ -102,9 +125,7 @@ const Cart = ({headerUser, setHeaderUser}) => {
                                     <div>R$ {total.toFixed(2)}</div>
                                 </div>
                                 <div className="button-container">
-                                    <Link to='/checkout'>
-                                        <button className='checkout-button'>Finalizar</button>
-                                    </Link>
+                                    <button onClick={handleCheckout} className='checkout-button'>Finalizar</button>
                                 </div>
                             </div>
                         </div>

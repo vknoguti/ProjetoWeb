@@ -22,7 +22,10 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
             email: '',
             password: '',
             logged: false,
-            cart: []
+            cart: [],
+            admin: false,
+            address: [],
+            phones: []
         }
 
         setHeaderUser(newState)
@@ -43,7 +46,7 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
                                 <div className="form-row">
                                     <div className="form-group-name">
                                         <label htmlFor="name">Nome Completo:</label>
-                                        <input type="text" id="name" name="name" required />
+                                        <input type="text" id="name" name="name" value={headerUser.name} required />
                                     </div>
                                 </div>
 
@@ -55,14 +58,22 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
 
                                     <div className="form-group-cpf">
                                         <label htmlFor="cpf">CPF:</label>
-                                        <input type="text" id="cpf" name="cpf" required disabled/>
+                                        <input type="text" id="cpf" name="cpf" value={headerUser.cpf} required disabled/>
                                     </div>
 
                                 </div>
 
 
                                 <div className="form-row">
-                                    <div className="form-group-phone">
+                                    {headerUser.phones.map(e => {
+                                        return (
+                                            <div className='form-group-phone'>
+                                                <label>Telefone</label>
+                                                <input type='tel' id={e} name={e} value={e} required></input>
+                                            </div>
+                                        )
+                                    })}
+                                    {/* <div className="form-group-phone">
                                         <label htmlFor="phone1">Telefone 1:</label>
                                         <input type="tel" id="phone1" name="phone1" required />
                                     </div>
@@ -70,7 +81,7 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
                                     <div className="form-group-phone">
                                         <label htmlFor="phone2">Telefone 2:</label>
                                         <input type="tel" id="phone2" name="phone2" />
-                                    </div>
+                                    </div> */}
                                 </div>  
 
                                 <div className="form-row">
@@ -84,8 +95,8 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
 
                         <span className="profile-title">Endereços</span>
                         <div className="addresses-container">
-                            <UserAddress main={true}/>
-                            <UserAddress main={false}/>
+                            <UserAddress headerUser={headerUser} main={true}/>
+                            {/* <UserAddress main={false}/> */}
                             <div className="form-group-submit btn-save-address">
                                 <input type="submit" value="ADICIONAR NOVO ENDEREÇO" />
                             </div>

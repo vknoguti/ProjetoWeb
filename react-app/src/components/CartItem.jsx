@@ -42,7 +42,7 @@ const CartItem = ({item, size, handleQuantity, removeItem}) => {
     }
 
     const handleDelete = () => {
-        removeItem(product.id);
+        removeItem(product.id, size.size);
     }
 
     return (  
