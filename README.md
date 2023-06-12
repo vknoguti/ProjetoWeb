@@ -157,7 +157,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
 ## Parte 2 - Client Functionality
 ### Instalação do Projeto
 - Antes de executar o projeto, faça download e instalação do react no sistema operacional utilizado.
-- Faça o download do projeto branch(diversos).
+- Faça o download do projeto da branch galio.
 - Abra o terminal seja pelo linux ou pelo windows, e acesse o diretório react-app pelas linhas de comando.
 - Dentro da pasta react-app, com todos os arquivos do projeto, execute 'npm install'(sem aspas), no qual será instalado todos os pacotes do react
   - Caso a instalação não seja efetuada, digite 'npm install --force'
