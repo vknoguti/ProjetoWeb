@@ -2,16 +2,14 @@ import React from 'react';
 
 const Size = ({product}) => {
     const availableSizes = product.sizes.filter(e => {
-        return product.qtts[product.sizes.indexOf(e)] > 0
+        if(e.stock > 0) return e 
     })
 
     return (
-        <>
-            <select name='sizes'>
-                {availableSizes.map(e => {
-                    return <option key={e} value={e}>{e}</option>
-                })}
-            </select>
+        <>            
+            {availableSizes.map(e => {
+                return <option key={e.size} value={e.size}>{e.size}</option>
+            })}
         </>  
     );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CheckoutItem.css';
 
-const CheckoutItem = ({product}) => {
+const CheckoutItem = ({product, quantity}) => {
     console.log(product.id);
     return (  
         <li key={product.id} className='checkout-item'>
@@ -12,10 +12,10 @@ const CheckoutItem = ({product}) => {
                 <p>{product.name}</p>
             </div>
             <div className="checkout-item-quantity">
-                <p>x{product.quantity}</p>
+                <p>x{quantity}</p>
             </div>
             <div className="checkout-item-price">
-                <p>Total: R${product.price * product.quantity}</p>
+                <p>Total: R${(product.price * quantity).toFixed(2)}</p>
             </div>
         </li>
     );
