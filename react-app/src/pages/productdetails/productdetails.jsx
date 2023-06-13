@@ -34,24 +34,10 @@ const ProductDetail = ({headerUser, setHeaderUser}) => {
         {
             alert("Quantidade indisponivel")
         } else {
-            let itemToCart = { ...product, sizes: [
-                {
-                    size: 38,
-                    stock: 0
-                },
-                {
-                    size: 39,
-                    stock: 0
-                },
-                {
-                    size: 40,
-                    stock: 0
-                },
-                {
-                    size: 41,
-                    stock: 0
-                },
-            ] };
+            let itemToCart = { ...product, sizes: product.sizes.map(e => {
+                return {size: e.size, stock: 0}
+            })};
+            console.log(itemToCart);
             let aux = itemToCart.sizes.find((o, i) => {
                 if(o.size == size) {
                     itemToCart.sizes[i] = {
@@ -78,10 +64,15 @@ const ProductDetail = ({headerUser, setHeaderUser}) => {
             else {
                 aux = newState.cart.find((o, i) => {
                     if(o.id == itemToCart.id) {
-                        if(o.sizes[size - 38].stock + parseInt(qttInput) <= qtt[0].stock)
-                            o.sizes[size - 38].stock += parseInt(qttInput);
-                        else 
-                            alert("Quantidade indisponivel")
+                        let findSize = o.sizes.find((x, j) => {
+                            if(x.size == size) {
+                                if(x.stock + parseInt(qttInput) <= qtt[0].stock) {
+                                    x.stock += parseInt(qttInput);
+                                }
+                                else
+                                    alert("Quantidade indisponível")
+                            }
+                        })
                     }
                 })
             }
