@@ -66,6 +66,7 @@ const SearchResultsList = ({
                     />
                     
                     </div>
+                    
                     <div className="input-container">
                     <label htmlFor="description">Description:</label>
                     <input

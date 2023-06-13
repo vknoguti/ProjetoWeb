@@ -99,6 +99,8 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                     <section className='product-detail'>
                         <div className="product-image">
                             <img src={product.image} alt='product'></img>
+                            {/* <video src={product.image} autoPlay loop></video> */}
+
                         </div>
                         <div className="product-info">
                             <h2>{product.model}</h2>

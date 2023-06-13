@@ -21,6 +21,11 @@ const ProductDetails = ({ result }) => {
             </div>
 
             <div className="product-sizes">
+                <h3>Sold:</h3>
+                <p>{result.sold} units</p>
+            </div>
+
+            <div className="product-sizes">
                 <h3>Sizes:</h3>
                 <ul>
                 {result.sizes.map((sizeObj, index) => (
@@ -30,7 +35,7 @@ const ProductDetails = ({ result }) => {
                     ))}
                 </ul>
             </div>
-    </div>
+        </div>
      );
 }
  

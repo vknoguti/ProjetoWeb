@@ -9,11 +9,11 @@ const Searchbar = ({ setResults }) => {
     fetch("http://localhost:7000/products")
       .then((response) => response.json())
       .then((json) => {
-        const filteredResults = value
+        const filteredResults = value.length > 0
           ? json.filter((product) =>
               product.model.toLowerCase().includes(value.toLowerCase())
             )
-          : [];
+          : json;
         setResults(filteredResults);
       })
       .catch((error) => {

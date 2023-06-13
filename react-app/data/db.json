@@ -3,8 +3,8 @@
     {
       "id": 1,
       "brand": "Adidas",
-      "model": "Ultraboost  ",
-      "price": "1999.99",
+      "model": "Ultraboost",
+      "price": "999.99",
       "sizes": [
         {
           "size": "40",
@@ -24,8 +24,8 @@
         }
       ],
       "sold": "0",
-      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
-      "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg"
+      "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
     },
     {
       "id": 3,
@@ -51,13 +51,13 @@
         }
       ],
       "sold": "0",
-      "description": "Este tênis de corrida Pureboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
-      "image": "https://imgmarketplace.lojasrenner.com.br/20001/2779/7010700003093/7510700006814/0.jpeg"
+      "description": "These Pureboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/973929D0/tenis-adidas-pureboost-22-masculino-img.jpg"
     },
     {
       "brand": "Nike",
-      "model": "Air max",
-      "price": "699.90",
+      "model": "Air Max Excee",
+      "price": "579.90",
       "sizes": [
         {
           "size": "39",
@@ -77,14 +77,14 @@
         }
       ],
       "sold": "0",
-      "description": "Nike Air Max is a line of shoes produced by Nike, Inc., with the first model released in 1987. Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot.",
-      "image": "https://imgcentauro-a.akamaihd.net/900x900/94677002/tenis-nike-air-max-excee-masculino-img.jpg",
+      "description": "Inspired by the Nike Air Max 90, the Nike Air Max Excee celebrates a classic with a fresh look. Elongated lines and distorted proportions at the top bring an icon to a fresh, modern space.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/94677002/tenis-nike-air-max-excee-masculino-img.jpg",
       "id": 6
     },
     {
       "brand": "Nike",
-      "model": "SB Ishod Wair",
-      "price": "2399.00",
+      "model": "Jordan One Take 4",
+      "price": "899.00",
       "sizes": [
         {
           "size": "38",
@@ -104,14 +104,14 @@
         }
       ],
       "sold": "0",
-      "description": "kalhfa odgfuhdgnsd fasjfhas",
-      "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-ishod-wair-lemon-wash-98674/273709-1.jpg?w=800&h=800&v=no-change&qs=ignore",
+      "description": "Have some summer fun with your new favorite AJ1s. Made with a blend of suede and canvas, this pair gives you the comfort you know and love with a seasonal update.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/9793543L/tenis-nike-jordan-one-take-4-unissex-img.jpg",
       "id": 7
     },
     {
       "brand": "Nike",
       "model": "SB Force 58",
-      "price": "499.99",
+      "price": "579.99",
       "sizes": [
         {
           "size": "38",
@@ -131,13 +131,13 @@
         }
       ],
       "sold": "0",
-      "description": "jadhf esgshdg siug",
-      "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-force-58-phantom-blue-98862/274207-1.jpg?w=800&h=800&v=no-change&qs=ignore",
+      "description": "The latest and greatest to hit the streets, the Nike SB Force 58 delivers the durability of the sole's shape with the flexibility of a vulcanized shoe. Crafted from canvas and suede with a perforated finish, the entire look is loaded with basketball heritage DNA.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/9799001B/tenis-nike-sb-force-58-masculino-img.jpg",
       "id": 8
     },
     {
       "brand": "Nike",
-      "model": "Air Force",
+      "model": "Court Vision Lo",
       "price": "799.99",
       "sizes": [
         {
@@ -158,9 +158,161 @@
         }
       ],
       "sold": "0",
-      "description": "jahdfahdfsjdg",
-      "image": "https://lojavirus.fbitsstatic.net/img/p/tenis-nike-air-force-1-07-next-nature-summit-white-mica-green-sail-dn1430-107-73907/305085.jpg?w=1200&h=1200&v=no-change&qs=ignore",
+      "description": "The shine lives on in the Nike Air Force 1 '07, the original hoops shoe that puts a fresh spin on what you know best: crisp material, bold colors and perfect shine to make you stand out. Textured material with classic blue and cool white adds a touch of heritage style, durability and support.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/979932QW/tenis-nike-court-vision-lo-masculino-img.jpg",
       "id": 9
+    },
+    {
+      "brand": "Nike",
+      "model": "Grand Court 2.0",
+      "price": "399.99",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "100"
+        },
+        {
+          "size": "39",
+          "stock": "90"
+        },
+        {
+          "size": "40",
+          "stock": "75"
+        },
+        {
+          "size": "41",
+          "stock": "60"
+        }
+      ],
+      "description": "\n486 / 5.000\nResultados de tradução\nResultado da tradução\nChoose your sneakers right, the adidas Grand Court is the daily ally for casual day to day. The leather (upper part of the shoe) in synthetic material that guarantees support to the feet.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/9736090I/tenis-adidas-grand-court-2-0-masculino-img.jpg",
+      "id": 10
+    },
+    {
+      "brand": "Nike",
+      "model": "Jordan Stay Loyal 2 ",
+      "price": "699.99",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "20"
+        },
+        {
+          "size": "39",
+          "stock": "50"
+        },
+        {
+          "size": "40",
+          "stock": "10"
+        },
+        {
+          "size": "41",
+          "stock": "30"
+        }
+      ],
+      "description": "Jordan's synonym is talent! It's almost impossible not to respect and not to get goosebumps with this athlete's career. For so many amazing reasons, wearing items from their partnership with Nike has become a must for many. If you're part of the basketball player's hallucinations or are a fan of his history and like his products, then it's time to get the Jordan Stay Loyal 2 Shoes.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/97935519/tenis-nike-jordan-stay-loyal-2-masculino-img.jpg",
+      "id": 11
+    },
+    {
+      "brand": "Nike",
+      "model": "Court Vision Low",
+      "price": "549.99",
+      "sizes": [
+        {
+          "size": "38",
+          "stock": "40"
+        },
+        {
+          "size": "39",
+          "stock": "100"
+        },
+        {
+          "size": "40",
+          "stock": "50"
+        },
+        {
+          "size": "41",
+          "stock": "30"
+        }
+      ],
+      "description": "Modern and unmistakable, the men's Nike sneakers are the ideal option at all times. The upper (upper part of the shoe) in synthetic provides support, support and durability. The men's sneaker has a rubberized midsole and outsole that guarantee greater stability and grip on all surfaces.",
+      "image": "https://imgcentauro-a.akamaihd.net/500x500/96256101/tenis-nike-court-vision-low-next-nature-masculino-img.jpg",
+      "id": 12
     }
-  ]
+  ],
+  "users": [
+    {
+        "id": 1,
+        "name": "user1",
+        "cpf": "138568914",
+        "email": "user1@user.com",
+        "password": "user",
+        "phones": [
+                    "987654321", 
+                    "995743384"
+                  ],
+        "address": [
+            {
+                "cep": "102450",
+                "city": "São Carlos",
+                "state": "SP",
+                "neighbourhood": "Centro",
+                "street": "Av. São Carlos",
+                "number": "1",
+                "additional": ""
+            }
+        ],
+        "cart": [],
+        "admin": false
+    },
+    {
+        "id": 2,
+        "name": "user2",        
+        "cpf": "568235914",
+        "email": "user2@user.com",
+        "password": "user",
+        "phones": [
+                 "935871357",
+                 "995175447"
+                ],
+        "address": [
+            {
+                "cep": "10245124",
+                "city": "São Carlos",
+                "state": "SP",
+                "neighbourhood": "Centro",
+                "street": "Av. Brasil",
+                "number": "2",
+                "additional": ""
+            }
+        ],
+        "cart": [],
+        "admin": false
+    },
+    {
+        "id": 3,
+        "name": "admin",
+        "cpf": "981785375",
+        "email": "user3@user.com",
+        "password": "user",
+        "phones": [
+                "935871357"
+                ],
+        "address": [
+            {
+                "cep": "10245124",
+                "city": "São Carlos",
+                "state": "SP",
+                "neighbourhood": "Centro",
+                "street": "Av. Brasil",
+                "number": "2",
+                "additional": ""
+            }
+        ],
+        "cart": [],
+        "admin": true
+    }
+]
+
 }
