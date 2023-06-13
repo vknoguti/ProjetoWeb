@@ -41,7 +41,7 @@ const App = () => {
     <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
     <Route path='/cart' element={<Cart headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
     <Route path="/product/:id" element={<ProductDetail headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
-    <Route path='/checkout' element={<Checkout headerUser={headerUser} />} />
+    <Route path='/checkout' element={<Checkout headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
     <Route path='/admin' element={<Admin />} />
     <Route path='/adminProducts' element={<AdminProducts />} />
     <Route path='/adminOrders' element={<AdminOrders />} />

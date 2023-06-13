@@ -5,26 +5,7 @@ import '../../App.css';
 import CheckoutItem from '../../components/CheckoutItem';
 import { useNavigate } from 'react-router-dom';
 
-const Checkout = ({headerUser}) => {
-    // const items = [
-    //     {
-    //         id: 2,
-    //         name: 'Ultraboost',
-    //         price: 1000.00,
-    //         img: 'https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg',
-    //         size: 40,
-    //         quantity: 3
-    //     },
-    //     {
-    //         id: 3,
-    //         name: 'Air Max',
-    //         price: 890.99,
-    //         img: 'https://static.dafiti.com.br/p/Nike-T%C3%AAnis-Nike-Air-Max-SC-Masculino-8782-7606269-1-zoom.jpg',
-    //         size: 40,
-    //         quantity: 2
-    //     }
-    // ];
-
+const Checkout = ({headerUser, setHeaderUser}) => {
     const items = headerUser.cart;
 
     let total = 0;
@@ -82,6 +63,8 @@ const Checkout = ({headerUser}) => {
                         <h3>Total: R${total.toFixed(2)}</h3>
                         <button onClick={() => {
                             if(card.number != '' && card.date != '' && card.cvv != '') {
+                                const newState = {...headerUser, cart: []};
+                                setHeaderUser(newState);
                                 alert("Compra realizada com sucesso");
                                 setTimeout(() => {
                                     navigate('/')
