@@ -1,6 +1,7 @@
 import React from 'react';
 import './searchResultsList.css';
 import ProductDetails from '../pages/admin/adminProductDetails';
+import UsersDetails from '../pages/admin/adminUsersDetails';
 
 const SearchResultsList = ({ 
     results, 

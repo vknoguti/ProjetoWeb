@@ -1,4 +1,6 @@
 import React from 'react';
+import './adminUsersDetails.css'
+
 
 const UsersDetails = ({result}) => {
     return ( 
@@ -8,33 +10,28 @@ const UsersDetails = ({result}) => {
             </div>
 
             <div className="user-email">
-                <p>{result.email}</p>
+                <p>Email: {result.email}</p>
             </div>
 
             <div className="user-cpf">
-                <p>{result.cpf}</p>
+                <p>CPF: {result.cpf}</p>
             </div>
 
             <div className="user-cellphone">
-                {result.phones.map(() => (
-                    <p>{result.phones}</p>
-                ))}
+                {result.phones.map((phone, index) => (
+                <p key={index}>Phone {index+1}: {phone}</p>
+                ))} 
             </div>
 
             <div className="user-address">
-                {result.adress.map(() => (
-                    <>
-                    <p>{result.street}</p>
-                    <p>{result.number}</p>
-                    <p>{result.city}</p>
-                    <p>{result.state}</p>
-                    <p>{result.neighbourhood}</p>
-                    <p>{result.cep}</p>
-                    </>
+            {result && result.address && result.address.map((addressItem) => (
+                <React.Fragment key={addressItem.id}>
+                    <p>{addressItem.street}, {addressItem.number} - {addressItem.neighbourhood}</p>
+                    <p>{addressItem.city} - {addressItem.state}</p>
+                    <p>CEP: {addressItem.cep}</p>
+                </React.Fragment>
                 ))}
             </div>
-
-            
         </div>
      );
 }
