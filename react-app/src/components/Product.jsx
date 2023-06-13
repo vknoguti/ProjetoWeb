@@ -8,14 +8,14 @@ const Product = ({item}) => {
         <section className="product">
             <Link className='product-link' to={`/product/${item.id}`}>
                 <div className="icon">
-                    <img src={item.img} alt='Ultraboost Preto'></img>
+                    <img src={item.image} alt='Ultraboost Preto'></img>
                 </div>
             </Link>
             <p>Masculino</p>
             <Link className='product-link' to={`/product/${item.id}`}>
-                <h3>{item.name}</h3>
+                <h3>{item.model}</h3>
             </Link>
-            <span>R${(item.price).toFixed(2)}</span>
+            <span>R${(parseFloat(item.price)).toFixed(2)}</span>
         </section>
     );
 }

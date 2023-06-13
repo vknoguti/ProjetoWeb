@@ -6,16 +6,16 @@ const CheckoutItem = ({product, quantity}) => {
     return (  
         <li key={product.id} className='checkout-item'>
             <div className='checkout-item-img'>
-                <img src={product.img} alt={product.name} />
+                <img src={product.image} alt={product.model} />
             </div>
             <div className="checkout-item-name">
-                <p>{product.name}</p>
+                <p>{product.model}</p>
             </div>
             <div className="checkout-item-quantity">
                 <p>x{quantity}</p>
             </div>
             <div className="checkout-item-price">
-                <p>Total: R${(product.price * quantity).toFixed(2)}</p>
+                <p>Total: R${(parseFloat(product.price) * parseFloat(quantity)).toFixed(2)}</p>
             </div>
         </li>
     );

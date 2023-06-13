@@ -5,7 +5,7 @@ import '../../App.css';
 import CheckoutItem from '../../components/CheckoutItem';
 import { useNavigate } from 'react-router-dom';
 
-const Checkout = ({headerUser, setHeaderUser}) => {
+const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
     const items = headerUser.cart;
 
     let total = 0;
@@ -32,6 +32,19 @@ const Checkout = ({headerUser, setHeaderUser}) => {
     }
 
     const navigate = useNavigate();
+
+    const handleOrder = () => {
+        if(card.number != '' && card.date != '' && card.cvv != '') {
+            const newState = {...headerUser, cart: []};
+            setHeaderUser(newState);
+            alert("Compra realizada com sucesso");
+            setTimeout(() => {
+                navigate('/')
+            }, 500);
+        } else {
+            alert('Digite os dados corretos do cartão')
+        }
+    }
 
     return (  
         <>
@@ -61,18 +74,8 @@ const Checkout = ({headerUser, setHeaderUser}) => {
                     </ul>
                     <div className="place-order">
                         <h3>Total: R${total.toFixed(2)}</h3>
-                        <button onClick={() => {
-                            if(card.number != '' && card.date != '' && card.cvv != '') {
-                                const newState = {...headerUser, cart: []};
-                                setHeaderUser(newState);
-                                alert("Compra realizada com sucesso");
-                                setTimeout(() => {
-                                    navigate('/')
-                                }, 500);
-                            } else {
-                                alert('Digite os dados corretos do cartão')
-                            }
-                        }}><span>Finalizar Compra</span></button>
+                        <button onClick={handleOrder}>
+                        <span>Finalizar Compra</span></button>
                     </div>
                 </div>
             </div>

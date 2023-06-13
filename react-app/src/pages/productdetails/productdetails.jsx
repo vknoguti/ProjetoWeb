@@ -8,12 +8,17 @@ import Footer from '../../components/Footer';
 import { PRODUCTLIST } from '../../productlist';
 import { useParams } from 'react-router-dom';
 
-const ProductDetail = ({headerUser, setHeaderUser}) => {
+const ProductDetail = ({results, headerUser, setHeaderUser}) => {
     const key = useParams();
+   
+    let product = results.filter(item => {
+        if(item.id == key.id) {
+            return item;
+        } 
+    })[0];
 
-    const product = PRODUCTLIST.filter(item => {
-        if(item.id == key.id) return item;
-    })[0]
+    console.log(product)
+
 
     const [qttInput, setQttInput] = useState(0);
 
@@ -93,13 +98,13 @@ const ProductDetail = ({headerUser, setHeaderUser}) => {
                 <main className='product-details'>
                     <section className='product-detail'>
                         <div className="product-image">
-                            <img src={product.img} alt='product'></img>
+                            <img src={product.image} alt='product'></img>
                         </div>
                         <div className="product-info">
-                            <h2>{product.name}</h2>
+                            <h2>{product.model}</h2>
                             <p className='product-description'>{product.description}</p>
                             <div className="product-details-price">
-                                <span>R${product.price}</span>
+                                <span>R${parseFloat(product.price).toFixed(2)}</span>
                             </div>
                             <div className="product-size">
                                 <h3>Selecione um tamanho</h3>
@@ -118,8 +123,8 @@ const ProductDetail = ({headerUser, setHeaderUser}) => {
                     <section className="related">
                         <h2>Related Products</h2>
                         <div className="related-products">
-                            {PRODUCTLIST.map(item => {
-                                if(item.id != key.id)
+                            {results.map(item => {
+                                if(item.id != key.id && item.brand == product.brand)
                                     return <Product key={item.id}  item={item} />
                             })}
                         </div>

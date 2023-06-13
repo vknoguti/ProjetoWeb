@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../../components/Header';
 import Product from '../../components/Product';
 import Footer from '../../components/Footer';
@@ -7,13 +7,18 @@ import './home.css'
 import '../../App.css'
 import { PRODUCTLIST } from '../../productlist';
 
-const Home = ({headerUser}) => {   
+
+
+const Home = ({results, headerUser}) => {   
+
+    console.log(results)
+
     return (
         <>
             <Header user={headerUser} logged={headerUser.logged}/>
             <div className="container">
                 <main className="products">
-                    {PRODUCTLIST.map(item => {
+                    {results.map(item => {
                         return <Product key={item.id} item={item} />
                     })}
                 </main>

@@ -5,11 +5,11 @@ import './addProduct.css'
 const AddProduct = () => {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
-    const [price, setPrice] = useState('');
+    const [price, setPrice] = useState(0.00);
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
-    const [size, setSize] = useState('');
-    const [stock, setStock] = useState('');
+    const [size, setSize] = useState(0);
+    const [stock, setStock] = useState(0);
     const [sizesArray, setSizesArray] = useState([]);
 
     const [isPending, setIsPending] = useState(false);
@@ -35,18 +35,18 @@ const AddProduct = () => {
     const handleAddSize = (e) => {
         e.preventDefault();
         setSizesArray([...sizesArray, { size, stock }]);
-        setSize('');
-        setStock('');
+        setSize(0);
+        setStock(0);
     };
 
     const handleAddAnotherProduct = () => {
         setBrand('');
         setModel('');
-        setPrice('');
+        setPrice(0.00);
         setDescription('');
         setImage('');
-        setSize('');
-        setStock('');
+        setSize(0);
+        setStock(0);
         setSizesArray([]);
     };
 

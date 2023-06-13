@@ -6,7 +6,6 @@ import SearchResultsList from './searchResultsList';
 
 const ShowStock = () => {
     const [results, setResults] = useState([]);
-    const [products, setProducts] = useState([]);
     
     useEffect(() => {
       fetch('http://localhost:7000/products')
@@ -21,11 +20,7 @@ const ShowStock = () => {
             <div className="searchbar-div">
                 <Searchbar setResults={setResults} />
 
-                {results.length > 0 ? (
-                    <SearchResultsList results={results} />
-                ) : (
-                    <SearchResultsList results={products} />
-                )}
+                <SearchResultsList results={results} />
             </div>
         </>
      );

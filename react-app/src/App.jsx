@@ -16,6 +16,17 @@ import UserProfile from './pages/userprofile/userProfile';
 import NotFound from './pages/notfound/notfound';
 
 const App = () => {
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+      fetch('http://localhost:7000/products')
+        .then(response => response.json())
+        .then(data => setResults(data))
+        .catch(error => console.log(error));
+        console.log(headerUser);
+
+    }, []);
+
   const [headerUser, setHeaderUser] = useState({
       id: null,
       name: '',
@@ -29,19 +40,15 @@ const App = () => {
       address: []
   })
 
-  useEffect(() => {
-     console.log(headerUser);
-  })
-
   return (
   <Routes>
-    <Route path='/' element={<Home headerUser={headerUser} />}/>
+    <Route path='/' element={<Home results={results} headerUser={headerUser} />}/>
     <Route path='/login' element={<Login headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
     <Route path='/signup' element={<Signup headerUser={headerUser} />}/>
     <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
-    <Route path='/cart' element={<Cart headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
-    <Route path="/product/:id" element={<ProductDetail headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
-    <Route path='/checkout' element={<Checkout headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
+    <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
+    <Route path="/product/:id" element={<ProductDetail results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
+    <Route path='/checkout' element={<Checkout results={results} setResults={setResults} headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
     <Route path='/admin' element={<Admin />} />
     <Route path='/adminProducts' element={<AdminProducts />} />
     <Route path='/adminOrders' element={<AdminOrders />} />

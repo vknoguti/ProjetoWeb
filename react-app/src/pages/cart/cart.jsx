@@ -6,7 +6,7 @@ import './cart.css';
 import { Link, useNavigate } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
 
-const Cart = ({headerUser, setHeaderUser}) => {
+const Cart = ({results, headerUser, setHeaderUser}) => {
     const [items, setItems] = useState(headerUser.cart);
 
     const navigate = useNavigate();
@@ -66,9 +66,9 @@ const Cart = ({headerUser, setHeaderUser}) => {
         let tmpTotal = 0;
         for(let i = 0; i < items.length; i++) {
             for(let j = 0; j < items[i].sizes.length; j++) {
-                tmpTotal += items[i].price * items[i].sizes[j].stock;
+                tmpTotal += parseFloat(items[i].price) * parseFloat(items[i].sizes[j].stock);
             }
-        }
+        }   
         setTotal(tmpTotal);
     }
 
@@ -76,7 +76,7 @@ const Cart = ({headerUser, setHeaderUser}) => {
         const t = items.map(item => {
             return item.sizes.map(itemSize => {
                 if(itemSize.stock > 0)
-                    return <CartItem key={`${item.id}.${itemSize.size}`} item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
+                    return <CartItem key={`${item.id}.${itemSize.size}`} results={results} item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
             }) 
             // <CartItem item={item} handleQuantity={handleQuantity} removeItem={removeItem} />
         })

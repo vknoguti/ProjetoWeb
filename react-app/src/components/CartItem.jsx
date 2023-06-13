@@ -3,7 +3,7 @@ import './CartItem.css'
 import {MdDeleteOutline} from 'react-icons/md'
 import { PRODUCTLIST } from '../productlist';
 
-const CartItem = ({item, size, handleQuantity, removeItem}) => {
+const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
     const [product, setProduct] = useState(item);
 
     const handleDecrement = () => {
@@ -19,7 +19,7 @@ const CartItem = ({item, size, handleQuantity, removeItem}) => {
     }
 
     const handleIncrement = () => {        
-        const filterItem = PRODUCTLIST.filter(item => {
+        const filterItem = results.filter(item => {
             if(item.id === product.id) return item;
         })[0];
 
@@ -50,11 +50,11 @@ const CartItem = ({item, size, handleQuantity, removeItem}) => {
             <div className="cart-item-container">
                 <div className="cart-item-info">
                     <div className="cart-item-icon">
-                        <img src={product.img} alt={product.name} />
+                        <img src={product.image} alt={product.model} />
                     </div>
                     <div className="cart-item-info-text">
                         <div className="cart-item-name">
-                            <p>{product.name}</p>
+                            <p>{product.model}</p>
                             <MdDeleteOutline onClick={handleDelete}/>
                         </div>
                         <div className="cart-item-size">

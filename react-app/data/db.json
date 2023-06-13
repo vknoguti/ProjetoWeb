@@ -4,11 +4,11 @@
       "id": 1,
       "brand": "Adidas",
       "model": "Ultraboost  ",
-      "price": "999.99",
+      "price": "1999.99",
       "sizes": [
         {
           "size": "40",
-          "stock": "200"
+          "stock": "1000"
         },
         {
           "size": "39",
@@ -23,6 +23,7 @@
           "stock": "20"
         }
       ],
+      "sold": "0",
       "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
       "image": "https://assets.adidas.com/images/w_600,f_auto,q_auto/fbaf991a78bc4896a3e9ad7800abcec6_9366/Tenis_Ultraboost_22_Preto_GZ0127_01_standard.jpg"
     },
@@ -30,26 +31,27 @@
       "id": 3,
       "brand": "Adidas",
       "model": "Pureboost",
-      "price": 990.99,
+      "price": "990.99",
       "sizes": [
         {
-          "size": 38,
+          "size": "38",
           "stock": "30"
         },
         {
-          "size": 39,
-          "stock": 23
+          "size": "39",
+          "stock": "23"
         },
         {
-          "size": 40,
-          "stock": 35
+          "size": "40",
+          "stock": "35"
         },
         {
-          "size": 41,
-          "stock": 20
+          "size": "41",
+          "stock": "20"
         }
       ],
-      "description": "Este tênis de corrida Ultraboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
+      "sold": "0",
+      "description": "Este tênis de corrida Pureboost oferece conforto e responsividade. Ele tem como base uma entressola BOOST, com sistema Linear Energy Push e solado de Borracha Continental™, para proporcionar energia infinita. O cabedal deste tênis é feito com fios de alta performance que contêm pelo menos 50% de plástico reciclado Parley Ocean Plastic, interceptado em ilhas remotas, praias, comunidades costeiras e litorais, impedindo que polua nossos oceanos.",
       "image": "https://imgmarketplace.lojasrenner.com.br/20001/2779/7010700003093/7510700006814/0.jpeg"
     },
     {
@@ -74,7 +76,8 @@
           "stock": "20"
         }
       ],
-      "description": "kdjfsl sdblnf ",
+      "sold": "0",
+      "description": "Nike Air Max is a line of shoes produced by Nike, Inc., with the first model released in 1987. Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot.",
       "image": "https://imgcentauro-a.akamaihd.net/900x900/94677002/tenis-nike-air-max-excee-masculino-img.jpg",
       "id": 6
     },
@@ -100,6 +103,7 @@
           "stock": "4"
         }
       ],
+      "sold": "0",
       "description": "kalhfa odgfuhdgnsd fasjfhas",
       "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-ishod-wair-lemon-wash-98674/273709-1.jpg?w=800&h=800&v=no-change&qs=ignore",
       "id": 7
@@ -126,6 +130,7 @@
           "stock": "10"
         }
       ],
+      "sold": "0",
       "description": "jadhf esgshdg siug",
       "image": "https://surfalive.fbitsstatic.net/img/p/tenis-nike-sb-force-58-phantom-blue-98862/274207-1.jpg?w=800&h=800&v=no-change&qs=ignore",
       "id": 8
@@ -152,6 +157,7 @@
           "stock": "45"
         }
       ],
+      "sold": "0",
       "description": "jahdfahdfsjdg",
       "image": "https://lojavirus.fbitsstatic.net/img/p/tenis-nike-air-force-1-07-next-nature-summit-white-mica-green-sail-dn1430-107-73907/305085.jpg?w=1200&h=1200&v=no-change&qs=ignore",
       "id": 9
