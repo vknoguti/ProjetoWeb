@@ -53,13 +53,13 @@ label{
 
 /*div que contem o conjunto do nome*/
 .form-group-name{
-    width: 600px;
+    width: 100%;
     margin-left: 30px;
     margin-right: 20px;
 }
 
 /*Modifica os inputs do name, cpf e dos telefones*/
-.form-group-name input, .form-group-cpf input, .form-group-phone input{
+input{
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
@@ -77,7 +77,6 @@ label{
 /*Estilizacao do campo date*/
 .form-group-date input[type="date"] {
     /* Adicione estilos adicionais, se necessário */
-
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -88,7 +87,6 @@ label{
 
 /*div que contem o conjunto do CPF*/
 .form-group-cpf{
-  
     width: 400px;
     margin-left: 30px;
     margin-right: 10px;
@@ -98,12 +96,69 @@ label{
 
 /*div que contem o conjunto dos telefones*/
 .form-group-phone{
-   
     width: 400px;
     margin-left: 30px;
     margin-top: 10px;
     margin-right: 10px;
 }
+
+/*Div que contem o conjunto de endereço(rua)*/
+.form-group-address{
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de cep*/
+.form-group-cep{
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de bairro*/
+.form-group-bairro{
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de numero*/
+.form-group-numero{
+    width: 80px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de complemento*/
+.form-group-complemento{
+    width: 400px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de cidade*/
+.form-group-cidade{
+    width: 200px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+/*Div que contem o conjunto de estado*/
+.form-group-estado{
+    width: 40px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+
 
 /*div que contem o conjunto do botao de enviar*/
 .form-group-submit{
@@ -112,6 +167,7 @@ label{
     justify-content: center;
     width: 95%;
 }
+
 
 /*Estilização dos botoes de salvar e envio*/
 .form-group-submit input[type="submit"] {
