@@ -18,8 +18,19 @@ import NotFound from './pages/notfound/notfound';
 const App = () => {
   const [results, setResults] = useState([]);
   const [users, setUsers] = useState([]);
-
-  
+  const [headerUser, setHeaderUser] = useState({
+      id: null,
+      name: '',
+      cpf: '',
+      email: '',
+      password: '',
+      phones: [],
+      logged: false,
+      cart: [],
+      admin: false,
+      address: []
+  })
+   
 
   useEffect(() => {
     fetch('http://localhost:7000/products')
@@ -33,26 +44,14 @@ const App = () => {
       .catch(error => console.log(error));
 
       console.log(results, users);
-    }, [results, users]);
+    }, []);
 
-  const [headerUser, setHeaderUser] = useState({
-      id: null,
-      name: '',
-      cpf: '',
-      email: '',
-      password: '',
-      phones: [],
-      logged: false,
-      cart: [],
-      admin: false,
-      address: []
-  })
 
   return (
   <Routes>
     <Route path='/' element={<Home results={results} headerUser={headerUser} />}/>
     <Route path='/login' element={<Login users={users} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
-    <Route path='/signup' element={<Signup headerUser={headerUser} />}/>
+    <Route path='/signup' element={<Signup headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
     <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
     <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
     <Route path="/product/:id" element={<ProductDetail results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>

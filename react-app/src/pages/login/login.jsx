@@ -82,6 +82,17 @@ const Login = ({users, headerUser, setHeaderUser}) => {
     };
 
     const handleSignup = () => {
+        const client = users.filter(client => {
+            if(user.email == client.email) {
+                return client;
+            } 
+        });
+        if(client.length > 0) {
+            alert("Email already registered!")
+        } else {
+            setHeaderUser({...headerUser, email:signupEmail});
+            navigate('/signup');
+        }
     }
 
     return (  

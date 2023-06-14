@@ -1,41 +1,195 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import './signup.css';
 
-const Signup = ({headerUser}) => {
-    return (  
-        <>
-            <Header user={headerUser} logged={headerUser.logged}/>
-            <div className="container">
-                <div className="signup-container">
-                    <h3>*Campos Obrigatórios.</h3>
-                    <div className="name-input input-container">
-                        <input type='text' placeholder='*Nome'></input>
-                        <input type='text' placeholder='*Sobrenome'></input>
-                    </div>
-                    <div className="social-information-input input-container">
-                        <input type='number' placeholder='*CPF'></input>
-                    </div>
-                    <div className="phone-inputs input-container">
-                        <input type='tel' placeholder='*Seu telefone'></input>
-                        <input type='tel' placeholder='Outro telefone'></input>
-                    </div>
-                    <div className="address-input input-container">
-                        <input type='text' placeholder='*Endereço'></input>
-                    </div>
-                    <div className="zip-neighbour-input input-container">
-                        <input type='number' placeholder='*CEP'></input>
-                        <input type='text' placeholder='*Bairro'></input>
-                    </div>
-                    <div className="additional-address-input input-container">
-                        <input type='number' placeholder='*Número'></input>
-                        <input type='text' placeholder='Complemento'></input>
-                    </div>
-                    <div className="city-info-input input-container">
-                        <input type='text' placeholder='*Cidade'></input>
-                        <select name='estado'>
-                            <option value='' disabled selected>*UF</option>
+const Signup = ({ headerUser, setHeaderUser}) => {
+    const navigate = useNavigate();
+
+  const [formValues, setFormValues] = useState({
+    firstName: '',
+    lastName: '',
+    cpf: '',
+    phone: '',
+    otherPhone: '',
+    address: '',
+    zipCode: '',
+    neighborhood: '',
+    additionalAddress: '',
+    number: '',
+    complement: '',
+    city: '',
+    state: '',
+    referencePoint: '',
+    password: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    const newUser = {
+        name: formValues.firstName + " " + formValues.lastName,
+        cpf: formValues.cpf,
+        email: headerUser.email,
+        password: formValues.password,
+        phones: [
+            formValues.phone,
+            formValues.otherPhone
+        ],
+        address: [
+            {
+            cep: formValues.zipCode,
+            city: formValues.city,
+            state: formValues.state,
+            neighbourhood: formValues.neighborhood,
+            street: formValues.address,
+            number: formValues.number,
+            additional: formValues.referencePoint
+            }
+        ],
+        cart: [],
+        admin: false
+    }
+    e.preventDefault();
+    const jsonData = JSON.stringify(newUser);
+
+
+  
+    fetch('http://localhost:7000/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: jsonData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        // Handle the response from the backend
+        console.log(data);
+        // Perform any other desired actions
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the request
+        console.error(error);
+      });
+
+      setHeaderUser({...headerUser, email:""});
+      alert("Account created!")
+      navigate('/')
+  };
+  
+
+  return (
+    <>
+      <Header user={headerUser} logged={headerUser.logged} />
+      <div className="container">
+        <div className="signup-container">
+          <h3>*Campos Obrigatórios.</h3>
+          <form onSubmit={handleSubmit}>
+            <div className="name-input input-container">
+              <input
+                type="text"
+                name="firstName"
+                placeholder="*Nome"
+                value={formValues.firstName}
+                onChange={handleInputChange}
+              ></input>
+              <input
+                type="text"
+                name="lastName"
+                placeholder="*Sobrenome"
+                value={formValues.lastName}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="social-information-input input-container">
+              <input
+                type="number"
+                name="cpf"
+                placeholder="*CPF"
+                value={formValues.cpf}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="phone-inputs input-container">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="*Seu telefone"
+                value={formValues.phone}
+                onChange={handleInputChange}
+              ></input>
+              <input
+                type="tel"
+                name="otherPhone"
+                placeholder="Outro telefone"
+                value={formValues.otherPhone}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="address-input input-container">
+              <input
+                type="text"
+                name="address"
+                placeholder="*Endereço"
+                value={formValues.address}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="zip-neighbour-input input-container">
+              <input
+                type="number"
+                name="zipCode"
+                placeholder="*CEP"
+                value={formValues.zipCode}
+                onChange={handleInputChange}
+              ></input>
+              <input
+                type="text"
+                name="neighborhood"
+                placeholder="*Bairro"
+                value={formValues.neighborhood}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="additional-address-input input-container">
+              <input
+                type="number"
+                name="number"
+                placeholder="*Número"
+                value={formValues.number}
+                onChange={handleInputChange}
+              ></input>
+              <input
+                type="text"
+                name="complement"
+                placeholder="Complemento"
+                value={formValues.complement}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+            <div className="city-info-input input-container">
+              <input
+                type="text"
+                name="city"
+                placeholder="*Cidade"
+                value={formValues.city}
+                onChange={handleInputChange}
+              ></input>
+              <select
+                name="state"
+                value={formValues.state}
+                onChange={handleInputChange}
+              >
+
+                <option value='' disabled selected>*UF</option>
                             <option value='AC'>AC</option>
                             <option value='AL'>AL</option>
                             <option value='AP'>AP</option>
@@ -63,20 +217,39 @@ const Signup = ({headerUser}) => {
                             <option value='SP'>SP</option>
                             <option value='SE'>SE</option>
                             <option value='TO'>TO</option>
-                        </select>
-                    </div>
-                    <div className="reference-point input-container">
-                        <input type='text' placeholder='Ponto de referência'></input>
-                    </div>
-                    <div className="submit-button">
-                        <button>Submit</button>
-                    </div>
-                </div>
+                {/* Options for states */}
+              </select>
             </div>
-            
-            <Footer />
-        </>
-    );
-}
- 
+            <div className="reference-point input-container">
+              <input
+                type="text"
+                name="referencePoint"
+                placeholder="Ponto de referência"
+                value={formValues.referencePoint}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+
+            <div className="password input-container">
+              <input
+                type="password"
+                name="password"
+                placeholder="*Senha"
+                value={formValues.password}
+                onChange={handleInputChange}
+              ></input>
+            </div>
+
+            <div className="submit-button">
+              <button type="submit" onClick={handleSubmit}>Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <Footer />
+    </>
+  );
+};
+
 export default Signup;
