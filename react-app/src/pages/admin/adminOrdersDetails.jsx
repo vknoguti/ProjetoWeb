@@ -36,8 +36,12 @@ const OrderDetails = ({result}) => {
                     {result && result.items && result.items.map((itemsInfo) => (
                         <React.Fragment key={itemsInfo.id}>
                             <p><strong>{itemsInfo.brand}  {itemsInfo.model}</strong></p>
-                            <p>Size: {itemsInfo.size}</p>
-                            <p>Quantity: {itemsInfo.quantity}</p>
+                            <p>Size: | {itemsInfo.sizes.map(e => {
+                                if(e.stock > 0) return ` ${e.size} |`;
+                            })}</p>
+                            <p>Quantity: | {itemsInfo.sizes.map(e => {
+                                if(e.stock > 0) return ` ${e.stock} |`;
+                            })}</p>
                             <p>Total: R$ {itemsInfo.price}</p>
 
                         </React.Fragment>

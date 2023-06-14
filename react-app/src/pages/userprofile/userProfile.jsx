@@ -109,7 +109,7 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
                                         <div className="form-group-complemento">
                                             <label>Complemento</label>
                                             <input type="text" id="complemento" name="complemento" value={headerUser.address[0].addittional} required disabled/>
-                                        </div>sudo npm install -g json-server
+                                        </div>
                                     </div>
 
                                     <div className="form-row">
@@ -127,9 +127,7 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
                                         <div className="form-group-numero">
                                             <label>Numero</label>
                                             <input type="number" id="numero" name="numero" value={headerUser.address[0].number} required disabled/>
-                                        </div>
-
-                                    
+                                        </div>                                    
                                     </div>
 
                                     {/*

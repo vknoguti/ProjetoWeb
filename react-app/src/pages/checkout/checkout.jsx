@@ -36,7 +36,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
 
     const navigate = useNavigate();
 
-    const handleOrder = () => {
+    const handleOrder = async () => {
         //Caso todos os dados do cartão tenham sido digitados, finaliza a compra com sucesso e remove do estoque a quantidade comprada
         if(card.number != '' && card.date != '' && card.cvv != '') {
             let newResults = [...results];
@@ -57,6 +57,55 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
             })
 
             // TODO put no db atualizando o estoque e setResults para atualizar o valor do result, renderizando o result novamente resultando em um novo get dos itens
+            const updateStock = newResults.map(async (item) => {
+                await fetch(`http://localhost:7000/products/${item.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(item),
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                        console.log('Product updated successfully');
+                
+                        setResults(prevResults => {
+                            const updatedResults = prevResults.map(result => {
+                            if (result.id === item.id) {
+                                return item;
+                            } else {
+                                return result;
+                            }
+                            });
+                            return updatedResults;
+                        });
+    
+                        } else {
+                        console.log('Product update failed');
+                        }
+                    })
+                    .catch(error => console.log(error));
+                });
+            
+            console.log(updateStock);
+
+            // Criando o objeto que será enviado como um novo pedido no banco de dados
+            const order = {
+                username: headerUser.name,
+                address: headerUser.address,
+                items: headerUser.cart
+            }
+            
+            // Adicionando um novo pedido no banco de dados
+            const createOrder = await fetch('http://localhost:7000/orders', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(order)
+            }).then(() => {
+                console.log('new order added');
+            });
+
+            console.log(createOrder);
 
             //Esvazia o carrinho do usuario
             const newState = {...headerUser, cart: []};

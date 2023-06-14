@@ -19,19 +19,21 @@ const App = () => {
   const [results, setResults] = useState([]);
   const [users, setUsers] = useState([]);
 
+  
+
   useEffect(() => {
-      fetch('http://localhost:7000/products')
-        .then(response => response.json())
-        .then(data => setResults(data))
-        .catch(error => console.log(error));
+    fetch('http://localhost:7000/products')
+    .then(response => response.json())
+    .then(data => setResults(data))
+    .catch(error => console.log(error));
       
-      fetch('http://localhost:7000/users')
-        .then(response => response.json())
-        .then(data => setUsers(data))
-        .catch(error => console.log(error));
+    fetch('http://localhost:7000/users')
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(error => console.log(error));
 
       console.log(results, users);
-    }, []);
+    }, [results, users]);
 
   const [headerUser, setHeaderUser] = useState({
       id: null,
