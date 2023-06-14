@@ -157,12 +157,42 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
 ## Parte 2 - Client Functionality
 ### Instalação do Projeto
 - Antes de executar o projeto, faça download e instalação do react no sistema operacional utilizado.
-- Faça o download do projeto da branch galio.
+- Faça o download do projeto da branch main.
 - Abra o terminal seja pelo linux ou pelo windows, e acesse o diretório react-app pelas linhas de comando.
 - Dentro da pasta react-app, com todos os arquivos do projeto, execute 'npm install'(sem aspas), no qual será instalado todos os pacotes do react
   - Caso a instalação não seja efetuada, digite 'npm install --force'
-- Por fim, digite 'npm start' no terminal.
+- Digite 'npm start' no terminal
+- Em sequência, abra um segundo terminal e acesse o diretório react-app/data
+- Execute o comando 'npx json-server --port 7000 --watch db.json'.
 
+## Plano de Teste
+ Foram feitos diversos teste manuais seguindo o diagrama de navegação construído, verificando os caminhos possíveis.
+ Para seguir o diagrama de navegação, duas contas testes podem ser utilizadas:
+ ### Administrador:
+ Login: user3@user.com
+ Senha: user
+ 
+ - Itens podem ser adicionados, removidos e editados.
+ - Usuários e pedidos podem ser visualizados
+
+### Cliente:
+Login: user1@user.com
+Senha: user
+
+- Clicar no nome de usuário e verificar dados.
+- Adicionar itens ao carrinho
+- Finalizar pedido
+
+### Testes Gerais
+- Verificar a navegação apresentada no diagrama.
+- Acessar os dois tipos de usuários.
+- Criar uma conta para usuário comum
+
+## Problemas
+Alguns problemas foram encontrados fazendo a execução dos testes:
+- Há um problema em que o servidor fecha ao finalizar mais de duas compras;
+- Os itens vendidos não estão sendo contabilizados;
+- Os usuários não são atualizados automaticamente após o post no banco de dados (Após a criação de conta é necessário recarregar a página)
 
 
 
