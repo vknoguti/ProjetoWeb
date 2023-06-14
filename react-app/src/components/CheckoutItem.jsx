@@ -2,7 +2,6 @@ import React from 'react';
 import './CheckoutItem.css';
 
 const CheckoutItem = ({product, quantity}) => {
-    console.log(product.id);
     return (  
         <li key={product.id} className='checkout-item'>
             <div className='checkout-item-img'>

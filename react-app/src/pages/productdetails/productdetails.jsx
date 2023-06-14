@@ -5,76 +5,71 @@ import Product from '../../components/Product';
 import './productdetails.css'
 import Size from '../../components/Size';
 import Footer from '../../components/Footer';
-import { PRODUCTLIST } from '../../productlist';
 import { useParams } from 'react-router-dom';
 
 const ProductDetail = ({results, headerUser, setHeaderUser}) => {
+    // Encontra o produto pelo parametro passado na url
     const key = useParams();
    
+    // Encontra o produto no banco de dados atraves da key/id
     let product = results.filter(item => {
         if(item.id == key.id) {
             return item;
         } 
     })[0];
 
-    console.log(product)
-
-
     const [qttInput, setQttInput] = useState(0);
 
     const [size, setSize] = useState('');
 
+    // Handler do botão de adicionar ao carrinho
     const handleAddToCart = () => {
+        // Verifica primeiramente se o usuário está logado
         if(!headerUser.logged) {
             alert("Voce precisa estar logado para adicionar itens ao carrinho");
             return;
         }
 
+        // Encontra a quantidade em estoque do tamanho selecionado 
         const qtt = product.sizes.filter(e => {
             if(e.size == size)
                 return e;
         })
         
-        if(qtt.length > 0 && (qttInput < 1 || qttInput > qtt[0].stock))
+        // Caso seja selecionado um tamanho, porém a quantidade digitada pelo usuário seja maior que em estoque, ou seja 0, alerta o usuário de que a quantidade
+        // está indisponível
+        if(qtt.length > 0 && (qttInput < 1 || parseInt(qttInput) > qtt[0].stock))
         {
+            console.log(qtt[0].stock, qttInput)
             alert("Quantidade indisponivel")
-        } else {
-            let itemToCart = { ...product, sizes: product.sizes.map(e => {
-                return {size: e.size, stock: 0}
+        } else if(qtt.length === 0) { // Caso o tamanho do array do filtro seja 0, significa que uma quantidade não foi selecionada
+            alert("Selecione um tamanho")
+        } else { // Caso em que o tamanho existe e a quantidade está disponível
+            const itemToCart = { ...product, sizes: product.sizes.map(e => {
+                // Caso seja o tamanho correto, a quantidade pedida é o input
+                if(e.size == size) return {size: e.size, stock: parseInt(qttInput)}
+                // Caso contrario, a quantidade pedida é 0
+                else return {size: e.size, stock: 0}
             })};
-            console.log(itemToCart);
-            let aux = itemToCart.sizes.find((o, i) => {
-                if(o.size == size) {
-                    itemToCart.sizes[i] = {
-                        size: o.size,
-                        stock: parseInt(qttInput)
-                    }
-                } else {
-                    itemToCart.sizes[i] = {
-                        size: o.size,
-                        stock: 0
-                    }
-                }
-            })
 
+            // Agora é necessário atualizar o carrinho
             let newState = {...headerUser}
 
-            console.log(newState);
-
+            // Primeiro verificamos se o carrinho ja possui o item que estamos adicionando
             if(newState.cart.length == 0 || newState.cart.filter((e) => {
                 if(e.id == itemToCart.id) return e;
-            }).length == 0) {
+            }).length == 0) { // Caso não possua, apenas damos um append no carrinho com o item
                 newState.cart.push(itemToCart)
-            }
-            else {
-                aux = newState.cart.find((o, i) => {
+            } else { // Caso o carrinho ja possua o item
+                newState.cart.find((o) => { // Encontramos o item no carrinho
                     if(o.id == itemToCart.id) {
-                        let findSize = o.sizes.find((x, j) => {
-                            if(x.size == size) {
-                                if(x.stock + parseInt(qttInput) <= qtt[0].stock) {
-                                    x.stock += parseInt(qttInput);
+                        o.sizes.find((x) => { 
+                        if(x.size == size) { // Encontramos o tamanho correto do item
+                                if(x.stock + parseInt(qttInput) <= qtt[0].stock) { // Verificação se a quantidade comprada somada a do carrinho não ultrapassa o estoque
+                                    x.stock += parseInt(qttInput); // Caso não ultrapasse, aumenta no carrinho
                                 }
                                 else
+                                    // Caso contrário, alerta o usuário de que a quantidade está indisponível
                                     alert("Quantidade indisponível")
                             }
                         })
@@ -82,6 +77,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                 })
             }
 
+            // Atualiza o estado do usuário geral
             setHeaderUser(newState);
         }
 
@@ -109,16 +105,16 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                                 <span>R${parseFloat(product.price).toFixed(2)}</span>
                             </div>
                             <div className="product-size">
-                                <h3>Selecione um tamanho</h3>
+                                <h3>Select Size</h3>
                                 <select id='sizes' value={size} onChange={(e) => setSize(e.target.value)}>
-                                    <option value=''>Tamanhos</option>
+                                    <option value=''>Sizes</option>
                                     <Size product={product}/>
                                 </select>
                             </div>
-                            <p>Selecione uma Quantidade</p>
+                            <p>Select Quantity</p>
                             <div className="product-quantity">
                                 <input value={qttInput} onChange={e => setQttInput(e.target.value)} type='number' min='0'></input>
-                                <button onClick={handleAddToCart} className='qtt-button'>Adicionar ao Carrinho</button>
+                                <button onClick={handleAddToCart} className='qtt-button'>ADD TO CART</button>
                             </div>
                         </div>
                     </section>

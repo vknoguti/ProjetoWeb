@@ -16,16 +16,19 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
         cvv: ''
     })
 
+    //Listener do numero do cartão
     const handleNumber = (e) => {
         const newState = {...card, number: e.target.value};
         setCard(newState)
     }
 
+    //Listener da validade do cartão
     const handleDate = (e) => {
         const newState = {...card, date: e.target.value};
         setCard(newState);
     }
 
+    //Listener do código do cartão
     const handleCVV = (e) => {
         const newState = {...card, cvv: e.target.value};
         setCard(newState);
@@ -34,14 +37,36 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
     const navigate = useNavigate();
 
     const handleOrder = () => {
+        //Caso todos os dados do cartão tenham sido digitados, finaliza a compra com sucesso e remove do estoque a quantidade comprada
         if(card.number != '' && card.date != '' && card.cvv != '') {
+            let newResults = [...results];
+
+            console.log(newResults)
+            // Percorrendo pelos items do carrinho
+            headerUser.cart.map(item => {
+                // Buscando pelo item no banco de dados que se refere ao do carrinho
+                newResults.find((e) => {
+                    // Ao encontrar o item do carrinho
+                    if(e.id == item.id) {
+                        // Percorre por todos os tamanhos diminuindo a quantidade em estoque
+                        for(let i = 0; i < e.sizes.length; i++) {
+                            e.sizes[i].stock -= item.sizes[i].stock;
+                        }
+                    }
+                })
+            })
+
+            // TODO put no db atualizando o estoque e setResults para atualizar o valor do result, renderizando o result novamente resultando em um novo get dos itens
+
+            //Esvazia o carrinho do usuario
             const newState = {...headerUser, cart: []};
             setHeaderUser(newState);
+
+            //Mensagem de compra realizada com sucesso e retorna a pagina inicial
             alert("Compra realizada com sucesso");
-            setTimeout(() => {
-                navigate('/')
-            }, 500);
-        } else {
+            navigate('/')
+
+        } else { //Caso contrário, da um alerta para preencher os dados do cartão
             alert('Digite os dados corretos do cartão')
         }
     }
@@ -64,7 +89,6 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                     <ul>
                         {items.map(item => {
                             let aux = 0;
-                            console.log(headerUser)
                             item.sizes.map(itemSize => {
                                 total += itemSize.stock * item.price
                                 aux += parseInt(itemSize.stock)
@@ -75,7 +99,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                     <div className="place-order">
                         <h3>Total: R${total.toFixed(2)}</h3>
                         <button onClick={handleOrder}>
-                        <span>Finalizar Compra</span></button>
+                        <span>CHECKOUT</span></button>
                     </div>
                 </div>
             </div>

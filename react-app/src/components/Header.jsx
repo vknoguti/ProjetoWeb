@@ -7,8 +7,11 @@ import '../App.css';
 const Header = ({user, logged}) => {
     const navRef = useRef();
 
+    // URL da logo do site
     const logo = 'https://i.imgur.com/pGHQ2zI.png';
 
+    // Quando o width da tela chega em determinado tamanho, um ícone de menu sanduíche substitui os botões; ao clicar nesse ícone, um dropdown é mostrado, ao clicar
+    // novamente ele se torna invisível
     const showNavBar = () => {
         navRef.current.classList.toggle("show-options");
     }

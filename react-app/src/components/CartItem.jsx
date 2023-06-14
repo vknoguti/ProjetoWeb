@@ -1,47 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import './CartItem.css'
 import {MdDeleteOutline} from 'react-icons/md'
-import { PRODUCTLIST } from '../productlist';
 
 const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
     const [product, setProduct] = useState(item);
 
+    //Listener do botão de diminuir quantidade de um produto no carrinho
     const handleDecrement = () => {
+        //Caso a quantidade seja maior que 1 pode ser removida uma unidade
         if(size.stock > 1) {
+            //Carregando o novo estado, atraves de um map dos tamanhos do produto em questão
             const newState = {...product, sizes: product.sizes.map(e => {
+                //Ao encontrar o tamanho correto, o estoque (quantidade de itens no carrinho do cliente) é diminuído em uma unidade
                 if(e.size == size.size) return {size: e.size, stock: e.stock - 1};
+                //Caso contrário continua a mesma quantidade
                 else return e
             })};
 
+            //Função que modifica as quantidades no carrinho em si para calculo de total
             handleQuantity(size.stock - 1, size.size, product.id);
+
+            //Atualizando estado do produto
             setProduct(newState);
         }      
     }
 
-    const handleIncrement = () => {        
+    //Listener do botão de aumentar quantidade de um produto no carrinho
+    const handleIncrement = () => {   
+        //Para essa função é necessário encontrar o item em si dentro do banco de dados para encontrar o estoque real do item
         const filterItem = results.filter(item => {
-            if(item.id === product.id) return item;
+            if(item.id == product.id) return item;
         })[0];
 
+        //Apos encontrar o item, é necessário encontrar o tamanho no array sizes
         const filterSize = filterItem.sizes.filter(e => {
-            if(size.size === e.size) return e;
+            if(size.size == e.size) return e;
         })[0];
 
+        //Para incrementar é necessário que a quantidade de produtos em seu tamanho seja menor que no estoque de mesmo tamanho e produto
         if(size.stock < filterSize.stock) {
             const newState = {...product, sizes: product.sizes.map(e => {
                 if(e.size == size.size) return {size: e.size, stock: e.stock + 1};
                 else return e
             })};
 
+            //Função que modifica as quantidades no carrinho em si para calculo de total
             handleQuantity(size.stock + 1, size.size, product.id);
-            setProduct(newState);
 
-        } else {
+            //Atualizando estado do produto
+            setProduct(newState);
+        } else { //Caso a quantidade no carrinho ao incrementar seja maior que no estoque, da um alerta ao usuario e não incrementa
             alert('Quantidade acima do estoque')
         }
     }
 
     const handleDelete = () => {
+        //Função para remover um item deve ser realizada no carrinho, um item não é capaz de se remover
         removeItem(product.id, size.size);
     }
 

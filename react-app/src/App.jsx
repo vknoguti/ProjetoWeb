@@ -17,14 +17,20 @@ import NotFound from './pages/notfound/notfound';
 
 const App = () => {
   const [results, setResults] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
       fetch('http://localhost:7000/products')
         .then(response => response.json())
         .then(data => setResults(data))
         .catch(error => console.log(error));
-        console.log(headerUser);
+      
+      fetch('http://localhost:7000/users')
+        .then(response => response.json())
+        .then(data => setUsers(data))
+        .catch(error => console.log(error));
 
+      console.log(results, users);
     }, []);
 
   const [headerUser, setHeaderUser] = useState({
@@ -43,7 +49,7 @@ const App = () => {
   return (
   <Routes>
     <Route path='/' element={<Home results={results} headerUser={headerUser} />}/>
-    <Route path='/login' element={<Login headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
+    <Route path='/login' element={<Login users={users} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
     <Route path='/signup' element={<Signup headerUser={headerUser} />}/>
     <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
     <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>

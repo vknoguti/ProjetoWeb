@@ -1,7 +1,10 @@
 import React from 'react';
 
 const Size = ({product}) => {
-    const availableSizes = product.sizes.filter(e => {
+    // Ordena os tamanhos para organizar o select
+    const availableSizes = product.sizes.sort((a, b) => {
+        return a.size - b.size
+    }).filter(e => {
         if(e.stock > 0) return e 
     })
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -11,6 +11,8 @@ import UserAddress from '../../components/userAddress';
 
 
 const UserProfile = ({headerUser, setHeaderUser}) => {
+    const key = useParams();
+
     const navigate = useNavigate();
 
     const [logged, setLogged] = useState(headerUser.logged);
@@ -33,7 +35,7 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
         navigate('/', {replace: true})
     }
 
-    if(headerUser.logged) {
+    if(headerUser.logged && headerUser.id == key.id) {
         return (  
             <>
                 <Header user={headerUser} logged={logged}/>
@@ -171,7 +173,11 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
             </>
         );
     } else {
-        return (<></>)
+        return (
+            <>
+                {navigate('/', {replace: true})}
+            </>
+        )
     }
 }
  

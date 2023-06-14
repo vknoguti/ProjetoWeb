@@ -5,14 +5,9 @@ import Footer from '../../components/Footer';
 
 import './home.css'
 import '../../App.css'
-import { PRODUCTLIST } from '../../productlist';
-
 
 
 const Home = ({results, headerUser}) => {   
-
-    console.log(results)
-
     return (
         <>
             <Header user={headerUser} logged={headerUser.logged}/>
