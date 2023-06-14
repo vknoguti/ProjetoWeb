@@ -14,7 +14,7 @@
 }
 
 .signup-container .input-container {
-    width: 90%;
+    width: 100%;
     display: flex;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .submit-button {
-    width: 60%;
+    width: 100%;
     margin: 2vh 0;
 }
 
