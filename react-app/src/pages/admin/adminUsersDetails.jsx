@@ -1,7 +1,6 @@
 import React from 'react';
 import './adminUsersDetails.css'
 
-
 const UsersDetails = ({result}) => {
     return ( 
         <div className="user-preview" key={result.id}>
@@ -10,28 +9,36 @@ const UsersDetails = ({result}) => {
             </div>
 
             <div className="user-email">
-                <p>Email: {result.email}</p>
+                <p><strong>Email: </strong>{result.email}</p>
             </div>
 
             <div className="user-cpf">
-                <p>CPF: {result.cpf}</p>
+                <p><strong>CPF: </strong>{result.cpf}</p>
             </div>
 
             <div className="user-cellphone">
                 {result.phones.map((phone, index) => (
-                <p key={index}>Phone {index+1}: {phone}</p>
+                <p key={index}><strong>Phone {index+1}: </strong>{phone}</p>
                 ))} 
             </div>
 
             <div className="user-address">
+                <p><strong>Address</strong></p>
             {result && result.address && result.address.map((addressItem) => (
                 <React.Fragment key={addressItem.id}>
                     <p>{addressItem.street}, {addressItem.number} - {addressItem.neighbourhood}</p>
                     <p>{addressItem.city} - {addressItem.state}</p>
                     <p>CEP: {addressItem.cep}</p>
+                    <p>{addressItem.additional}</p>
                 </React.Fragment>
                 ))}
             </div>
+
+            <div className="user-type">
+                <p><strong>Type </strong>
+                {result.admin ? (<p>Admin User</p>) : (<p>Normal User</p>)}</p>
+            </div>
+            
         </div>
      );
 }

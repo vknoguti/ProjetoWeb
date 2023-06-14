@@ -307,12 +307,76 @@
                 "neighbourhood": "Centro",
                 "street": "Av. Brasil",
                 "number": "2",
-                "additional": ""
+                "additional": "Próximo a entrada da Universidade de São Paulo"
             }
         ],
         "cart": [],
         "admin": true
     }
-]
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "username": "user1",
+      "address": [
+        {
+            "cep": "10245124",
+            "city": "São Carlos",
+            "state": "SP",
+            "neighbourhood": "Centro",
+            "street": "Av. Brasil",
+            "number": "2",
+            "additional": "Próximo a entrada da Universidade de São Paulo"
+        }
+      ],
+      "items": [
+        {
+          "model": "Ultraboost",
+          "brand": "Adidas",
+          "size": "39",
+          "quantity": "2",
+          "price": "1.999,98"
+        }, 
+        {
+          "model": "SB Force 58",
+          "brand": "Nike",
+          "size": "40",
+          "quantity": "1",
+          "price": "579.98"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "address": [
+        {
+            "cep": "10245124",
+            "city": "São Carlos",
+            "state": "SP",
+            "neighbourhood": "Centro",
+            "street": "Av. Europa",
+            "number": "2",
+            "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "model": "Ultraboost",
+          "brand": "Adidas",
+          "size": "40",
+          "quantity": "1",
+          "price": "999,99"
+        }, 
+        {
+          "model": "SB Force 58",
+          "brand": "Nike",
+          "size": "40",
+          "quantity": "1",
+          "price": "579.98"
+        }
+      ]
+    }
+  ]
 
 }
