@@ -7,20 +7,20 @@
       "price": "999.99",
       "sizes": [
         {
-          "size": "40",
-          "stock": "1000"
+          "size": "38",
+          "stock": 20
         },
         {
           "size": "39",
-          "stock": "100"
+          "stock": 100
+        },
+        {
+          "size": "40",
+          "stock": 990
         },
         {
           "size": "41",
-          "stock": "40"
-        },
-        {
-          "size": "38",
-          "stock": "20"
+          "stock": 40
         }
       ],
       "sold": "0",
@@ -35,19 +35,19 @@
       "sizes": [
         {
           "size": "38",
-          "stock": "30"
+          "stock": 30
         },
         {
           "size": "39",
-          "stock": "23"
+          "stock": 20
         },
         {
           "size": "40",
-          "stock": "35"
+          "stock": 35
         },
         {
           "size": "41",
-          "stock": "20"
+          "stock": 20
         }
       ],
       "sold": "0",
@@ -60,20 +60,20 @@
       "price": "579.90",
       "sizes": [
         {
+          "size": "38",
+          "stock": 30
+        },
+        {
           "size": "39",
-          "stock": "100"
+          "stock": 90
         },
         {
           "size": "40",
-          "stock": "30"
-        },
-        {
-          "size": "38",
-          "stock": "30"
+          "stock": 30
         },
         {
           "size": "41",
-          "stock": "20"
+          "stock": 20
         }
       ],
       "sold": "0",
@@ -88,19 +88,19 @@
       "sizes": [
         {
           "size": "38",
-          "stock": "8"
+          "stock": 5
         },
         {
           "size": "39",
-          "stock": "10"
+          "stock": 10
         },
         {
           "size": "40",
-          "stock": "15"
+          "stock": 15
         },
         {
           "size": "41",
-          "stock": "4"
+          "stock": 4
         }
       ],
       "sold": "0",
@@ -142,19 +142,19 @@
       "sizes": [
         {
           "size": "38",
-          "stock": "10"
+          "stock": 10
         },
         {
           "size": "39",
-          "stock": "40"
+          "stock": 40
         },
         {
           "size": "40",
-          "stock": "23"
+          "stock": 20
         },
         {
           "size": "41",
-          "stock": "45"
+          "stock": 45
         }
       ],
       "sold": "0",
@@ -221,19 +221,19 @@
       "sizes": [
         {
           "size": "38",
-          "stock": "40"
+          "stock": 40
         },
         {
           "size": "39",
-          "stock": "100"
+          "stock": 100
         },
         {
           "size": "40",
-          "stock": "50"
+          "stock": 47
         },
         {
           "size": "41",
-          "stock": "30"
+          "stock": 30
         }
       ],
       "description": "Modern and unmistakable, the men's Nike sneakers are the ideal option at all times. The upper (upper part of the shoe) in synthetic provides support, support and durability. The men's sneaker has a rubberized midsole and outsole that guarantee greater stability and grip on all surfaces.",
@@ -333,15 +333,47 @@
         {
           "model": "Ultraboost",
           "brand": "Adidas",
-          "size": "39",
-          "quantity": "2",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 2
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
           "price": "1.999,98"
         },
         {
           "model": "SB Force 58",
           "brand": "Nike",
-          "size": "40",
-          "quantity": "1",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 1
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
           "price": "579.98"
         }
       ]
@@ -364,18 +396,560 @@
         {
           "model": "Ultraboost",
           "brand": "Adidas",
-          "size": "40",
-          "quantity": "1",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 1
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
           "price": "999,99"
         },
         {
           "model": "SB Force 58",
           "brand": "Nike",
-          "size": "40",
-          "quantity": "1",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 1
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
           "price": "579.98"
         }
       ]
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "brand": "Nike",
+          "model": "Court Vision Low",
+          "price": "549.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 3
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "description": "Modern and unmistakable, the men's Nike sneakers are the ideal option at all times. The upper (upper part of the shoe) in synthetic provides support, support and durability. The men's sneaker has a rubberized midsole and outsole that guarantee greater stability and grip on all surfaces.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/96256101/tenis-nike-court-vision-low-next-nature-masculino-img.jpg",
+          "id": 12
+        },
+        {
+          "brand": "Nike",
+          "model": "Jordan One Take 4",
+          "price": "899.00",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 3
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "Have some summer fun with your new favorite AJ1s. Made with a blend of suede and canvas, this pair gives you the comfort you know and love with a seasonal update.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/9793543L/tenis-nike-jordan-one-take-4-unissex-img.jpg",
+          "id": 7
+        }
+      ],
+      "id": 3
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 2
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 4
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 5
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 7
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 8
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 10
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 3,
+          "brand": "Adidas",
+          "model": "Pureboost",
+          "price": "990.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 3
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Pureboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/973929D0/tenis-adidas-pureboost-22-masculino-img.jpg"
+        }
+      ],
+      "id": 11
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 3,
+          "brand": "Adidas",
+          "model": "Pureboost",
+          "price": "990.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 3
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Pureboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/973929D0/tenis-adidas-pureboost-22-masculino-img.jpg"
+        }
+      ],
+      "id": 12
+    },
+    {
+      "username": "user1",
+      "address": [
+        {
+          "cep": "102450",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. São Carlos",
+          "number": "1",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "brand": "Nike",
+          "model": "Air Max Excee",
+          "price": "579.90",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 0
+            },
+            {
+              "size": "39",
+              "stock": 10
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "Inspired by the Nike Air Max 90, the Nike Air Max Excee celebrates a classic with a fresh look. Elongated lines and distorted proportions at the top bring an icon to a fresh, modern space.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/94677002/tenis-nike-air-max-excee-masculino-img.jpg",
+          "id": 6
+        }
+      ],
+      "id": 13
     }
   ]
 }

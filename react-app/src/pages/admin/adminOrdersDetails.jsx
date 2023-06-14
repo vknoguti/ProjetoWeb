@@ -33,19 +33,19 @@ const OrderDetails = ({result}) => {
                 </div>
 
                 <div className="order-items">
-                    {result && result.items && result.items.map((itemsInfo) => (
-                        <React.Fragment key={itemsInfo.id}>
+                    {result && result.items && result.items.map((itemsInfo) => {
+                            <React.Fragment key={itemsInfo.id}>
                             <p><strong>{itemsInfo.brand}  {itemsInfo.model}</strong></p>
-                            <p>Size: | {itemsInfo.sizes.map(e => {
-                                if(e.stock > 0) return ` ${e.size} |`;
+                            <p>Size: | {itemsInfo.sizes && itemsInfo.sizes.map(e => {
+                            if(e.stock > 0) return ` ${e.size} |`;
                             })}</p>
-                            <p>Quantity: | {itemsInfo.sizes.map(e => {
+                            <p>Quantity: | {itemsInfo.sizes && itemsInfo.sizes.map(e => {
                                 if(e.stock > 0) return ` ${e.stock} |`;
                             })}</p>
                             <p>Total: R$ {itemsInfo.price}</p>
 
-                        </React.Fragment>
-                    ))}
+                            </React.Fragment>
+                    })}
                 </div>
             </div>
         </>
