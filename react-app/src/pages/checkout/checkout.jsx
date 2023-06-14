@@ -51,6 +51,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                         // Percorre por todos os tamanhos diminuindo a quantidade em estoque
                         for(let i = 0; i < e.sizes.length; i++) {
                             e.sizes[i].stock -= item.sizes[i].stock;
+                            e.sold += parseInt(item.sizes[i].stock);
                         }
                     }
                 })

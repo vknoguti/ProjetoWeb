@@ -8,7 +8,7 @@
       "sizes": [
         {
           "size": "38",
-          "stock": 20
+          "stock": 5
         },
         {
           "size": "39",
@@ -23,7 +23,7 @@
           "stock": 40
         }
       ],
-      "sold": "0",
+      "sold": "05000",
       "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
       "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
     },
@@ -169,21 +169,22 @@
       "sizes": [
         {
           "size": "38",
-          "stock": "100"
+          "stock": 100
         },
         {
           "size": "39",
-          "stock": "90"
+          "stock": 88
         },
         {
           "size": "40",
-          "stock": "75"
+          "stock": 75
         },
         {
           "size": "41",
-          "stock": "60"
+          "stock": 60
         }
       ],
+      "sold": 0,
       "description": "\n486 / 5.000\nResultados de tradução\nResultado da tradução\nChoose your sneakers right, the adidas Grand Court is the daily ally for casual day to day. The leather (upper part of the shoe) in synthetic material that guarantees support to the feet.",
       "image": "https://imgcentauro-a.akamaihd.net/500x500/9736090I/tenis-adidas-grand-court-2-0-masculino-img.jpg",
       "id": 10
@@ -210,6 +211,7 @@
           "stock": "30"
         }
       ],
+      "sold": 0,
       "description": "Jordan's synonym is talent! It's almost impossible not to respect and not to get goosebumps with this athlete's career. For so many amazing reasons, wearing items from their partnership with Nike has become a must for many. If you're part of the basketball player's hallucinations or are a fan of his history and like his products, then it's time to get the Jordan Stay Loyal 2 Shoes.",
       "image": "https://imgcentauro-a.akamaihd.net/500x500/97935519/tenis-nike-jordan-stay-loyal-2-masculino-img.jpg",
       "id": 11
@@ -236,6 +238,7 @@
           "stock": 30
         }
       ],
+      "sold": 0,
       "description": "Modern and unmistakable, the men's Nike sneakers are the ideal option at all times. The upper (upper part of the shoe) in synthetic provides support, support and durability. The men's sneaker has a rubberized midsole and outsole that guarantee greater stability and grip on all surfaces.",
       "image": "https://imgcentauro-a.akamaihd.net/500x500/96256101/tenis-nike-court-vision-low-next-nature-masculino-img.jpg",
       "id": 12
@@ -950,6 +953,138 @@
         }
       ],
       "id": 13
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 14
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "05000",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 15
+    },
+    {
+      "username": "user2",
+      "address": [
+        {
+          "cep": "10245124",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Centro",
+          "street": "Av. Brasil",
+          "number": "2",
+          "additional": ""
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "brand": "Adidas",
+          "model": "Ultraboost",
+          "price": "999.99",
+          "sizes": [
+            {
+              "size": "38",
+              "stock": 5
+            },
+            {
+              "size": "39",
+              "stock": 0
+            },
+            {
+              "size": "40",
+              "stock": 0
+            },
+            {
+              "size": "41",
+              "stock": 0
+            }
+          ],
+          "sold": "0",
+          "description": "These Ultraboost running shoes offer comfort and responsiveness. It's built on a BOOST midsole with a Linear Energy Push system and a Continental™ Rubber outsole for endless energy. The upper on these shoes is made with high-performance yarns that contain at least 50% recycled Parley Ocean Plastic, which is intercepted from remote islands, beaches, coastal communities and coastlines, preventing it from polluting our oceans.",
+          "image": "https://imgcentauro-a.akamaihd.net/500x500/981692H3/tenis-adidas-ultraboost-light-masculino-img.jpg"
+        }
+      ],
+      "id": 16
     }
   ]
 }
