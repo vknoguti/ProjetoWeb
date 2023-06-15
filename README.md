@@ -21,10 +21,9 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
     - Realiza cadastro e login, obrigatória para compra de produtos, com informações pessoais.
     - Consegue ver as descrições de cada produto da página inicial
     - Pode adicionar produtos ao carrinho e realizar compras informando dados de pagamento
-    - Pode modificar dados de conta, caso esta já exista, como Nome, Data de Nascimento, Sexo e Telefone 
   - Administrador:
     - Consegue gerenciar pedidos(adicionar, apagar e modificar)  
-    - Gerencia usuários(adiciona, modifica e apaga)
+    - Visualizar usuários 
     - Pode verificar os pedidos feitos pelos usuários e gerenciar os dados desses pedidos conforme necessário
   - Funcionalidade Extra:
     - Cada produto da página poderá ser visualizado tridimensionalmente
@@ -55,7 +54,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
        - Carrinho é bloqueado a um usuário não logado
      - Comum
        - Terá acesso a página de produto, verificando detalhes de um produto clicado
-       - Ir para página de perfil (clicando em ACCOUNT), onde poderá modificar dados pessoais
+       - Ir para página de perfil (clicando em ACCOUNT), onde poderá verificar dados pessoais
      - Administrador
        - Poderá ir para a página de admin, clicando em ACCOUNT
        - Outros recursos são bloqueados(carrinho e descrição de produto)
@@ -82,7 +81,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
      - Não logado
        - Não possui página de perfil
      - Comum
-       - Modificar dados pessoais e de endereço
+       - Visualizar dados pessoais e de endereço
        - Voltar para a página principal
        - Ir para a página de carrinho
        - Realizar Logout
@@ -117,7 +116,6 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
      - Não logado
        - Não possui carrinho(cart)
      - Comum
-       - Aplicar cupom nos produtos
        - Ir a página de pagamento
      - Administrador
        - Não possui carrinho(cart)
