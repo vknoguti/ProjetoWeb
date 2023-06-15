@@ -51,6 +51,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                         // Percorre por todos os tamanhos diminuindo a quantidade em estoque
                         for(let i = 0; i < e.sizes.length; i++) {
                             e.sizes[i].stock -= item.sizes[i].stock;
+                            e.sold = parseInt(e.sold);
                             e.sold += parseInt(item.sizes[i].stock);
                         }
                     }
@@ -59,34 +60,38 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
 
             // TODO put no db atualizando o estoque e setResults para atualizar o valor do result, renderizando o result novamente resultando em um novo get dos itens
             const updateStock = newResults.map(async (item) => {
-                await fetch(`http://localhost:7000/products/${item.id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(item),
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                        console.log('Product updated successfully');
-                
-                        setResults(prevResults => {
-                            const updatedResults = prevResults.map(result => {
-                            if (result.id === item.id) {
-                                return item;
-                            } else {
-                                return result;
-                            }
+                try {
+                    const response = await fetch(`http://localhost:7000/products/${item.id}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(item),
+                        })
+
+                        if(response.ok) {
+                            console.log('Product updated successfully');
+                    
+                            setResults(prevResults => {
+                                const updatedResults = prevResults.map(result => {
+                                if (result.id === item.id) {
+                                    return item;
+                                } else {
+                                    return result;
+                                }
+                                });
+                                return updatedResults;
                             });
-                            return updatedResults;
-                        });
-    
-                        } else {
-                        console.log('Product update failed');
+        
+                            } else {
+                            console.log('Product update failed');
+                            }                       
+                            
                         }
-                    })
-                    .catch(error => console.log(error));
-                });
+                        catch (error){
+                            console.log(error);
+                        }
+                    });
             
             console.log(updateStock);
 
@@ -96,6 +101,8 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 address: headerUser.address,
                 items: headerUser.cart
             }
+
+            console.log(order);
             
             // Adicionando um novo pedido no banco de dados
             const createOrder = await fetch('http://localhost:7000/orders', {
@@ -106,7 +113,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 console.log('new order added');
             });
 
-            console.log(createOrder);
+            setTimeout(createOrder, 1000)
 
             //Esvazia o carrinho do usuario
             const newState = {...headerUser, cart: []};

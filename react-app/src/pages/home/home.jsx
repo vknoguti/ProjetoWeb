@@ -8,6 +8,8 @@ import '../../App.css'
 
 
 const Home = ({results, headerUser}) => {   
+    console.log(results);
+
     return (
         <>
             <Header user={headerUser} logged={headerUser.logged}/>

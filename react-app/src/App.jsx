@@ -30,19 +30,43 @@ const App = () => {
       admin: false,
       address: []
   })
+
+  async function getResults()  {
+    const response = await fetch('http://localhost:7000/products');
+    
+    if (!response.ok) {
+      const message = `An error occurred: ${response.statusText}`;
+      console.log(message);
+      return;
+    }
+
+    const data = await response.json();
+
+    setResults(data);
+  };
+  
+  async function getUsers() {
+    const response = await fetch('http://localhost:7000/users');
+
+    if (!response.ok) {
+      const message = `An error occurred: ${response.statusText}`;
+      console.log(message);
+      return;
+    }
+
+    const data = await response.json();
+
+    setUsers(data);
+  }
+
    
-
+  
+  
   useEffect(() => {
-    fetch('http://localhost:7000/products')
-    .then(response => response.json())
-    .then(data => setResults(data))
-    .catch(error => console.log(error));
-      
-    fetch('http://localhost:7000/users')
-      .then(response => response.json())
-      .then(data => setUsers(data))
-      .catch(error => console.log(error));
+    
+    getResults(); getUsers();
 
+    
       console.log(results, users);
     }, []);
 

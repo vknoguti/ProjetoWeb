@@ -41,7 +41,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         if(qtt.length > 0 && (qttInput < 1 || parseInt(qttInput) > qtt[0].stock))
         {
             console.log(qtt[0].stock, qttInput)
-            alert("Quantidade indisponivel")
+            alert("Quantidade indisponivel.\n" + `Quantidade restante:\nTamanho: ${qtt[0].size}\nQuantidade:${qtt[0].stock}`)
         } else if(qtt.length === 0) { // Caso o tamanho do array do filtro seja 0, significa que uma quantidade não foi selecionada
             alert("Selecione um tamanho")
         } else { // Caso em que o tamanho existe e a quantidade está disponível
@@ -82,12 +82,13 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         }
 
     }
+    console.log(qttInput);
 
     useEffect(() => {
-        console.log(qttInput)
+        console.log(results);
     })
 
-    return (  
+    if(results.length > 0) return (  
         <>
             <Header user={headerUser} logged={headerUser.logged}/>
             <div className="container">
@@ -132,6 +133,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
             <Footer />
         </>
     );
+    else return(<></>)
 }
  
 export default ProductDetail;

@@ -42,7 +42,9 @@ const OrderDetails = ({result}) => {
                             <p>Quantity: | {itemsInfo.sizes && itemsInfo.sizes.map(e => {
                                 if(e.stock > 0) return ` ${e.stock} |`;
                             })}</p>
-                            <p>Total: R$ {itemsInfo.price}</p>
+                            <p>Total: R$ {(itemsInfo.price * itemsInfo.sizes.reduce((acc, object) => {
+                                return acc + object.stock;
+                            }, 0)).toFixed(2)}</p>
 
                             </React.Fragment>
                     ))}
