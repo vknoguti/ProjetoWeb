@@ -39,11 +39,10 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
     const handleOrder = async () => {
         //Caso todos os dados do cartão tenham sido digitados, finaliza a compra com sucesso e remove do estoque a quantidade comprada
         if(card.number != '' && card.date != '' && card.cvv != '') {
-            let newResults;
             // Percorrendo pelos items do carrinho
-            headerUser.cart.map(item => {
+            let newResults = headerUser.cart.map(item => {
                 // Buscando pelo item no banco de dados que se refere ao do carrinho
-                newResults = results.map((e) => {
+                return results.filter((e) => {
                     // Ao encontrar o item do carrinho
                     if(e.id == item.id) {
                         // Percorre por todos os tamanhos diminuindo a quantidade em estoque
@@ -57,9 +56,10 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 })
             })
 
-            // TODO put no db atualizando o estoque e setResults para atualizar o valor do result, renderizando o result novamente resultando em um novo get dos itens
+            // Função para atualizar o estoque
             const updateStock = () => {
                 newResults.map(async (item) => {
+                    // Busca pelos itens no banco de dados e atualiza no sistema
                     try {
                         const response = await fetch(`http://localhost:7000/products/${item.id}`, {
                             method: 'PUT',
@@ -68,10 +68,11 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                             },
                             body: JSON.stringify(item),
                         })
-
+                        // Caso a atualização receba ok
                         if(response.ok) {
                             console.log('Product updated successfully');
-                    
+                            
+                            // Atualiza o estado dos produtos
                             setResults(prevResults => {
                                 const updatedResults = prevResults.map(result => {
                                 if (result.id === item.id) {
@@ -103,6 +104,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
             
             // Adicionando um novo pedido no banco de dados
             const createOrder = async () => {
+                // Tenta criar um pedido no banco de dados
                 try {
                     const response = await fetch('http://localhost:7000/orders', {
                         method: 'POST',
