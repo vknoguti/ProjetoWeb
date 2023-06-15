@@ -39,13 +39,11 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
     const handleOrder = async () => {
         //Caso todos os dados do cartão tenham sido digitados, finaliza a compra com sucesso e remove do estoque a quantidade comprada
         if(card.number != '' && card.date != '' && card.cvv != '') {
-            let newResults = [...results];
-
-            console.log(newResults)
+            let newResults;
             // Percorrendo pelos items do carrinho
             headerUser.cart.map(item => {
                 // Buscando pelo item no banco de dados que se refere ao do carrinho
-                newResults.find((e) => {
+                newResults = results.map((e) => {
                     // Ao encontrar o item do carrinho
                     if(e.id == item.id) {
                         // Percorre por todos os tamanhos diminuindo a quantidade em estoque
@@ -54,19 +52,21 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                             e.sold = parseInt(e.sold);
                             e.sold += parseInt(item.sizes[i].stock);
                         }
+                        return e;
                     }
                 })
             })
 
             // TODO put no db atualizando o estoque e setResults para atualizar o valor do result, renderizando o result novamente resultando em um novo get dos itens
-            const updateStock = newResults.map(async (item) => {
-                try {
-                    const response = await fetch(`http://localhost:7000/products/${item.id}`, {
-                        method: 'PUT',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(item),
+            const updateStock = () => {
+                newResults.map(async (item) => {
+                    try {
+                        const response = await fetch(`http://localhost:7000/products/${item.id}`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(item),
                         })
 
                         if(response.ok) {
@@ -83,17 +83,16 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                                 return updatedResults;
                             });
         
-                            } else {
-                            console.log('Product update failed');
-                            }                       
-                            
+                        } else {
+                        console.log('Product update failed');
+                        }                       
+                                
                         }
-                        catch (error){
-                            console.log(error);
-                        }
+                    catch (error){
+                        console.log(error);
+                    }
                     });
-            
-            console.log(updateStock);
+                }
 
             // Criando o objeto que será enviado como um novo pedido no banco de dados
             const order = {
@@ -101,19 +100,31 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 address: headerUser.address,
                 items: headerUser.cart
             }
-
-            console.log(order);
             
             // Adicionando um novo pedido no banco de dados
-            const createOrder = await fetch('http://localhost:7000/orders', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(order)
-            }).then(() => {
-                console.log('new order added');
-            });
+            const createOrder = async () => {
+                try {
+                    const response = await fetch('http://localhost:7000/orders', {
+                        method: 'POST',
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(order)
+                    });
+                    
+                    if(response.ok) {
+                        console.log("New order added");
+                    } else {
+                        console.log("Create order failed");
+                    }
+                } catch (error) {
+                    console.log(error);
+                }
+            }
 
-            setTimeout(createOrder, 1000)
+            console.log(newResults);
+
+            createOrder();
+            updateStock();
+
 
             //Esvazia o carrinho do usuario
             const newState = {...headerUser, cart: []};
