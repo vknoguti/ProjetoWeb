@@ -53,8 +53,10 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                         }
                         return e;
                     }
-                })
+                })[0]
             })
+
+            console.log(newResults);
 
             // Função para atualizar o estoque
             const updateStock = () => {
