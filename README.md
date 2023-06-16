@@ -159,6 +159,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
 - Abra o terminal seja pelo linux ou pelo windows, e acesse o diretório react-app pelas linhas de comando.
 - Dentro da pasta react-app, com todos os arquivos do projeto, execute 'npm install'(sem aspas), no qual será instalado todos os pacotes do react
   - Caso a instalação não seja efetuada, digite 'npm install --force'
+- Execute também 'npm install --force --save-dev json-server'
 - Digite 'npm start' no terminal
 - Em sequência, abra um segundo terminal e acesse o diretório react-app/data
 - Execute o comando 'npx json-server --port 7000 --watch db.json'.
