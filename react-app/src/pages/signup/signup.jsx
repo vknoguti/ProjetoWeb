@@ -60,29 +60,32 @@ const Signup = ({ headerUser, setHeaderUser}) => {
     e.preventDefault();
     const jsonData = JSON.stringify(newUser);
 
-
+    const createUser = async () => {
+      try {
+        const response = await fetch('http://localhost:7000/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: jsonData,
+        });
   
-    fetch('http://localhost:7000/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonData,
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Handle the response from the backend
-        console.log(data);
-        // Perform any other desired actions
-      })
-      .catch((error) => {
-        // Handle any errors that occurred during the request
-        console.error(error);
-      });
+        if(response.ok) {
+          const data = await response.json();
 
-      setHeaderUser({...headerUser, email:""});
-      alert("Account created!")
-      navigate('/')
+          if(data.ok) {
+            console.log(data)
+          }
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    createUser();
+
+    setHeaderUser({...headerUser, email:""});
+    alert("Account created!")
+    navigate('/')
   };
   
 

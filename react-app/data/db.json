@@ -315,6 +315,78 @@
       ],
       "cart": [],
       "admin": true
+    },
+    {
+      "name": "u ser",
+      "cpf": "139859135",
+      "email": "teste@teste.com",
+      "password": "user",
+      "phones": [
+        "8193591835",
+        "183958913"
+      ],
+      "address": [
+        {
+          "cep": "819351",
+          "city": "Araraquara",
+          "state": "SP",
+          "neighbourhood": "Bosque",
+          "street": "Rua dos Tigres",
+          "number": "135",
+          "additional": "Próximo ao zoológico"
+        }
+      ],
+      "cart": [],
+      "admin": false,
+      "id": 4
+    },
+    {
+      "name": "user 5",
+      "cpf": "94206819",
+      "email": "user5@user.com",
+      "password": "user",
+      "phones": [
+        "193058135",
+        "109385109385"
+      ],
+      "address": [
+        {
+          "cep": "193851935",
+          "city": "Curitiba",
+          "state": "PR",
+          "neighbourhood": "Loja",
+          "street": "Rua usuario",
+          "number": "1385",
+          "additional": ""
+        }
+      ],
+      "cart": [],
+      "admin": false,
+      "id": 5
+    },
+    {
+      "name": "user 6",
+      "cpf": "918359813",
+      "email": "user6@user.com",
+      "password": "user",
+      "phones": [
+        "91835981359",
+        "1983589135"
+      ],
+      "address": [
+        {
+          "cep": "1938589135",
+          "city": "São Carlos",
+          "state": "SP",
+          "neighbourhood": "Universitário",
+          "street": "Av São Carlos",
+          "number": "9138",
+          "additional": "Saída da matemática USP"
+        }
+      ],
+      "cart": [],
+      "admin": false,
+      "id": 6
     }
   ],
   "orders": [
