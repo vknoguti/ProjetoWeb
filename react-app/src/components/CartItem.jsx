@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './CartItem.css'
 import {MdDeleteOutline} from 'react-icons/md'
+import { Link } from 'react-router-dom';
 
 const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
     const [product, setProduct] = useState(item);
@@ -68,7 +69,7 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
                     </div>
                     <div className="cart-item-info-text">
                         <div className="cart-item-name">
-                            <p>{product.model}</p>
+                            <Link to={`/product/${product.id}`}><p>{product.model}</p></Link>
                             <MdDeleteOutline onClick={handleDelete}/>
                         </div>
                         <div className="cart-item-size">

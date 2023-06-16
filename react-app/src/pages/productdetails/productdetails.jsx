@@ -27,6 +27,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         // Verifica primeiramente se o usuário está logado
         if(!headerUser.logged) {
             alert("Voce precisa estar logado para adicionar itens ao carrinho");
+            setQttInput(0); setSize('');            
             return;
         }
 
@@ -59,7 +60,8 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
             if(newState.cart.length == 0 || newState.cart.filter((e) => {
                 if(e.id == itemToCart.id) return e;
             }).length == 0) { // Caso não possua, apenas damos um append no carrinho com o item
-                newState.cart.push(itemToCart)
+                newState.cart.push(itemToCart);
+                setQttInput(0); setSize('');    
             } else { // Caso o carrinho ja possua o item
                 newState.cart.find((o) => { // Encontramos o item no carrinho
                     if(o.id == itemToCart.id) {
@@ -67,10 +69,11 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                         if(x.size == size) { // Encontramos o tamanho correto do item
                                 if(x.stock + parseInt(qttInput) <= qtt[0].stock) { // Verificação se a quantidade comprada somada a do carrinho não ultrapassa o estoque
                                     x.stock += parseInt(qttInput); // Caso não ultrapasse, aumenta no carrinho
+                                    setQttInput(0); setSize('');
                                 }
                                 else
                                     // Caso contrário, alerta o usuário de que a quantidade está indisponível
-                                    alert("Quantidade indisponível")
+                                    alert("Quantidade indisponível. " + `\nQuantidade restante\nTamanho: ${size}\nQuantidade: ${qtt[0].stock - x.stock}`)
                             }
                         })
                     }

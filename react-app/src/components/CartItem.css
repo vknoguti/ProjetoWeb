@@ -42,6 +42,10 @@
     cursor: pointer;
 }
 
+.cart-item-name a {
+    color: var(--grey-text);
+}
+
 .cart-item-quantity-price {
     display: flex;
     justify-content: space-between;
