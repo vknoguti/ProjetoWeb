@@ -70,6 +70,10 @@ const App = () => {
       console.log(results, users);
     }, []);
 
+  useEffect(() => {
+    console.log(headerUser)
+  })
+
 
   return (
   <Routes>
@@ -80,7 +84,7 @@ const App = () => {
     <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
     <Route path="/product/:id" element={<ProductDetail results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
     <Route path='/checkout' element={<Checkout results={results} setResults={setResults} headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
-    <Route path='/admin' element={<Admin />} />
+    <Route path='/admin' element={<Admin headerUser={headerUser}/>} />
     <Route path='/adminProducts' element={<AdminProducts />} />
     <Route path='/adminOrders' element={<AdminOrders />} />
     <Route path='/adminUsers' element={<AdminUsers />} />

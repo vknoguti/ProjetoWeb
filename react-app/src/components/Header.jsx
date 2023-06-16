@@ -24,10 +24,18 @@ const Header = ({user, logged}) => {
         }
     }
 
+    const cartIcon = () => {
+        if(!user.admin) {
+            return(
+                <li><Link className='navbar-link navbar-brown' to='/cart'><FaShoppingCart /></Link></li>
+            )
+        }
+    }
+
     return (  
         <nav className='navbar'>
             <div className="logo">
-                <Link to='/'>
+                <Link to={user.admin ? '/admin' : '/'}>
                     <img className='logo-img-header' src={logo} alt='logo'></img>
                 </Link>
             </div>
@@ -36,10 +44,9 @@ const Header = ({user, logged}) => {
             </button>
             <div ref={navRef} className="navbar-links">
                 <ul>
-                    <li><Link className='navbar-link navbar-brown' to='/'>Home</Link></li>
-                    {/* <li><Link className='navbar-link' to='/login'>Login</Link></li> */}
+                    <li><Link className='navbar-link navbar-brown' to={user.admin ? '/admin' : '/'}>Home</Link></li>
                     <li>{buttonUser()}</li>
-                    <li><Link className='navbar-link navbar-brown' to='/cart'><FaShoppingCart /></Link></li>
+                    {cartIcon()}
                 </ul>
             </div>
         </nav>

@@ -6,7 +6,7 @@ import AdminProducts from './adminProducts';
 import AdminUsers from './adminUsers';
 import AdminOrders from './adminOrders';
 
-const Admin = () => {
+const Admin = ({headerUser}) => {
     const [activePage, setActivePage] = useState("/adminProducts");
     
     const handlePageClick = (page) => {
@@ -15,7 +15,7 @@ const Admin = () => {
 
     return (  
         <>
-            <Header />
+            <Header user={headerUser} logged={headerUser.logged}/>
             <Sidebar activePage={activePage} handlePageClick={handlePageClick} />
             <div className="container-data">
                 {activePage === '/adminProducts' && <AdminProducts />}
