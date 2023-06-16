@@ -187,10 +187,8 @@ Senha: user
 - Criar uma conta para usuário comum
 
 ## Problemas
-Alguns problemas foram encontrados fazendo a execução dos testes:
-- Há um problema em que o servidor fecha ao finalizar mais de duas compras;
-- Os itens vendidos não estão sendo contabilizados;
-- Os usuários não são atualizados automaticamente após o post no banco de dados (Após a criação de conta é necessário recarregar a página)
+Um problema foi encontrado durante a execução dos testes:
+- Os usuários e produtos não são atualizados automaticamente após o post no banco de dados (Após a criação de conta e produto é necessário recarregar a página)
 
 
 
