@@ -152,7 +152,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   ![image](https://user-images.githubusercontent.com/37368029/236707052-87efbc0f-90d6-4949-b02a-3cd5ee67ccd4.png)
   
  
-## Parte 2 - Client Functionality
+## Parte 3 - Client Functionality
 ### Instalação do Projeto
 - Antes de executar o projeto, faça download e instalação do react no sistema operacional utilizado.
 - Faça o download do projeto da branch main.
@@ -161,8 +161,8 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
   - Caso a instalação não seja efetuada, digite 'npm install --force'
 - Execute também 'npm install --force --save-dev json-server'
 - Digite 'npm start' no terminal
-- Em sequência, abra um segundo terminal e acesse o diretório react-app/data
-- Execute o comando 'npx json-server --port 7000 --watch db.json'.
+- Em sequência, abra um segundo terminal e acesse o diretório backend
+- Execute o comando 'node start'.
 
 ## Plano de Teste
  Foram feitos diversos teste manuais seguindo o diagrama de navegação construído, verificando os caminhos possíveis.
