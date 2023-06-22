@@ -19,22 +19,22 @@ const SearchResultsList = ({
         <div className="results-list">
         {results.map(result => {
             return (
-            <div className="product-container" key={result.id}>
+            <div className="product-container" key={result._id}>
                 <ProductDetails result={result} />
                 
                 {command === 'deleteProduct' && (
-                    <button className="delete-btn" onClick={() => handleClick('delete', result.id)}>
+                    <button className="delete-btn" onClick={() => handleClick('delete', result._id)}>
                         Delete
                     </button>
                 )}
 
                 {command === 'editProduct' && (
-                    <button className="edit-btn" onClick={() => handleClick('edit', result.id)}>
+                    <button className="edit-btn" onClick={() => handleClick('edit', result._id)}>
                         Edit
                     </button>
                 )}
 
-                {result.id === editedProduct?.id && (
+                {result._id === editedProduct?._id && (
                 <div className="edit-product-container">
                     <div className="input-container">
                     <label htmlFor="brand">Brand:</label>
@@ -53,6 +53,16 @@ const SearchResultsList = ({
                         id="model"
                         name="model"
                         value={editedProduct.model}
+                        onChange={handleInputChange}
+                    />
+                    </div >
+                    <div className="input-container">
+                    <label htmlFor="slug">Slug:</label>
+                    <input
+                        type="text"
+                        id="slug"
+                        name="slug"
+                        value={editedProduct.slug}
                         onChange={handleInputChange}
                     />
                     </div>

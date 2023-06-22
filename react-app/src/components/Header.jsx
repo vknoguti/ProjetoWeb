@@ -18,7 +18,7 @@ const Header = ({user, logged}) => {
 
     const buttonUser = () => {
         if(logged){
-            return(<Link className='navbar-link' to={`/user/${user.id}`}>{user.name}</Link>)
+            return(<Link className='navbar-link' to={`/user/${user._id}`}>{user.name}</Link>)
         } else {
             return(<Link className='navbar-link' to="/login">Login</Link>)
         }

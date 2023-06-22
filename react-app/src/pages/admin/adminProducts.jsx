@@ -5,7 +5,7 @@ import EditProduct from "../../components/editProduct";
 import ShowStock from "../../components/showStock";
 import './adminProducts.css'
 
-const AdminProducts = () => {
+const AdminProducts = ({results, setResults}) => {
   const [activePage, setActivePage] = useState("addProduct");
 
   const handlePageClick = (page) => {
@@ -15,13 +15,13 @@ const AdminProducts = () => {
   const renderPage = () => {
     switch (activePage) {
       case "addProduct":
-        return <AddProduct />;
+        return <AddProduct results={results} setResults={setResults}/>;
       case "seeStock":
-        return <ShowStock />;
+        return <ShowStock results={results} setResults={setResults}/>;
       case "deleteProduct":
-        return <DeleteProduct />;
+        return <DeleteProduct results={results} setResults={setResults}/>;
       case "editProduct":
-        return <EditProduct />;
+        return <EditProduct results={results} setResults={setResults}/>;
       default:
         return <AddProduct />;
     }

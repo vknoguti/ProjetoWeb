@@ -1,23 +1,26 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
-
 import './userProfile.css';
 import '../../App.css';
-import UserAddress from '../../components/userAddress';
 
-
-const UserProfile = ({headerUser, setHeaderUser}) => {
+const UserProfile = ({headerUser, setHeaderUser, users, setUsers}) => {
     const key = useParams();
+
+    console.log(headerUser);
+
+    const user = users.filter(e => {
+        if(e._id === key.id) return e
+    })[0];
 
     const navigate = useNavigate();
 
     const [logged, setLogged] = useState(headerUser.logged);
 
-    const handleLeave = () => {
+    const handleLeave = async () => {
         const newState = {
             id: null,
             name: '',
@@ -30,12 +33,49 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
             phones: []
         }
 
+        const updateCart = async () => {
+            try {
+                const response = await fetch(`http://localhost:7000/users/${headerUser._id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(headerUser),
+                })
+                // Caso a atualização receba ok
+                if(response.ok) {
+                    console.log('Client updated successfully');
+                    
+                    // Atualiza o estado dos produtos
+                    setUsers(prevResults => {
+                        const updatedResults = prevResults.map(result => {
+                        if (result._id === user._id) {
+                            return {...result, cart: headerUser.cart};
+                        } else {
+                            return result;
+                        }
+                        });
+                        return updatedResults;
+                    });
+
+                } else {
+                console.log('Client update failed');
+                }
+            }
+            catch (error){
+                console.log(error);
+            }
+        };
+
+        await updateCart();
+
         setHeaderUser(newState)
+        console.log(users);
         setLogged(false)
         navigate('/', {replace: true})
     }
 
-    if(headerUser.logged && headerUser.id == key.id) {
+    if(headerUser.logged && headerUser._id == key.id) {
         return (  
             <>
                 <Header user={headerUser} logged={logged}/>
@@ -91,24 +131,24 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
                                     <div className="form-row">
                                         <div className="form-group-address">
                                             <label>Endereço</label>
-                                            <input type="text" id="endereco" name="endereco" value={headerUser.address[0].street} required disabled/>
+                                            <input type="text" id="endereco" name="endereco" value={headerUser.address.street} required disabled/>
                                         </div>
 
                                         <div className="form-group-cep">
                                             <label>CEP</label>
-                                            <input type="text" id="cep" name="cep" value={headerUser.address[0].cep} required disabled/>
+                                            <input type="text" id="cep" name="cep" value={headerUser.address.cep} required disabled/>
                                         </div>
                                     </div>
 
                                     <div className="form-row">
                                         <div className="form-group-bairro">
                                             <label>Bairro</label>
-                                            <input type="text" id="bairro" name="bairro" value={headerUser.address[0].neighbourhood} required disabled/>
+                                            <input type="text" id="bairro" name="bairro" value={headerUser.address.neighbourhood} required disabled/>
                                         </div>
 
                                         <div className="form-group-complemento">
                                             <label>Complemento</label>
-                                            <input type="text" id="complemento" name="complemento" value={headerUser.address[0].addittional} required disabled/>
+                                            <input type="text" id="complemento" name="complemento" value={headerUser.address.addittional} required disabled/>
                                         </div>
                                     </div>
 
@@ -116,17 +156,17 @@ const UserProfile = ({headerUser, setHeaderUser}) => {
 
                                         <div className="form-group-cidade">
                                             <label>Cidade</label>
-                                            <input type="text" id="cidade" name="cidade" value={headerUser.address[0].city} required disabled/>
+                                            <input type="text" id="cidade" name="cidade" value={headerUser.address.city} required disabled/>
                                         </div>
 
                                         <div className="form-group-estado">
                                             <label>Estado</label>
-                                            <input type="text" id="estado" name="estado" value={headerUser.address[0].state} required disabled/>
+                                            <input type="text" id="estado" name="estado" value={headerUser.address.state} required disabled/>
                                         </div>
 
                                         <div className="form-group-numero">
                                             <label>Numero</label>
-                                            <input type="number" id="numero" name="numero" value={headerUser.address[0].number} required disabled/>
+                                            <input type="number" id="numero" name="numero" value={headerUser.address.number} required disabled/>
                                         </div>                                    
                                     </div>
 

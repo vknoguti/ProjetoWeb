@@ -4,7 +4,9 @@ import {MdDeleteOutline} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
 const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
-    const [product, setProduct] = useState(item);
+    const [product, setProduct] = useState(results.filter(e => {
+        if(e._id === item.product) return e;
+    })[0]);
 
     //Listener do botão de diminuir quantidade de um produto no carrinho
     const handleDecrement = () => {
@@ -19,7 +21,7 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
             })};
 
             //Função que modifica as quantidades no carrinho em si para calculo de total
-            handleQuantity(size.stock - 1, size.size, product.id);
+            handleQuantity(size.stock - 1, size.size, product._id);
 
             //Atualizando estado do produto
             setProduct(newState);
@@ -30,7 +32,7 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
     const handleIncrement = () => {   
         //Para essa função é necessário encontrar o item em si dentro do banco de dados para encontrar o estoque real do item
         const filterItem = results.filter(item => {
-            if(item.id == product.id) return item;
+            if(item._id == product._id) return item;
         })[0];
 
         //Apos encontrar o item, é necessário encontrar o tamanho no array sizes
@@ -39,14 +41,14 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
         })[0];
 
         //Para incrementar é necessário que a quantidade de produtos em seu tamanho seja menor que no estoque de mesmo tamanho e produto
-        if(size.stock < filterSize.stock) {
+        if(parseInt(size.stock) < parseInt(filterSize.stock)) {
             const newState = {...product, sizes: product.sizes.map(e => {
-                if(e.size == size.size) return {size: e.size, stock: e.stock + 1};
+                if(e.size == size.size) return {size: e.size, stock: parseInt(e.stock) + 1};
                 else return e
             })};
 
             //Função que modifica as quantidades no carrinho em si para calculo de total
-            handleQuantity(size.stock + 1, size.size, product.id);
+            handleQuantity(parseInt(size.stock) + 1, size.size, product._id);
 
             //Atualizando estado do produto
             setProduct(newState);
@@ -57,7 +59,7 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
 
     const handleDelete = () => {
         //Função para remover um item deve ser realizada no carrinho, um item não é capaz de se remover
-        removeItem(product.id, size.size);
+        removeItem(product._id, size.size);
     }
 
     return (  
@@ -69,7 +71,7 @@ const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
                     </div>
                     <div className="cart-item-info-text">
                         <div className="cart-item-name">
-                            <Link to={`/product/${product.id}`}><p>{product.model}</p></Link>
+                            <Link to={`/product/${product.slug}`}><p>{product.model}</p></Link>
                             <MdDeleteOutline onClick={handleDelete}/>
                         </div>
                         <div className="cart-item-size">

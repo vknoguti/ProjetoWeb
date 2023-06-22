@@ -2,17 +2,24 @@ import React, { useState, useEffect } from 'react';
 import Searchbar from './Searchbar';
 import SearchResultsList from './searchResultsList';
 
-const DeleteProduct = () => {
-  const [results, setResults] = useState([]);
+const DeleteProduct = ({results, setResults}) => {
+  // const [results, setResults] = useState([]);
 
   const handleClick = (action, productId) => {
+    const productToRemove = { id: productId };
+    console.log(JSON.stringify(productToRemove));
+
     if (action === 'delete') {
-      fetch(`http://localhost:7000/products/${productId}`, {
+      fetch(`http://localhost:7000/products`, {
         method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productToRemove),
       })
         .then(() => {
           console.log('Product deleted');
-          setResults(prevResults => prevResults.filter(result => result.id !== productId));
+          setResults(prevResults => prevResults.filter(result => result._id !== productId));
         })
         .catch(error => console.log(error));
     } 

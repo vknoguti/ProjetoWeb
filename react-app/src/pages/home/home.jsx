@@ -16,7 +16,7 @@ const Home = ({results, headerUser}) => {
             <div className="container">
                 <main className="products">
                     {results.map(item => {
-                        return <Product key={item.id} item={item} />
+                        return <Product key={item._id} item={item} />
                     })}
                 </main>
             </div>  

@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
     const items = headerUser.cart;
 
+    console.log(items);
+
     let total = 0;
 
     const [card, setCard] = useState({
@@ -44,13 +46,13 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 // Buscando pelo item no banco de dados que se refere ao do carrinho
                 return results.filter((e) => {
                     // Ao encontrar o item do carrinho
-                    if(e.id == item.id) {
+                    if(e._id == item.product) {
                         // Percorre por todos os tamanhos diminuindo a quantidade em estoque
-                        for(let i = 0; i < e.sizes.length; i++) {
-                            e.sizes[i].stock -= item.sizes[i].stock;
-                            e.sold = parseInt(e.sold);
-                            e.sold += parseInt(item.sizes[i].stock);
-                        }
+                        item.sizes.map(x => {
+                            e.sizes.find((o) => {
+                                if(o.size === x.size) o.stock -= parseInt(x.stock);
+                            })
+                        })
                         return e;
                     }
                 })[0]
@@ -63,7 +65,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                 newResults.map(async (item) => {
                     // Busca pelos itens no banco de dados e atualiza no sistema
                     try {
-                        const response = await fetch(`http://localhost:7000/products/${item.id}`, {
+                        const response = await fetch(`http://localhost:7000/products/${item._id}`, {
                             method: 'PUT',
                             headers: {
                                 'Content-Type': 'application/json',
@@ -77,7 +79,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                             // Atualiza o estado dos produtos
                             setResults(prevResults => {
                                 const updatedResults = prevResults.map(result => {
-                                if (result.id === item.id) {
+                                if (result._id === item._id) {
                                     return item;
                                 } else {
                                     return result;
@@ -99,8 +101,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
 
             // Criando o objeto que será enviado como um novo pedido no banco de dados
             const order = {
-                username: headerUser.name,
-                address: headerUser.address,
+                user: headerUser._id,
                 items: headerUser.cart
             }
             
@@ -116,6 +117,7 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                     
                     if(response.ok) {
                         console.log("New order added");
+                        console.log(JSON.stringify(order));
                     } else {
                         console.log("Create order failed");
                     }
@@ -162,10 +164,11 @@ const Checkout = ({results, setResults, headerUser, setHeaderUser}) => {
                         {items.map(item => {
                             let aux = 0;
                             item.sizes.map(itemSize => {
-                                total += itemSize.stock * item.price
                                 aux += parseInt(itemSize.stock)
                             })
-                            return <CheckoutItem product={item} quantity={aux}/>;
+                            let price = results.filter(e => {if(e._id === item.product) return e})[0].price;
+                            total += aux * price;
+                            return <CheckoutItem product={results.filter(e => {if(e._id === item.product) return e})[0]} quantity={aux}/>;
                         })}
                     </ul>
                     <div className="place-order">

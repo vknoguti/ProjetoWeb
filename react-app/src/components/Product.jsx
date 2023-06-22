@@ -4,9 +4,11 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 const Product = ({item}) => {
-    return (  
+    if(item.sizes.reduce((acc, object) => {
+        return acc + object.stock;
+    }, 0) > 0) return (  
         <section className="product">
-            <Link className='product-link' to={`/product/${item.id}`}>
+            <Link className='product-link' to={`/product/${item.slug}`}>
                 <div className="icon">
                     <img src={item.image} alt='Ultraboost Preto'></img>
                     {/* <video src={item.image} autoPlay loop></video> */}
@@ -14,7 +16,7 @@ const Product = ({item}) => {
             </Link>
             <div className="product-infos">
 
-                <Link className='product-link' to={`/product/${item.id}`}>
+                <Link className='product-link' to={`/product/${item.slug}`}>
                     <p>{item.brand}</p>
                     <h3>{item.model}</h3>
                 </Link>

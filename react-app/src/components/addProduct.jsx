@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './addProduct.css'
 
-const AddProduct = () => {
+const AddProduct = ({results, setResults}) => {
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
+    const [slug, setSlug] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
@@ -17,9 +18,13 @@ const AddProduct = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const product = { brand, model, price, sizes: sizesArray, description, image };
+        const product = { brand, model, slug, price, sizes: sizesArray, description, image };
 
         setIsPending(true)
+
+        let newResults = [...results];
+        newResults.push(product);
+        setResults(newResults);
 
         fetch('http://localhost:7000/products', {
             method: 'POST',
@@ -42,6 +47,7 @@ const AddProduct = () => {
     const handleAddAnotherProduct = () => {
         setBrand('');
         setModel('');
+        setSlug('');
         setPrice('');
         setDescription('');
         setImage('');
@@ -68,6 +74,13 @@ const AddProduct = () => {
                     required
                     value={model}
                     onChange={(e) => setModel(e.target.value)}
+                />
+                <label>Slug:</label>
+                <input 
+                    type="text"
+                    required
+                    value={slug}
+                    onChange={(e) => setSlug(e.target.value)}
                 />
                 <label>Price:</label>
                 <input 

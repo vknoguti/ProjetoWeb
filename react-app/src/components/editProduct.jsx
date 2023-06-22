@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Searchbar from './Searchbar';
 import SearchResultsList from './searchResultsList';
 
-const EditProduct = () => {
-  const [results, setResults] = useState([]);
+const EditProduct = ({results, setResults}) => {
+  // const [results, setResults] = useState([]);
   const [editedProduct, setEditedProduct] = useState({
     brand: '',
     model: '',
@@ -16,7 +16,7 @@ const EditProduct = () => {
   const handleClick = (action, productId) => {
      if (action === 'edit') {
       console.log('Editing product:', productId);
-      const selectedProduct = results.find(result => result.id === productId);
+      const selectedProduct = results.find(result => result._id === productId);
       setEditedProduct(selectedProduct);
     }
   };
@@ -65,7 +65,7 @@ const EditProduct = () => {
   const handleUpdate = () => {
     console.log('Updating product:', editedProduct);
   
-    fetch(`http://localhost:7000/products/${editedProduct.id}`, {
+    fetch(`http://localhost:7000/products/${editedProduct._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -90,6 +90,7 @@ const EditProduct = () => {
           setEditedProduct({
             brand: '',
             model: '',
+            slug: '',
             price: '',
             description: '',
             image: '',

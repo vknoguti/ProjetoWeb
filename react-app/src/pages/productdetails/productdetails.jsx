@@ -13,7 +13,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
    
     // Encontra o produto no banco de dados atraves da key/id
     let product = results.filter(item => {
-        if(item.id == key.id) {
+        if(item.slug == key.id) {
             return item;
         } 
     })[0];
@@ -46,36 +46,36 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         } else if(qtt.length === 0) { // Caso o tamanho do array do filtro seja 0, significa que uma quantidade não foi selecionada
             alert("Selecione um tamanho")
         } else { // Caso em que o tamanho existe e a quantidade está disponível
-            const itemToCart = { ...product, sizes: product.sizes.map(e => {
-                // Caso seja o tamanho correto, a quantidade pedida é o input
-                if(e.size == size) return {size: e.size, stock: parseInt(qttInput)}
-                // Caso contrario, a quantidade pedida é 0
-                else return {size: e.size, stock: 0}
-            })};
+            const itemToCart = {sizes: [{size: parseInt(size), stock: parseInt(qttInput)}], product: product._id};
 
             // Agora é necessário atualizar o carrinho
             let newState = {...headerUser}
 
             // Primeiro verificamos se o carrinho ja possui o item que estamos adicionando
-            if(newState.cart.length == 0 || newState.cart.filter((e) => {
-                if(e.id == itemToCart.id) return e;
-            }).length == 0) { // Caso não possua, apenas damos um append no carrinho com o item
+            if(newState.cart.length === 0 || newState.cart.filter((e) => {
+                if(e.product == itemToCart.product) return e;
+            }).length === 0) { // Caso não possua, apenas damos um append no carrinho com o item
                 newState.cart.push(itemToCart);
                 setQttInput(0); setSize('');    
             } else { // Caso o carrinho ja possua o item
                 newState.cart.find((o) => { // Encontramos o item no carrinho
-                    if(o.id == itemToCart.id) {
-                        o.sizes.find((x) => { 
-                        if(x.size == size) { // Encontramos o tamanho correto do item
-                                if(x.stock + parseInt(qttInput) <= qtt[0].stock) { // Verificação se a quantidade comprada somada a do carrinho não ultrapassa o estoque
-                                    x.stock += parseInt(qttInput); // Caso não ultrapasse, aumenta no carrinho
-                                    setQttInput(0); setSize('');
+                    if(o.product == itemToCart.product) {
+                        console.log(o.product, itemToCart.product)
+                        if(o.sizes.filter(e => {if(e.size == size) return e}).length > 0) {
+                            o.sizes.find((x) => { 
+                            if(parseInt(x.size) === parseInt(size)) { // Encontramos o tamanho correto do item
+                                    if(parseInt(x.stock) + parseInt(qttInput) <= parseInt(qtt[0].stock)) { // Verificação se a quantidade comprada somada a do carrinho não ultrapassa o estoque
+                                        x.stock += parseInt(qttInput); // Caso não ultrapasse, aumenta no carrinho
+                                        setQttInput(0); setSize('');
+                                    }
+                                    else
+                                        // Caso contrário, alerta o usuário de que a quantidade está indisponível
+                                        alert("Quantidade indisponível. " + `\nQuantidade restante\nTamanho: ${size}\nQuantidade: ${qtt[0].stock - x.stock}`)
                                 }
-                                else
-                                    // Caso contrário, alerta o usuário de que a quantidade está indisponível
-                                    alert("Quantidade indisponível. " + `\nQuantidade restante\nTamanho: ${size}\nQuantidade: ${qtt[0].stock - x.stock}`)
-                            }
-                        })
+                            })
+                        } else {
+                            o.sizes.push({size: parseInt(size), stock: parseInt(qttInput)})
+                        }
                     }
                 })
             }
@@ -126,8 +126,8 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                         <h2>Related Products</h2>
                         <div className="related-products">
                             {results.map(item => {
-                                if(item.id != key.id && item.brand == product.brand)
-                                    return <Product key={item.id}  item={item} />
+                                if(item.slug != key.id && item.brand == product.brand)
+                                    return <Product key={item._id}  item={item} />
                             })}
                         </div>
                     </section>

@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import './signup.css';
 
-const Signup = ({ headerUser, setHeaderUser}) => {
+const Signup = ({ headerUser, setHeaderUser, setUsers}) => {
     const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -33,27 +33,26 @@ const Signup = ({ headerUser, setHeaderUser}) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const newUser = {
         name: formValues.firstName + " " + formValues.lastName,
         cpf: formValues.cpf,
         email: headerUser.email,
         password: formValues.password,
         phones: [
-            formValues.phone,
-            formValues.otherPhone
+          formValues.phone,
+          formValues.otherPhone
         ],
-        address: [
-            {
-            cep: formValues.zipCode,
-            city: formValues.city,
-            state: formValues.state,
-            neighbourhood: formValues.neighborhood,
-            street: formValues.address,
-            number: formValues.number,
-            additional: formValues.referencePoint
-            }
-        ],
+        address: {
+          cep: formValues.zipCode,
+          city: formValues.city,
+          state: formValues.state,
+          neighbourhood: formValues.neighborhood,
+          street: formValues.address,
+          number: formValues.number,
+          complement: formValues.complement,
+          additional: formValues.referencePoint
+        },
         cart: [],
         admin: false
     }
@@ -81,7 +80,23 @@ const Signup = ({ headerUser, setHeaderUser}) => {
         console.log(error)
       }
     }
-    createUser();
+
+    const getUsers = async () => {
+      const response = await fetch('http://localhost:7000/users');
+  
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        console.log(message);
+        return;
+      }
+  
+      const data = await response.json();
+  
+      setUsers(data);
+    }  
+
+    await createUser();
+    await getUsers();
 
     setHeaderUser({...headerUser, email:""});
     alert("Account created!")

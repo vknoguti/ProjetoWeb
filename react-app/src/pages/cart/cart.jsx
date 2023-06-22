@@ -9,7 +9,7 @@ import CartItem from '../../components/CartItem';
 const Cart = ({results, headerUser, setHeaderUser}) => {
     // Estado que possui os itens do carrinho
     const [items, setItems] = useState(headerUser.cart);
-    
+
     // Estado para calculo do total do carrinho
     const [total, setTotal] = useState(0);
 
@@ -20,21 +20,18 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
         // É necessário filtrar os itens do carrinho
         const newState = items.filter(obj => {
             // Se o id for diferente do parametro, continua no carrinho
-            if (obj.id != id) return obj;
+            if (obj.product != id) return obj;
             // Caso contrario é necessário verificar algumas condições
             else {
                 // Primeiramente a quantidade de itens no carrinho com o tamanho recebido como parametro é 0
                 obj.sizes = obj.sizes.map(e => {
-                    if(e.size == size) {
-                        return {size: e.size, stock: 0}
-                    } else {
+                    if(e.size !== size) {
                         return {size: e.size, stock: e.stock}
                     }
                 })
+                if(obj.sizes[0] === undefined) obj.sizes = [];
                 // Em sequencia verificamos se existe algum tamanho do item com quantidade maior que 0
-                if(obj.sizes.filter(e => {
-                    if(e.stock > 0) return e;
-                }).length > 0) return obj //Caso exista o item é retornado ao carrinho
+                if(obj.sizes.length > 0) return obj //Caso exista o item é retornado ao carrinho
             } 
         })
         // Atualização do estado do usuário
@@ -50,7 +47,7 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
         // Para atualizar percorremos pelo array de itens do carrinho   
         const newState = items.map(obj => {
             // Ao encontrar o item correto
-            if(obj.id == id) {
+            if(obj.product == id) {
                 // Percorremos pelos tamanhos do item
                 return {...obj, sizes: obj.sizes.map(newSize => {
                     // Ao encontrar o tamanho correto, atualizamos a quantidade
@@ -63,6 +60,10 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
         })
 
         console.log(newState)
+
+        // Atualização do estado do usuário
+        const newUser = {...headerUser, cart: newState};
+        setHeaderUser(newUser);
 
         // Atualização do estado do carrinho
         setItems(newState);
@@ -87,7 +88,9 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
             // Percorre por todos tamanhos do carrinho
             for(let j = 0; j < items[i].sizes.length; j++) {
                 // Soma o preço vezes a quantidade de itens
-                tmpTotal += parseFloat(items[i].price) * parseFloat(items[i].sizes[j].stock);
+                tmpTotal += parseFloat(results.filter(e => {
+                    if(e._id === items[i].product) return e
+                })[0].price) * parseFloat(items[i].sizes[j].stock);
             }
         }   
         // Atualização do estado do preço total do carrinho
@@ -97,16 +100,12 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
     // Função que atualiza os itens do carrinho
     const calcCart = () => {
         // Atravessa por todos os itens do carrinho
-        const t = items.map(item => {
+        return items.map(item => {
             // Atravessa por todos os tamanhos do item atual
             return item.sizes.map(itemSize => {
-                // Caso a quantidade seja maior que 0, cria um CartItem
-                if(itemSize.stock > 0)
-                    return <CartItem key={`${item.id}.${itemSize.size}`} results={results} item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
+                return <CartItem key={`${item.product}.${itemSize.size}`} results={results} item={item} size={itemSize} handleQuantity={handleQuantity} removeItem={removeItem}/>
             }) 
         })
-
-        return t;
     }
 
     useEffect(() => {
