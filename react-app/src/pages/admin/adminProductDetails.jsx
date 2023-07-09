@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductDetails = ({ result }) => {
     return ( 
-        <div className="product-preview" key={result.id}>
+        <div className="product-preview" key={result._id}>
 
             <div className="product-img">
                 <img src={result.image} alt="" />

@@ -15,7 +15,8 @@ exports.create = data => {
 exports.update = (id, data) => {
     return User.findByIdAndUpdate(id, {
         $set: {
-           cart: data.cart
+            cart: data.cart,
+            admin: data.admin
         }
-     });
+    });
 }

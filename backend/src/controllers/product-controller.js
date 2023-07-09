@@ -12,6 +12,48 @@ exports.get = async (req, res, next) => {
    }
 }
 
+exports.getPage = async (req, res, next) => {
+   const page = parseInt(req.query.page) || 1;
+   const limit = 20;
+
+   const startIndex = (page - 1) * limit
+   const endIndex = page * limit
+   
+   const results = {}
+
+   const query = {
+      model: {
+         $regex: req.query.model || "",
+         $options: 'i'
+      }
+   }
+
+   const count = await repository.getCount(query);
+   
+   if (endIndex < count) {
+      results.next = {
+        page: page + 1,
+        limit: limit
+      }
+   }
+   
+   if (startIndex > 0) {
+      results.previous = {
+        page: page - 1,
+        limit: limit
+      }
+   }
+
+   try {
+      // const data = await repository.getPage();
+      results.results = await repository.getPage(query, limit, startIndex);
+      
+      res.status(200).send(results);
+   } catch (error) {
+      res.status(400).send(error);
+   }   
+}
+
 exports.getBySlug = async (req, res, next) => {
    try {
       const data = await repository.getBySlug(req.params.slug);
