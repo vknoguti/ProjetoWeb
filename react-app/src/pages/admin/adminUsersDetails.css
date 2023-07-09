@@ -35,3 +35,8 @@
     padding-top: 20px;
   }
   
+.user-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
