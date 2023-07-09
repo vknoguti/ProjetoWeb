@@ -34,7 +34,7 @@ const SearchResultsList = ({
                     </button>
                 )}
 
-                {result._id === editedProduct?._id && (
+                {editedProduct && result._id === editedProduct._id ? (
                 <div className="edit-product-container">
                     <div className="input-container">
                     <label htmlFor="brand">Brand:</label>
@@ -126,7 +126,7 @@ const SearchResultsList = ({
 
                     <button id='update-btn' onClick={handleUpdate}>Update</button>
                 </div>
-                )}
+                ) : (<></>)}
             </div>
             );
         })}

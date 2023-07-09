@@ -19,7 +19,6 @@ const AddProduct = ({results, setResults}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const product = { brand, model, slug, price, sizes: sizesArray, description, image };
-
         setIsPending(true)
 
         let newResults = [...results];

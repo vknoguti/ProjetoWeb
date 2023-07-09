@@ -3,6 +3,7 @@ import './Product.css';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
+
 const Product = ({item}) => {
     if(item.sizes.reduce((acc, object) => {
         return acc + object.stock;
@@ -11,7 +12,6 @@ const Product = ({item}) => {
             <Link className='product-link' to={`/product/${item.slug}`}>
                 <div className="icon">
                     <img src={item.image} alt='Ultraboost Preto'></img>
-                    {/* <video src={item.image} autoPlay loop></video> */}
                 </div>
             </Link>
             <div className="product-infos">

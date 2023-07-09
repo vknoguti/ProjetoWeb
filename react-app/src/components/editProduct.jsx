@@ -78,7 +78,7 @@ const EditProduct = ({results, setResults}) => {
   
           setResults(prevResults => {
             const updatedResults = prevResults.map(result => {
-              if (result.id === editedProduct.id) {
+              if (result._id === editedProduct._id) {
                 return editedProduct;
               } else {
                 return result;
