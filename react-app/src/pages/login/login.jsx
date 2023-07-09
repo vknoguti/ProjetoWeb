@@ -47,19 +47,28 @@ const Login = ({results, users, headerUser, setHeaderUser}) => {
     }
   
     // Handler do botão de login
-    const handleLogin = () => {
-        // Caso o usuário esteja no banco de dados de usuário, e o email e senha escritos correspondam aos do banco de dados, retorna os dados do cliente
-        const client = users.filter(client => {
-            if(user.email === client.email && user.password === client.password) {
-                return client;
-            }
+    const handleLogin = async () => {
+        // Utilizamos um post para verificação se o login está correto
+        const response = await fetch('http://localhost:7000/login', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
         })
+
+        if(!response.ok) {
+            const message = `An error occurred: ${response.statusText}`;
+            console.log(message);
+            return;
+        }
+
+        const client = await response.json();
   
         // Verifica se houve algum retorno do banco de dados, em caso positivo atualiza o usuário geral (headerUser)
         if(client.length === 1) {
             let newState = {
                 _id: client[0]._id, 
                 name: client[0].name, 
+                password: "",
                 cpf: client[0].cpf,
                 email: client[0].email,
                 phones: client[0].phones,
@@ -103,12 +112,17 @@ const Login = ({results, users, headerUser, setHeaderUser}) => {
         }
     };
 
-    const handleSignup = () => {
-        const client = users.filter(client => {
-            if(signupEmail === client.email) {
-                return client;
-            } 
-        });
+    const handleSignup = async () => {
+        // Utilizamos um post para verificação se o login está correto
+        const response = await fetch(`http://localhost:7000/login/${user.email}`)
+
+        if(!response.ok) {
+            const message = `An error occurred: ${response.statusText}`;
+            console.log(message);
+            return;
+        }
+
+        const client = await response.json();
 
         if(client.length > 0 || signupEmail.length < 1) {
             alert("Email already registered!")

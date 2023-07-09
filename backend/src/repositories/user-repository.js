@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 
 exports.get = () => {
-    return User.find({}, 'name cpf email password phones address admin cart');
+    return User.find({}, 'name cpf email phones address admin cart');
 }
 
 exports.create = data => {

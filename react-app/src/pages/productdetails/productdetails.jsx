@@ -26,7 +26,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
     const handleAddToCart = () => {
         // Verifica primeiramente se o usuário está logado
         if(!headerUser.logged) {
-            alert("Voce precisa estar logado para adicionar itens ao carrinho");
+            alert("You must be logged in to add items to cart");
             setQttInput(0); setSize('');            
             return;
         }
@@ -42,9 +42,9 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         if(qtt.length > 0 && (qttInput < 1 || parseInt(qttInput) > qtt[0].stock))
         {
             console.log(qtt[0].stock, qttInput)
-            alert("Quantidade indisponivel.\n" + `Quantidade restante:\nTamanho: ${qtt[0].size}\nQuantidade:${qtt[0].stock}`)
+            alert("Quantity Unavailable.\n" + `In stock:\nSize: ${qtt[0].size}\nStock:${qtt[0].stock}`)
         } else if(qtt.length === 0) { // Caso o tamanho do array do filtro seja 0, significa que uma quantidade não foi selecionada
-            alert("Selecione um tamanho")
+            alert("Select a size")
         } else { // Caso em que o tamanho existe e a quantidade está disponível
             const itemToCart = {sizes: [{size: parseInt(size), stock: parseInt(qttInput)}], product: product._id};
 
@@ -70,7 +70,7 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                                     }
                                     else
                                         // Caso contrário, alerta o usuário de que a quantidade está indisponível
-                                        alert("Quantidade indisponível. " + `\nQuantidade restante\nTamanho: ${size}\nQuantidade: ${qtt[0].stock - x.stock}`)
+                                        alert("Quantity Unavailable.\n" + `In stock:\nSize: ${qtt[0].size}\nStock:${qtt[0].stock - x.stock}`)
                                 }
                             })
                         } else {
