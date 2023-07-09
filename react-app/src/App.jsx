@@ -30,9 +30,10 @@ const App = () => {
       admin: false,
       address: []
   })
+  
 
   async function getResults()  {
-    const response = await fetch('http://localhost:7000/products');
+    const response = await fetch(`http://localhost:7000/products`);
     
     if (!response.ok) {
       const message = `An error occurred: ${response.statusText}`;
@@ -42,7 +43,8 @@ const App = () => {
 
     const data = await response.json();
 
-    setResults(data);
+
+    setResults(data.results);
   };
   
   async function getUsers() {
@@ -67,7 +69,7 @@ const App = () => {
 
   return (
     <Routes>  
-      <Route path='/' element={<Home results={results} headerUser={headerUser} />}/>
+      <Route path='/' element={<Home results={results} setResults={setResults} headerUser={headerUser} />}/>
       <Route path='/login' element={<Login results={results} users={users} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
       <Route path='/signup' element={<Signup headerUser={headerUser} setHeaderUser={setHeaderUser} setUsers={setUsers} />}/>
       <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} users={users} setUsers={setUsers}/>} />

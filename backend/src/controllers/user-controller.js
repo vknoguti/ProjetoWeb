@@ -8,7 +8,7 @@ exports.get = async (req, res, next) => {
  
        res.status(200).send(data);
     } catch (error) {
-       res.status(400).send(e);
+       res.status(400).send(error);
     }
 }
 

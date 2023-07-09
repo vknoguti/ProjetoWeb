@@ -6,15 +6,11 @@ const Searchbar = ({ setResults }) => {
   const [input, setInput] = useState("");
 
   const fetchData = (value) => {
-    fetch("http://localhost:7000/products")
+    console.log(value)
+    fetch(`http://localhost:7000/products?model=${value}`)
       .then((response) => response.json())
       .then((json) => {
-        const filteredResults = value.length > 0
-          ? json.filter((product) =>
-              product.model.toLowerCase().includes(value.toLowerCase())
-            )
-          : json;
-        setResults(filteredResults);
+        setResults(json.results);
       })
       .catch((error) => {
         console.log(error);

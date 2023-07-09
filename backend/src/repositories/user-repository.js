@@ -18,5 +18,5 @@ exports.update = (id, data) => {
            cart: data.cart,
            admin: data.admin
         }
-     });
+    });
 }

@@ -14,7 +14,7 @@ const SearchResultsList = ({
     handleStockChange, 
     handleRemoveSize, 
     handleAddSize }) => {
-
+    console.log(editedProduct);
     return (
         <div className="results-list">
         {results.map(result => {
