@@ -17,7 +17,7 @@ const AdminOrders = () => {
     return ( 
         <div className="orders-container">
             {results && results.map(result => (
-                <OrderDetails result={result} key={result.id} />
+                <OrderDetails result={result} key={result._id} />
             ))}
         </div>
      );

@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import UsersDetails from './adminUsersDetails';
 import './adminUsers.css'
 
-const AdminUsers = ({users, setUsers,}) => {    
+const AdminUsers = () => {    
+    const [users, setUsers] = useState([]);
     useEffect(() => {
       fetch('http://localhost:7000/users')
         .then(response => response.json())

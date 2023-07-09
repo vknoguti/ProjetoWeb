@@ -7,14 +7,12 @@ import Footer from '../../components/Footer';
 import './userProfile.css';
 import '../../App.css';
 
-const UserProfile = ({headerUser, setHeaderUser, users, setUsers}) => {
+const UserProfile = ({headerUser, setHeaderUser}) => {
     const key = useParams();
 
     console.log(headerUser);
 
-    const user = users.filter(e => {
-        if(e._id === key.id) return e
-    })[0];
+    const user = headerUser;
 
     const navigate = useNavigate();
 
@@ -45,19 +43,6 @@ const UserProfile = ({headerUser, setHeaderUser, users, setUsers}) => {
                 // Caso a atualização receba ok
                 if(response.ok) {
                     console.log('Client updated successfully');
-                    
-                    // Atualiza o estado dos produtos
-                    setUsers(prevResults => {
-                        const updatedResults = prevResults.map(result => {
-                        if (result._id === user._id) {
-                            return {...result, cart: headerUser.cart};
-                        } else {
-                            return result;
-                        }
-                        });
-                        return updatedResults;
-                    });
-
                 } else {
                 console.log('Client update failed');
                 }
@@ -70,7 +55,6 @@ const UserProfile = ({headerUser, setHeaderUser, users, setUsers}) => {
         await updateCart();
 
         setHeaderUser(newState)
-        console.log(users);
         setLogged(false)
         navigate('/', {replace: true})
     }

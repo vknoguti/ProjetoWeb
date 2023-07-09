@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import './signup.css';
 
-const Signup = ({ headerUser, setHeaderUser, setUsers}) => {
+const Signup = ({ headerUser, setHeaderUser}) => {
     const navigate = useNavigate();
 
   const [formValues, setFormValues] = useState({
@@ -81,22 +81,7 @@ const Signup = ({ headerUser, setHeaderUser, setUsers}) => {
       }
     }
 
-    const getUsers = async () => {
-      const response = await fetch('http://localhost:7000/users');
-  
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        console.log(message);
-        return;
-      }
-  
-      const data = await response.json();
-  
-      setUsers(data);
-    }  
-
     await createUser();
-    await getUsers();
 
     setHeaderUser({...headerUser, email:""});
     alert("Account created!")

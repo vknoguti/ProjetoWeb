@@ -24,7 +24,7 @@ const OrderDetails = ({result}) => {
                 <div className="order-user-address">
                     <p><strong>Address</strong></p>
                 {result && result.user && result.user.address ? (
-                    <React.Fragment key={result.user.address.id}>
+                    <React.Fragment key={result.user.address._id}>
                         <p>{result.user.address.street}, N° {result.user.address.number} - {result.user.address.neighbourhood}</p>
                         <p>{result.user.address.complement}</p>
                         <p>{result.user.address.city} - {result.user.address.state}</p>
@@ -36,7 +36,7 @@ const OrderDetails = ({result}) => {
 
                 <div className="order-items">
                     {result && result.items && result.items.map((itemsInfo) => (
-                            <React.Fragment key={itemsInfo.id}>
+                            <React.Fragment key={itemsInfo._id}>
                             <p><strong>{itemsInfo.product.brand}  {itemsInfo.product.model}</strong></p>
                             <p>Size: | {itemsInfo.sizes && itemsInfo.sizes.map(e => {
                             if(e.stock > 0) return ` ${e.size} |`;

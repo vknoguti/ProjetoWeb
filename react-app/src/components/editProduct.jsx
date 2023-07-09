@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Searchbar from './Searchbar';
 import SearchResultsList from './searchResultsList';
 
-const EditProduct = ({results, setResults}) => {
-  // const [results, setResults] = useState([]);
+const EditProduct = () => {
+  const [results, setResults] = useState([]);
   const [editedProduct, setEditedProduct] = useState({
     brand: '',
     model: '',
@@ -107,7 +107,7 @@ const EditProduct = ({results, setResults}) => {
   const fetchResults = () => {
     fetch('http://localhost:7000/products')
       .then(response => response.json())
-      .then(data => setResults(data))
+      .then(data => setResults(data.results))
       .catch(error => console.log(error));
   };
 

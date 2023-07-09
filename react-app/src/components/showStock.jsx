@@ -4,13 +4,13 @@ import Searchbar from './Searchbar';
 import { useState, useEffect } from 'react';
 import SearchResultsList from './searchResultsList';
 
-const ShowStock = ({results, setResults}) => {
-    // const [results, setResults] = useState([]);
+const ShowStock = () => {
+    const [results, setResults] = useState([]);
     
     useEffect(() => {
       fetch('http://localhost:7000/products')
         .then(response => response.json())
-        .then(data => setResults(data))
+        .then(data => setResults(data.results))
         .catch(error => console.log(error));
     }, []);
 

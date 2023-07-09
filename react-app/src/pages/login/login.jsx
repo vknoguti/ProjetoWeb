@@ -6,7 +6,7 @@ import '../../App.css';
 import Footer from '../../components/Footer';
 
 
-const Login = ({results, users, headerUser, setHeaderUser}) => {
+const Login = ({results, headerUser, setHeaderUser}) => {
     const navigate = useNavigate();
 
     // Estado do usuário
@@ -113,22 +113,26 @@ const Login = ({results, users, headerUser, setHeaderUser}) => {
     };
 
     const handleSignup = async () => {
-        // Utilizamos um post para verificação se o login está correto
-        const response = await fetch(`http://localhost:7000/login/${user.email}`)
-
-        if(!response.ok) {
-            const message = `An error occurred: ${response.statusText}`;
-            console.log(message);
-            return;
-        }
-
-        const client = await response.json();
-
-        if(client.length > 0 || signupEmail.length < 1) {
-            alert("Email already registered!")
+        if(signupEmail.length > 0) {
+            // Utilizamos um post para verificação se o login está correto
+            const response = await fetch(`http://localhost:7000/login/${signupEmail}`)
+    
+            if(!response.ok) {
+                const message = `An error occurred: ${response.statusText}`;
+                console.log(message);
+                return;
+            }
+    
+            const client = await response.json();
+    
+            if(client.length > 0 || signupEmail.length < 1) {
+                alert("Email already registered!")
+            } else {
+                setHeaderUser({...headerUser, email:signupEmail});
+                navigate('/signup');
+            }
         } else {
-            setHeaderUser({...headerUser, email:signupEmail});
-            navigate('/signup');
+            alert("Type a valid email");
         }
     }
 

@@ -27,11 +27,11 @@ const UsersDetails = ({user}) => {
             { user && user.address ?
                 (<React.Fragment key={user.address._id}>
                     <p>{user.address.street}, {user.address.number}</p>
-                    {user.address.complement ? (<p>user.address.complement</p>) : <></>}
+                    {user.address.complement ? (<p>{user.address.complement}</p>) : <></>}
                     <p>{user.address.neighbourhood}</p>
                     <p>{user.address.city} - {user.address.state}</p>
                     <p>CEP: {user.address.cep}</p>
-                    {user.address.additional ? (<p>user.address.additional</p>) : <></>}
+                    {user.address.additional ? (<p>{user.address.additional}</p>) : <></>}
                 </React.Fragment>) : <></>
             }
             </div>

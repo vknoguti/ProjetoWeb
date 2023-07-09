@@ -6,7 +6,7 @@ import AdminProducts from './adminProducts';
 import AdminUsers from './adminUsers';
 import AdminOrders from './adminOrders';
 
-const Admin = ({results, setResults, users, setUsers, headerUser}) => {
+const Admin = ({headerUser}) => {
     const [activePage, setActivePage] = useState("/adminProducts");
     
     const handlePageClick = (page) => {
@@ -18,8 +18,8 @@ const Admin = ({results, setResults, users, setUsers, headerUser}) => {
             <Header user={headerUser} logged={headerUser.logged}/>
             <Sidebar activePage={activePage} handlePageClick={handlePageClick} />
             <div className="container-data">
-                {activePage === '/adminProducts' && <AdminProducts results={results} setResults={setResults}/>}
-                {activePage === '/adminUsers' && <AdminUsers users={users} setUsers={setUsers}/>}
+                {activePage === '/adminProducts' && <AdminProducts />}
+                {activePage === '/adminUsers' && <AdminUsers />}
                 {activePage === '/adminOrders' && <AdminOrders />}           
             </div>
         </>

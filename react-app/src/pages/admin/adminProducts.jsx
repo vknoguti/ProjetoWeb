@@ -1,16 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddProduct from "../../components/addProduct";
 import DeleteProduct from "../../components/deleteProduct";
 import EditProduct from "../../components/editProduct";
 import ShowStock from "../../components/showStock";
 import './adminProducts.css'
 
-const AdminProducts = ({results, setResults}) => {
+const AdminProducts = () => {
   const [activePage, setActivePage] = useState("addProduct");
+  const [results, setResults] = useState([]);
 
   const handlePageClick = (page) => {
     setActivePage(page);
   };
+
+  useEffect(() => {
+    fetch('http://localhost:7000/products')
+      .then(response => response.json())
+      .then(data => setResults(data.results))
+      .catch(error => console.log(error));
+  }, []);
 
   const renderPage = () => {
     switch (activePage) {

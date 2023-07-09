@@ -17,7 +17,6 @@ import NotFound from './pages/notfound/notfound';
 
 const App = () => {
   const [results, setResults] = useState([]);
-  const [users, setUsers] = useState([]);
   const [headerUser, setHeaderUser] = useState({
       _id: null,
       name: '',
@@ -46,41 +45,25 @@ const App = () => {
 
     setResults(data.results);
   };
-  
-  async function getUsers() {
-    const response = await fetch('http://localhost:7000/users');
-
-    if (!response.ok) {
-      const message = `An error occurred: ${response.statusText}`;
-      console.log(message);
-      return;
-    }
-
-    const data = await response.json();
-
-    setUsers(data);
-  }  
-  
-  useEffect(() => {    
-    getResults(); getUsers();
     
-    console.log(results, users);
+  useEffect(() => {    
+    getResults();
   }, []);
 
   return (
     <Routes>  
       <Route path='/' element={<Home results={results} setResults={setResults} headerUser={headerUser} />}/>
-      <Route path='/login' element={<Login results={results} users={users} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
-      <Route path='/signup' element={<Signup headerUser={headerUser} setHeaderUser={setHeaderUser} setUsers={setUsers} />}/>
-      <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} users={users} setUsers={setUsers}/>} />
+      <Route path='/login' element={<Login results={results} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
+      <Route path='/signup' element={<Signup headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
+      <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
       <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
       <Route path="/product/:id" element={<ProductDetail results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
       <Route path='/checkout' element={<Checkout results={results} setResults={setResults} headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
-      <Route path='/admin' element={<Admin results={results} setResults={setResults} users={users} setUsers={setUsers} headerUser={headerUser}/>} />
-      <Route path='/adminProducts' element={<AdminProducts results={results} setResults={setResults} users={users} setUsers={setUsers}/>} />
+      <Route path='/admin' element={<Admin headerUser={headerUser}/>} />
+      <Route path='/adminProducts' element={<AdminProducts />} />
       <Route path='/adminOrders' element={<AdminOrders/>} />
-      <Route path='/adminUsers' element={<AdminUsers users={users} setUsers={setUsers}/>} />
-      <Route path="/products/:id" element={<AdminProductDetails results={results} setResults={setResults} users={users} setUsers={setUsers}/>}/>
+      <Route path='/adminUsers' element={<AdminUsers />} />
+      <Route path="/products/:id" element={<AdminProductDetails results={results} setResults={setResults} />}/>
       <Route path='*' element={<NotFound />} />
     </Routes>
   );

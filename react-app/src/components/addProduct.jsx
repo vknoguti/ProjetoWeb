@@ -1,8 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom'
 import './addProduct.css'
 
-const AddProduct = ({results, setResults}) => {
+const AddProduct = () => {
+    const [results, setResults] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:7000/products')
+          .then(response => response.json())
+          .then(data => setResults(data.results))
+          .catch(error => console.log(error));
+      }, []);
+
     const [brand, setBrand] = useState('');
     const [model, setModel] = useState('');
     const [slug, setSlug] = useState('');

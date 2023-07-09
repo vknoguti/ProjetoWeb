@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Searchbar from './Searchbar';
 import SearchResultsList from './searchResultsList';
 
-const DeleteProduct = ({results, setResults}) => {
-  // const [results, setResults] = useState([]);
+const DeleteProduct = () => {
+  const [results, setResults] = useState([]);
 
   const handleClick = (action, productId) => {
     const productToRemove = { id: productId };
@@ -28,7 +28,7 @@ const DeleteProduct = ({results, setResults}) => {
   const fetchResults = () => {
     fetch('http://localhost:7000/products')
       .then(response => response.json())
-      .then(data => setResults(data))
+      .then(data => setResults(data.results))
       .catch(error => console.log(error));
   };
 
