@@ -5,7 +5,6 @@ const repository = require("../repositories/product-repository");
 exports.get = async (req, res, next) => {
    try {
       const data = await repository.get();
-
       res.status(200).send(data);
    } catch (error) {
       res.status(400).send(error);

@@ -8,9 +8,9 @@ const ShowStock = () => {
     const [results, setResults] = useState([]);
     
     useEffect(() => {
-      fetch('http://localhost:7000/products')
+      fetch('http://localhost:7000/products/admin')
         .then(response => response.json())
-        .then(data => setResults(data.results))
+        .then(data => setResults(data))
         .catch(error => console.log(error));
     }, []);
 
