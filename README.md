@@ -26,8 +26,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
     - Visualizar usuários 
     - Pode verificar os pedidos feitos pelos usuários e gerenciar os dados desses pedidos conforme necessário
   - Funcionalidade Extra:
-    - Cada produto da página poderá ser visualizado tridimensionalmente
-    - Necessário que seja guardado no Banco de Dados um campo referente ao link do modelo tridiomensional utilizado no site
+    - Paginação da home e busca
 
 ## Descrição do Projeto
  ### Diagrama de navegação 
@@ -159,9 +158,9 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
 - Abra o terminal seja pelo linux ou pelo windows, e acesse o diretório react-app pelas linhas de comando.
 - Dentro da pasta react-app, com todos os arquivos do projeto, execute 'npm install'(sem aspas), no qual será instalado todos os pacotes do react
   - Caso a instalação não seja efetuada, digite 'npm install --force'
-- Execute também 'npm install --force --save-dev json-server'
 - Digite 'npm start' no terminal
 - Em sequência, abra um segundo terminal e acesse o diretório backend
+- Execute o comando 'npm i',
 - Execute o comando 'node start'.
 
 ## Plano de Teste
@@ -172,7 +171,8 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
  Senha: user
  
  - Itens podem ser adicionados, removidos e editados.
- - Usuários e pedidos podem ser visualizados
+ - Usuários podem ser visualizados, removidos e promovidos a administrador ou rebaixados a clientes.
+ - Pedidos podem ser visualizados
 
 ### Cliente:
 Login: user1@user.com
@@ -188,8 +188,7 @@ Senha: user
 - Criar uma conta para usuário comum
 
 ## Problemas
-Um problema foi encontrado durante a execução dos testes:
-- Os usuários e produtos não são atualizados automaticamente após o post no banco de dados (Após a criação de conta e produto é necessário recarregar a página)
+
 
 
 
