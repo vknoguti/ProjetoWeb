@@ -3,19 +3,24 @@ import './adminUsersDetails.css';
 import ChangeUserType from '../../components/ChangeUserType';
 import DeleteUser from '../../components/DeleteUser';
 
-const UsersDetails = ({ user }) => {
+const UsersDetails = ({ user, onUserDeleted }) => {
   const [isAdmin, setIsAdmin] = useState(user.admin);
 
   const handleUserTypeChange = (newAdminValue) => {
     setIsAdmin(newAdminValue);
   };
 
+  const handleUserDeleted = () => {
+    onUserDeleted(user._id);
+  };
+
+
   return (
     <div className="user-preview" key={user._id}>
       <div className="user-name">
         <h2>{user.name}</h2>
         <div className="delete-user-btn">
-          <DeleteUser userId={user._id} />
+          <DeleteUser userId={user._id} onUserDeleted={handleUserDeleted}/>
         </div>
       </div>
 

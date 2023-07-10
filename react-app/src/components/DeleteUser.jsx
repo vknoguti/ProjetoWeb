@@ -1,7 +1,7 @@
 import { FaTrash } from 'react-icons/fa';
 import './DeleteUser.css'
 
-const DeleteUser = ({userId}) => {
+const DeleteUser = ({userId, onUserDeleted}) => {
     const handleDeleteUser = () => {
         const userToRemove = { id: userId };
         console.log(JSON.stringify(userToRemove));
@@ -14,6 +14,7 @@ const DeleteUser = ({userId}) => {
             body: JSON.stringify(userToRemove),
         })
             .then(() => {
+                onUserDeleted();
                 console.log('User deleted');
             })
             .catch(error => console.log(error));

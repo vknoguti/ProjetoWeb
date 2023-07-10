@@ -12,10 +12,14 @@ const AdminUsers = () => {
         .catch(error => console.log(error));
     }, []);
     
+    const handleUserDeleted = (userId) => {
+        setUsers(users.filter((user) => user._id !== userId));
+      };
+
     return (
         <div className="users-container">
             {users && users.map(user => (
-                <UsersDetails user={user} key={user._id} />
+                <UsersDetails user={user} key={user._id} onUserDeleted={handleUserDeleted}/>
             ))}
         </div>
     );
