@@ -26,8 +26,7 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
     - Visualizar usuários 
     - Pode verificar os pedidos feitos pelos usuários e gerenciar os dados desses pedidos conforme necessário
   - Funcionalidade Extra:
-    - Cada produto da página poderá ser visualizado tridimensionalmente
-    - Necessário que seja guardado no Banco de Dados um campo referente ao link do modelo tridiomensional utilizado no site
+    - Paginação da home e busca
 
 ## Descrição do Projeto
  ### Diagrama de navegação 
@@ -131,53 +130,52 @@ Nas páginas criadas haverão diversas funcionalidades que poderão ser executad
    - O nome das páginas utilizadas(profile, admin, home page, entre outros) são referências ao nome utilizado no [Figma](https://www.figma.com/file/sZToVAc9iZA8SLth3Gf0lC/Online-store?type=design&node-id=0%3A1&t=DtWrwurqzaxgN1yd-1), sendo assim, alguns caminhos de navegação permitem que um botão possua diferentes caminhos de páginas, como por exemplo um Usuário Administrador ter o botão ACCOUNT como acesso à página 'admin', enquanto um Usuário Comum possuir acesso à página 'profile'
 
    - Logout: ao realizar logout qualquer que seja o tipo da entidade, voltará ao estado de usuário não logado, e à página principal (home page)
-      
 
-## Commentário da página 
-
-## Plano de Teste
- Para o plano de teste, foi utilizado o diagrama de navegação exibido acima, juntamente com o layout esperado pelo mockup do Figma.
- 
- Foram feitos diversos teste manuais seguindo o diagrama de navegação construído, verificando os caminhos possíveis, garantindo que não haja qualquer possível
- erro de sequência.
-
-## Procedimentos de execução
- Conteúdo referente ao Milestone 1:
-  - Faça o download do projeto
-  ![image](https://user-images.githubusercontent.com/37368029/236706923-03cd8ba2-8b90-48b3-a34c-c16d3eeae6dd.png)
-  
-  - Extraia o arquivo em alguma pasta
-  - Acesse o diretório ProjetoTotal e, por fim, execute o arquivo itens.html, o qual é referente a página inicial
-  
-  ![image](https://user-images.githubusercontent.com/37368029/236707052-87efbc0f-90d6-4949-b02a-3cd5ee67ccd4.png)
-  
- 
 ## Parte 3 - Client Functionality
 ### Instalação do Projeto
 - Antes de executar o projeto, faça download e instalação do react no sistema operacional utilizado.
 - Faça o download do projeto da branch main.
 - Abra o terminal seja pelo linux ou pelo windows, e acesse o diretório react-app pelas linhas de comando.
-- Dentro da pasta react-app, com todos os arquivos do projeto, execute 'npm install'(sem aspas), no qual será instalado todos os pacotes do react
-  - Caso a instalação não seja efetuada, digite 'npm install --force'
-- Execute também 'npm install --force --save-dev json-server'
-- Digite 'npm start' no terminal
+- Dentro da pasta react-app, com todos os arquivos do projeto, execute
+```
+npm install
+```
+- Onde serão instalados todos os pacotes do react
+  - Caso a instalação não seja efetuada, digite
+```
+npm install --force
+```
+- Execute o comando
+```
+'npm start'
+```
 - Em sequência, abra um segundo terminal e acesse o diretório backend
-- Execute o comando 'node start'.
+- Execute o comando
+```
+'npm i'
+```
+- Execute o comando
+```
+'node start'
+```
 
 ## Plano de Teste
  Foram feitos diversos teste manuais seguindo o diagrama de navegação construído, verificando os caminhos possíveis.
  Para seguir o diagrama de navegação, duas contas testes podem ser utilizadas:
  ### Administrador:
+ ```
  Login: user3@user.com
  Senha: user
- 
+ ```
  - Itens podem ser adicionados, removidos e editados.
- - Usuários e pedidos podem ser visualizados
+ - Usuários podem ser visualizados, removidos e promovidos a administrador ou rebaixados a clientes.
+ - Pedidos podem ser visualizados
 
 ### Cliente:
+```
 Login: user1@user.com
 Senha: user
-
+```
 - Clicar no nome de usuário e verificar dados.
 - Adicionar itens ao carrinho
 - Finalizar pedido
@@ -188,8 +186,7 @@ Senha: user
 - Criar uma conta para usuário comum
 
 ## Problemas
-Um problema foi encontrado durante a execução dos testes:
-- Os usuários e produtos não são atualizados automaticamente após o post no banco de dados (Após a criação de conta e produto é necessário recarregar a página)
+
 
 
 
