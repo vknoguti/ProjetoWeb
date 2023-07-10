@@ -1,4 +1,4 @@
-button {
+.change-user-type button {
     background-color: #4caf50;
     color: white;
     padding: 8px 16px;
@@ -8,11 +8,11 @@ button {
     border-radius: 4px;
 }
   
-button:hover {
+.change-user-type button:hover {
     background-color: #45a049;
 }
   
-button:focus {
+.change-user-type button:focus {
     outline: none;
 }
   

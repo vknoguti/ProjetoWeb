@@ -20,3 +20,7 @@ exports.update = (id, data) => {
         }
     });
 }
+
+exports.delete = id => {
+    return User.findByIdAndDelete(id);
+}

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
-
 import './adminUsersDetails.css';
 import ChangeUserType from '../../components/ChangeUserType';
+import DeleteUser from '../../components/DeleteUser';
 
 const UsersDetails = ({ user }) => {
   const [isAdmin, setIsAdmin] = useState(user.admin);
@@ -16,7 +15,7 @@ const UsersDetails = ({ user }) => {
       <div className="user-name">
         <h2>{user.name}</h2>
         <div className="delete-user-btn">
-          <FaTrash></FaTrash>
+          <DeleteUser userId={user._id} />
         </div>
       </div>
 

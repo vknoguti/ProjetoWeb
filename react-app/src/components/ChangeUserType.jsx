@@ -29,11 +29,13 @@ const ChangeUserType = ({ user, isAdmin, onUserTypeChange }) => {
 
   return (
     <>
+    <div className="change-user-type">
       {isAdmin ? (
-        <button onClick={updateUserType}>Change to Normal User</button>
-      ) : (
-        <button onClick={updateUserType}>Change to Admin</button>
-      )}
+        <button  onClick={updateUserType}>Change to Normal User</button>
+        ) : (
+          <button onClick={updateUserType}>Change to Admin</button>
+          )}
+    </div>
     </>
   );
 };

@@ -43,3 +43,19 @@ exports.put = async (req, res, next) => {
         })
     }
 }
+
+exports.delete = async (req, res, next) => {
+    try {
+       const data = await repository.delete(req.body.id);
+ 
+       res.status(200).send({
+          message: 'User removido com sucesso',
+          data: data
+       })
+    } catch (error) {
+       res.status(400).send({
+          message: 'Falha ao remover user',
+          data: error
+       })
+    }
+ };
