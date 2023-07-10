@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CartItem.css'
 import {MdDeleteOutline} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
 const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
-    const [product, setProduct] = useState(results.filter(e => {
-        if(e._id === item.product) return e;
-    })[0]);
+    console.log(item)
+    // const [product, setProduct] = useState(results.filter(e => {
+    //     if(e._id === item.product) return e;
+    // })[0]);
+    const [product, setProduct] = useState({});
+
+    async function getCartItem()  {
+        const response = await fetch(`http://localhost:7000/products/admin/${item.product}`);
+        
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          console.log(message);
+          return;
+        }    
+        const data = await response.json();    
+    
+        setProduct(data);
+    };
+
+    useEffect(() => {
+        getCartItem();
+        console.log(product)
+    }, []);
 
     //Listener do botão de diminuir quantidade de um produto no carrinho
     const handleDecrement = () => {

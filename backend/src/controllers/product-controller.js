@@ -24,6 +24,10 @@ exports.getPage = async (req, res, next) => {
       model: {
          $regex: req.query.model || "",
          $options: 'i'
+      },
+      brand: {
+         $regex: req.query.brand || "",
+         $options: 'i'
       }
    }
 

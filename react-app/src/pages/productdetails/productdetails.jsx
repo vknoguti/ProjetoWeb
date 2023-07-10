@@ -10,13 +10,52 @@ import { useParams } from 'react-router-dom';
 const ProductDetail = ({results, headerUser, setHeaderUser}) => {
     // Encontra o produto pelo parametro passado na url
     const key = useParams();
-   
+    const [product, setProduct] = useState();
+    const [related, setRelated] = useState();
+
+    async function getItem()  {
+        const response = await fetch(`http://localhost:7000/products/${key.id}`);
+        
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          console.log(message);
+          return;
+        }    
+        const data = await response.json();    
+
+        setProduct(data);
+
+        const responseRelated = await fetch(`http://localhost:7000/products?brand=${data.brand}`)
+        
+        if (!responseRelated.ok) {
+            const message = `An error occurred: ${response.statusText}`;
+            console.log(message);
+            return;
+        }    
+        const dataRelated = await responseRelated.json();    
+    
+        setRelated(dataRelated.results);        
+    };
+
+    // async function getRelated()  {
+    //     const response = await fetch(`http://localhost:7000/products?brand=${product.brand}`);
+        
+    //     if (!response.ok) {
+    //       const message = `An error occurred: ${response.statusText}`;
+    //       console.log(message);
+    //       return;
+    //     }    
+    //     const data = await response.json();    
+    
+    //     setRelated(data);
+    // };
+
     // Encontra o produto no banco de dados atraves da key/id
-    let product = results.filter(item => {
-        if(item.slug == key.id) {
-            return item;
-        } 
-    })[0];
+    // let product = results.filter(item => {
+    //     if(item.slug == key.id) {
+    //         return item;
+    //     } 
+    // })[0];
 
     const [qttInput, setQttInput] = useState(0);
 
@@ -60,7 +99,6 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
             } else { // Caso o carrinho ja possua o item
                 newState.cart.find((o) => { // Encontramos o item no carrinho
                     if(o.product == itemToCart.product) {
-                        console.log(o.product, itemToCart.product)
                         if(o.sizes.filter(e => {if(e.size == size) return e}).length > 0) {
                             o.sizes.find((x) => { 
                             if(parseInt(x.size) === parseInt(size)) { // Encontramos o tamanho correto do item
@@ -85,13 +123,12 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
         }
 
     }
-    console.log(qttInput);
 
     useEffect(() => {
-        console.log(results);
-    })
+        getItem();
+    }, [key]);
 
-    if(results.length > 0) return (  
+    if(product && related && related.length > 0) return (  
         <>
             <Header user={headerUser} logged={headerUser.logged}/>
             <div className="container">
@@ -124,9 +161,9 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
                     <section className="related">
                         <h2>Related Products</h2>
                         <div className="related-products">
-                            {results.map(item => {
+                            {related.slice(0, 5).map(item => {
                                 if(item.slug != key.id && item.brand == product.brand)
-                                    return <Product key={item._id}  item={item} />
+                                    return <Product key={item._id} item={item}/>
                             })}
                         </div>
                     </section>
