@@ -39,7 +39,7 @@ const Home = ({results, setResults, headerUser}) => {
     }
 
     const handleNextPage = async () => {
-        if(results.length === 20) {
+        if(results.length === 10) {
             console.log("arruma")
             setPage(page + 1);
         }

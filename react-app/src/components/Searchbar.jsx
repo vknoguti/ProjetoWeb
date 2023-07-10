@@ -18,8 +18,8 @@ const Searchbar = ({ setResults }) => {
   };
       
     const handleChange = (value) => {
-        setInput(value);
-        fetchData(value);
+        setInput(value.replace('\\', ''));
+        fetchData(value.replace('\\', ''));
     };
 
     return ( 
