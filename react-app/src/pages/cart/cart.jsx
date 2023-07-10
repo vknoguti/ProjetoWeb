@@ -6,9 +6,38 @@ import './cart.css';
 import { Link, useNavigate } from 'react-router-dom';
 import CartItem from '../../components/CartItem';
 
-const Cart = ({results, headerUser, setHeaderUser}) => {
+const Cart = ({results, setResults, headerUser, setHeaderUser}) => {
     // Estado que possui os itens do carrinho
     const [items, setItems] = useState(headerUser.cart);
+    
+    async function getResults()  {
+        const response = await fetch(`http://localhost:7000/products/admin`);
+        
+        if (!response.ok) {
+          const message = `An error occurred: ${response.statusText}`;
+          console.log(message);
+          return;
+        }
+    
+        const data = await response.json();
+    
+    
+        setResults(data);
+
+        let tmpTotal = 0;
+        // Percorre por todos itens do carrinho
+        for(let i = 0; i < items.length; i++) {
+            // Percorre por todos tamanhos do carrinho
+            for(let j = 0; j < items[i].sizes.length; j++) {
+                // Soma o preço vezes a quantidade de itens
+                tmpTotal += parseFloat(data.filter(e => {
+                    if(e._id === items[i].product) return e
+                })[0].price) * parseFloat(items[i].sizes[j].stock);
+            }
+        }   
+        // Atualização do estado do preço total do carrinho
+        setTotal(tmpTotal);
+    };
 
     // Estado para calculo do total do carrinho
     const [total, setTotal] = useState(0);
@@ -80,23 +109,6 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
         }
     }
 
-    // Função que calcula o preço total do carrinho
-    const calcTotal = () => {
-        let tmpTotal = 0;
-        // Percorre por todos itens do carrinho
-        for(let i = 0; i < items.length; i++) {
-            // Percorre por todos tamanhos do carrinho
-            for(let j = 0; j < items[i].sizes.length; j++) {
-                // Soma o preço vezes a quantidade de itens
-                tmpTotal += parseFloat(results.filter(e => {
-                    if(e._id === items[i].product) return e
-                })[0].price) * parseFloat(items[i].sizes[j].stock);
-            }
-        }   
-        // Atualização do estado do preço total do carrinho
-        setTotal(tmpTotal);
-    }
-
     // Função que atualiza os itens do carrinho
     const calcCart = () => {
         // Atravessa por todos os itens do carrinho
@@ -109,8 +121,9 @@ const Cart = ({results, headerUser, setHeaderUser}) => {
     }
 
     useEffect(() => {
-        calcTotal();
-    })
+        getResults();
+        // calcTotal();
+    }, [items])
     
     // Caso a quantidade de itens no carrinho seja 0, retorna uma pagina sem a lista de itens
     if(items.length < 1) {

@@ -6,7 +6,8 @@ const User = mongoose.model('User');
 exports.getEmail = email => {
     return User.find({
         email: email
-    }, 'name cpf email phones address admin cart');
+    }, 'name cpf email phones address admin cart')
+        .populate('cart.product');
 }
 
 exports.login = data => {

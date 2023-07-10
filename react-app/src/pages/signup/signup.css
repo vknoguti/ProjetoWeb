@@ -5,11 +5,11 @@
     align-items: center;
 }
 
-form {
+.signup-container form {
     width: 80%;
 }
 
-form p {
+.signup-container form p {
     font-size: 10px;
 }
 

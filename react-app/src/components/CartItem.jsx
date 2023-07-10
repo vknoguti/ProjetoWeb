@@ -4,7 +4,7 @@ import {MdDeleteOutline} from 'react-icons/md'
 import { Link } from 'react-router-dom';
 
 const CartItem = ({results, item, size, handleQuantity, removeItem}) => {
-    console.log(item)
+    // console.log(item)
     // const [product, setProduct] = useState(results.filter(e => {
     //     if(e._id === item.product) return e;
     // })[0]);

@@ -53,10 +53,10 @@ const App = () => {
   return (
     <Routes>  
       <Route path='/' element={<Home results={results} setResults={setResults} headerUser={headerUser} />}/>
-      <Route path='/login' element={<Login results={results} headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
+      <Route path='/login' element={<Login headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
       <Route path='/signup' element={<Signup headerUser={headerUser} setHeaderUser={setHeaderUser} />}/>
       <Route path='/user/:id' element={<UserProfile headerUser={headerUser} setHeaderUser={setHeaderUser} />} />
-      <Route path='/cart' element={<Cart results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
+      <Route path='/cart' element={<Cart results={results} setResults={setResults} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
       <Route path="/product/:id" element={<ProductDetail results={results} headerUser={headerUser} setHeaderUser={setHeaderUser}/>}/>
       <Route path='/checkout' element={<Checkout results={results} setResults={setResults} headerUser={headerUser} setHeaderUser={setHeaderUser}/>} />
       <Route path='/admin' element={<Admin headerUser={headerUser}/>} />

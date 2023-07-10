@@ -6,7 +6,7 @@ import '../../App.css';
 import Footer from '../../components/Footer';
 
 
-const Login = ({results, headerUser, setHeaderUser}) => {
+const Login = ({headerUser, setHeaderUser}) => {
     const navigate = useNavigate();
 
     // Estado do usuário
@@ -57,11 +57,19 @@ const Login = ({results, headerUser, setHeaderUser}) => {
 
         if(!response.ok) {
             const message = `An error occurred: ${response.statusText}`;
-            console.log(message);
             return;
         }
 
         const client = await response.json();
+
+        const responseItems = await fetch(`http://localhost:7000/products/admin`);
+        
+        if (!responseItems.ok) {
+          const message = `An error occurred: ${responseItems.statusText}`;
+          return;
+        }
+    
+        const data = await responseItems.json();
   
         // Verifica se houve algum retorno do banco de dados, em caso positivo atualiza o usuário geral (headerUser)
         if(client.length === 1) {
@@ -77,12 +85,11 @@ const Login = ({results, headerUser, setHeaderUser}) => {
                 address: client[0].address,
                 cart: client[0].cart
             };
-            console.log(newState, client[0]);
 
             // Verificando o carrinho do usuário
-            newState.cart = newState.cart.map(item => {
+            newState.cart = newState.cart.filter(item => {
                 const sizes = item.sizes; // Tamanhos do item do carrinho
-                let sizesStock = results.filter(result => { // Tamanhos do estoque
+                let sizesStock = data.filter(result => { // Tamanhos do estoque
                     if(result._id === item.product) return result
                 })[0].sizes;
                 // Filtrando os tamanhos com quantidade disponível no estoque
@@ -90,16 +97,17 @@ const Login = ({results, headerUser, setHeaderUser}) => {
                     // Estoque da loja
                     let stock = sizesStock.filter(e => {
                         if(e.size === size.size) return e;
-                    })[0].stock; 
-                    // Caso o estoque da loja seja maior que o do carrinho retorna o tamanho
-                    if(stock >= size.stock) return size
+                    });
+                    if(stock.len < 1){
+                        stock = stock[0].stock; 
+                        // Caso o estoque da loja seja maior que o do carrinho retorna o tamanho
+                        if(stock >= size.stock) return size
+                    } 
                 });
                 const final = { product: item.product, sizes: availableSizes };
-                console.log(final);
                 // Caso existam tamanhos disponíveis retorna o item com os tamanhos disponíveis
                 if(availableSizes.length > 0) return { product: item.product, sizes: availableSizes };
             })
-            console.log(newState.cart);
             setUser(newState);
             setHeaderUser(newState);
             setLogged(true);
@@ -119,7 +127,6 @@ const Login = ({results, headerUser, setHeaderUser}) => {
     
             if(!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
-                console.log(message);
                 return;
             }
     
