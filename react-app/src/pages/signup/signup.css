@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+form {
+    width: 80%;
+}
+
+form p {
+    font-size: 10px;
+}
+
 .signup-container {
     width: 60%;
     display: flex;
@@ -35,7 +43,7 @@
     margin: 2vh 0;
 }
 
-.submit-button button {
+.submit-button input[type=submit] {
     text-decoration: none;
     height: 40px;
     width: 100%;
