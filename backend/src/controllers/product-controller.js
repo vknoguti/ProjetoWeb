@@ -20,16 +20,20 @@ exports.getPage = async (req, res, next) => {
    
    const results = {}
 
-   const query = {
-      model: {
-         $regex: req.query.model || "",
-         $options: 'i'
+   const query = {$or: [
+      {
+         model: {
+            $regex: req.query.model || "",
+            $options: 'i'
+         },
       },
-      brand: {
-         $regex: req.query.brand || "",
-         $options: 'i'
+      {
+         brand: {
+            $regex: req.query.brand || "",
+            $options: 'i'
+         }
       }
-   }
+   ]};
 
    const count = await repository.getCount(query);
    
