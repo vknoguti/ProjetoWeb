@@ -6,11 +6,12 @@ import Footer from '../../components/Footer';
 import './home.css'
 import '../../App.css'
 import Searchbar from '../../components/Searchbar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
 const Home = ({results, setResults, headerUser}) => {
+    const navigate = useNavigate();
     const search = useLocation();   
     const [page, setPage] = useState(1);
     const [brand, setBrand] = useState("")
@@ -45,7 +46,11 @@ const Home = ({results, setResults, headerUser}) => {
 
     useEffect(() => {
         getResults();
-
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+        });
     }, [page]);
 
     const handlePreviousPage = async () => {
