@@ -25,7 +25,9 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
 
         setProduct(data);
 
-        const responseRelated = await fetch(`http://localhost:7000/products?brand=${data.brand}`)
+        console.log(data)
+
+        const responseRelated = await fetch(`http://localhost:7000/products/product?brand=${data.brand}`)
         
         if (!responseRelated.ok) {
             const message = `An error occurred: ${response.statusText}`;
@@ -33,29 +35,11 @@ const ProductDetail = ({results, headerUser, setHeaderUser}) => {
             return;
         }    
         const dataRelated = await responseRelated.json();    
+
+        console.log(dataRelated);
     
         setRelated(dataRelated.results);        
     };
-
-    // async function getRelated()  {
-    //     const response = await fetch(`http://localhost:7000/products?brand=${product.brand}`);
-        
-    //     if (!response.ok) {
-    //       const message = `An error occurred: ${response.statusText}`;
-    //       console.log(message);
-    //       return;
-    //     }    
-    //     const data = await response.json();    
-    
-    //     setRelated(data);
-    // };
-
-    // Encontra o produto no banco de dados atraves da key/id
-    // let product = results.filter(item => {
-    //     if(item.slug == key.id) {
-    //         return item;
-    //     } 
-    // })[0];
 
     const [qttInput, setQttInput] = useState(0);
 

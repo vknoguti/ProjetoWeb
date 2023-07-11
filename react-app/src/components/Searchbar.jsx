@@ -21,12 +21,12 @@ const Searchbar = ({ setResults }) => {
   };
       
     const handleChange = (value) => {
-        setInput(value.replace('\\', ''));
-        fetchData(value.replace('\\', ''));
-        if(value === "")
-          navigate('/')
-        else
-          navigate(`/?model=${value}&brand=${value}`)
+      setInput(value.replace('\\', ''));
+      fetchData(value.replace('\\', ''));
+      if(value === "")
+        navigate('/')
+      else
+        navigate(`/?model=${value}&brand=${value}`)
     };
 
     return ( 
