@@ -76,6 +76,7 @@ const Home = ({results, setResults, headerUser}) => {
                         </div>
                     <div className="homeBtns">
                         <button onClick={handlePreviousPage}>Previous</button>
+                        <p>{page}</p>
                         <button onClick={handleNextPage}>Next</button>
                     </div>
                     </main>
