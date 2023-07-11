@@ -55,7 +55,7 @@ const Home = ({results, setResults, headerUser}) => {
     }
 
     const handleNextPage = async () => {
-        if(results.length === 10) {
+        if(results.length === 12) {
             setPage(page + 1);
         }
     }
