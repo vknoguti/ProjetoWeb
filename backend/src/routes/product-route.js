@@ -6,6 +6,7 @@ const controller = require('../controllers/product-controller');
 
 router.get('/', controller.getPage);
 router.get('/admin', controller.get);
+router.get('/product', controller.getRelated);
 router.get('/:slug', controller.getBySlug);
 router.get('/admin/:id', controller.getByID);
 router.post('/', controller.post);

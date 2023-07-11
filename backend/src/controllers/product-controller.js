@@ -61,6 +61,23 @@ exports.getPage = async (req, res, next) => {
    }   
 }
 
+exports.getRelated = async (req, res, next) => {
+   const query = {
+         brand: {
+            $regex: req.query.brand || "",
+            $options: 'i'
+         }
+   };
+
+   try {
+      const data = await repository.getPage(query, 4, 0);
+      
+      res.status(200).send(data);
+   } catch (error) {
+      res.status(400).send(error);
+   }   
+}
+
 exports.getBySlug = async (req, res, next) => {
    try {
       const data = await repository.getBySlug(req.params.slug);

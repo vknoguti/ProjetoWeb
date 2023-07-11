@@ -45,10 +45,6 @@ const App = () => {
 
     setResults(data.results);
   };
-    
-  useEffect(() => {    
-    getResults();
-  }, []);
 
   return (
     <Routes>  
