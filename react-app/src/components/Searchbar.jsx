@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import "./Searchbar.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Searchbar = ({ setResults }) => {
+  const location = useLocation();
   const [input, setInput] = useState("");
   const navigate = useNavigate();
 
@@ -24,9 +25,9 @@ const Searchbar = ({ setResults }) => {
         setInput(value.replace('\\', ''));
         fetchData(value.replace('\\', ''));
         if(value === "")
-          navigate('/')
+          navigate(location.pathname);
         else
-          navigate(`/?model=${value}&brand=${value}`)
+          navigate(`${location.pathname}?model=${value}&brand=${value}`, {replace: true})
     };
 
     return ( 
