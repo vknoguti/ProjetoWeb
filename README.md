@@ -156,7 +156,7 @@ npm install --force
 ```
 - Execute o comando
 ```
-'node start'
+'node ./bin/server.js'
 ```
 
 ## Plano de Teste
