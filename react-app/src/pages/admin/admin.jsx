@@ -5,6 +5,7 @@ import Sidebar from '../../components/Sidebar';
 import AdminProducts from './adminProducts';
 import AdminUsers from './adminUsers';
 import AdminOrders from './adminOrders';
+import NotFound from '../notfound/notfound';
 
 const Admin = ({headerUser}) => {
     const [activePage, setActivePage] = useState("/adminProducts");
@@ -13,7 +14,7 @@ const Admin = ({headerUser}) => {
         setActivePage(page);
     } 
 
-    return (  
+    if(headerUser.admin) return (  
         <>
             <Header user={headerUser} logged={headerUser.logged}/>
             <Sidebar activePage={activePage} handlePageClick={handlePageClick} />
@@ -24,6 +25,7 @@ const Admin = ({headerUser}) => {
             </div>
         </>
     );
+    else return (<NotFound />);
 }
  
 export default Admin;

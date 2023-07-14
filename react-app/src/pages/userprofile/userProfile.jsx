@@ -10,8 +10,6 @@ import '../../App.css';
 const UserProfile = ({headerUser, setHeaderUser}) => {
     const key = useParams();
 
-    console.log(headerUser);
-
     const user = headerUser;
 
     const navigate = useNavigate();

@@ -117,6 +117,8 @@ const Login = ({headerUser, setHeaderUser}) => {
             // Caso contrário, é redirecionado a página de adm
             else
                 navigate('/admin', {replace: true})
+        } else {
+            alert("User and password does not match")
         }
     };
 
